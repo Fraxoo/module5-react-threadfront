@@ -1,0 +1,43 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+
+# Env variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.idea/
+.vscode/
+
+# Sequelize auto-created files
+sequelize-data/
+migrations/*.js~
+models/*.js~
+seeders/*.js~
+
+# Docker
+mysql_data/
+docker-data/
+*.bak
+
+# Temporary files
+tmp/
+temp/
