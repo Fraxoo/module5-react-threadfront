@@ -1,4 +1,5 @@
-import './navbar.css';
+import './navbar.css'
+
 
 
 export default function NavBarComponent() {
@@ -11,7 +12,7 @@ export default function NavBarComponent() {
                 <li className="list">
                     <a href="">
                         <span className="icon">
-                            <img src="Createplus.svg" alt="create plus" />
+                            <img src="assets/Createplus.svg" alt="create plus" />
                         </span>
 
                     </a>
@@ -20,7 +21,7 @@ export default function NavBarComponent() {
                 <li className="list">
                     <a href="">
                         <span className="icon">
-                            <img src="GoHome.svg" alt="create plus" />
+                            <img src="assets/GoHome.svg" alt="Go Home " />
                         </span>
 
                     </a>
@@ -30,7 +31,7 @@ export default function NavBarComponent() {
                     <a href="">
                         <span className="icon">
 
-                            <img src="comment-alt.svg" alt="create plus" />   </span>
+                            <img src="assets/comment-alt.svg" alt="comment" />   </span>
 
                     </a>
 
