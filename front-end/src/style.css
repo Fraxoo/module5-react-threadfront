@@ -25,11 +25,12 @@ se créer un compte est un lien de couleur #EBDCDC bref mettre color : #ebdcdc ;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
 }
 
 body {
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
+    
     display: flex;
     justify-content: center;
     /* flex-direction: row; //peut-être column */
@@ -69,7 +70,6 @@ link:hover {
 }
 
 button {
-    font-family: inherit;
     font-weight: 700;
     width: 202px;
     height: 56px;
