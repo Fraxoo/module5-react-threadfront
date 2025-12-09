@@ -23,7 +23,7 @@ app.use("/post",postRoute)
 async function main() {
     try{
         await testDBConnection();
-        await sequelize.sync({alter: true}, {force:true});
+        await sequelize.sync();
 
         app.listen(process.env.PORT, () => {
             console.log(`Serveur lancé sur le port : ${process.env.PORT}`)
