@@ -21,7 +21,8 @@ function catchError(res, err) {
 
 export async function createComment(req, res) {
     try {
-        const { postId, content } = req.body;
+        const postId = Number(req.body)
+        const { content } = req.body;
         const userId = req.user.id;
 
         if (!content || content.trim() === "") {
@@ -33,6 +34,8 @@ export async function createComment(req, res) {
             content,
             post_id: postId
         })
+
+        return res.status(200).json("Commentaire ajouté!")
     } catch (err) {
         return catchError(res, err)
     }

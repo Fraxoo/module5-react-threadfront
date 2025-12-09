@@ -3,7 +3,7 @@ import { DataTypes } from "sequelize";
 
 export const Comment = sequelize.define("Comment", {
     user_id: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     content: {
@@ -15,10 +15,10 @@ export const Comment = sequelize.define("Comment", {
         }
     },
     post_id: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
     }
-},{
+}, {
     tableName: "comments",
     timestamps: true
 })
