@@ -64,7 +64,7 @@ export async function register(req, res) {
             password: hashed,
         })
 
-        return res.status(201).json(newUser);
+        return res.status(201).json("Inscription réussi!");
 
     } catch (err) {
         return catchError(res, err)
@@ -79,11 +79,14 @@ export async function login(req, res) {
             return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
         }
 
-        const user = User.findOne({ where: { email } });
+        const user = await User.findOne({ where: { email } });
 
         if (!user) {
             return sendErrors(res, [{ field: "global", message: "Email ou mot de passe incorrect." }], 401);
         }
+
+        console.log(user);
+        
 
         const isPasswordMatch = await bcrypt.compare(password, user.password);
 
@@ -103,4 +106,14 @@ export async function login(req, res) {
     } catch (err) {
         return catchError(res, err)
     }
+}
+
+export async function logout(req, res) {
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: false,
+        sameSite: "lax"
+    });
+
+    return res.json({ message: "Déconnecté" })
 }
