@@ -3,8 +3,6 @@ import { User } from "../models/UserModel.mjs";
 import jwt from "jsonwebtoken";
 
 
-
-
 dotenv.config();
 
 export function isLoggedInJWT() {
