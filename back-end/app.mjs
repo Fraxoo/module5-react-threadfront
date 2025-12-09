@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import express from "express";
 import { sequelize, testDBConnection } from "./config/database.mjs";
+import userRouter from "./routes/userRoute.mjs"
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.use(cors({
     methods: ["GET","POST","PUT","DELETE"],
     credentials: true
 }));
+
+app.use("/users",userRouter)
 
 
 async function main() {
