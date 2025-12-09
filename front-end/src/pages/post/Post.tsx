@@ -1,4 +1,4 @@
-
+import NavBarComponent from "../../components/navbar/NavBarComponent"
 
 
 export default function Home() {
@@ -6,6 +6,6 @@ export default function Home() {
 
 
     return (
-        <p>yo</p>
+         <NavBarComponent/>
     )
 }
