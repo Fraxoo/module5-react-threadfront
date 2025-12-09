@@ -3,6 +3,8 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import express from "express";
 import { sequelize, testDBConnection } from "./config/database.mjs";
+import postRoute from "./routes/postRoute.mjs";
+import {Post} from "./models/index.mjs"
 
 dotenv.config();
 
@@ -16,11 +18,12 @@ app.use(cors({
     credentials: true
 }));
 
+app.use("/post",postRoute)
 
 async function main() {
     try{
         await testDBConnection();
-        await sequelize.sync();
+        await sequelize.sync({alter: true}, {force:true});
 
         app.listen(process.env.PORT, () => {
             console.log(`Serveur lancé sur le port : ${process.env.PORT}`)
@@ -29,6 +32,20 @@ async function main() {
     } catch(err){
         console.error(err)
     }
+
+    // const post1 = await Post.create({
+    //    user_id:1,
+    //     content:"Ici on fait un Post Test yo yo yo wesh wesh"
+    
+    // })
+    // const post2 = await Post.create({
+    //     user_id:2,
+    //     content:"ci on fait un Post Test yo yo yo wesh wesh c'est le terter"
+    // })
+    // const post3 = await Post.create({
+    //     user_id:3,
+    //     content:"Qui veux se battre avec Meiko wesh"
+    // })
 }
 
 main();

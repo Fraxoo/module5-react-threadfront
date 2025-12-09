@@ -1,3 +1,4 @@
+import FeedComponent from "../../components/FeedComponent";
 
 
 
@@ -6,6 +7,9 @@ export default function Home() {
 
 
     return (
-        <p>yo</p>
+        <div>
+            <FeedComponent />
+        </div>
+
     )
 }
