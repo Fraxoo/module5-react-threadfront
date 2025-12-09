@@ -7,6 +7,7 @@ export default function Home() {
 
     return (
         <div>
+            <p>c'est pour tester mon style css ici mais vous pouvez l'enlever</p>
             <h1>Hello</h1>
             <h2>Hello</h2>
             <p>yo Allo Moto</p>
