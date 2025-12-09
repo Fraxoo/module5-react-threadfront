@@ -1,6 +1,9 @@
 
 import dotenv from "dotenv";
+import jwt from "jsonwebtoken";
 import { sequelize } from "../config/database.mjs";
+import { User } from "../models/index.mjs"
+import bcrypt, { hash } from "bcrypt";
 
 
 // ici on fait tout ce qui est verification etc des routes 
@@ -29,18 +32,75 @@ function catchError(res, err) {
 
 
 
-export async function register() {
+export async function register(req, res) {
     try {
+        const { username, email, password, confirmPassword } = req.body;
+
+        if (!username, !email, !password, !confirmPassword) {
+            return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
+        }
+
+        const existingUsername = await User.findOne({ where: { username } });
+
+        if (existingUsername) {
+            return sendErrors(res, [{ field: "username", message: "Pseudo déjà utilisé." }], 409);
+        }
+
+        const existingEmail = await User.findOne({ where: { email } });
+
+        if (existingEmail) {
+            return sendErrors(res, [{ field: "username", message: "Pseudo déjà utilisé." }], 409);
+        }
+
+        if (password !== confirmPassword) {
+            return sendErrors(res, [{ field: "password", message: "Les mots de passe ne correspondent pas." }], 400)
+        }
+
+        const hashed = await bcrypt.hash(password, 10);
+
+        const newUser = User.create({
+            username,
+            email,
+            password: hashed,
+        })
+
+        return res.status(201).json(newUser);
 
     } catch (err) {
-
+        return catchError(res, err)
     }
 }
 
-export async function login() {
+export async function login(req, res) {
     try {
+        const { email, password } = req.body;
 
+        if (!email, !password) {
+            return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
+        }
+
+        const user = User.findOne({ where: { email } });
+
+        if (!user) {
+            return sendErrors(res, [{ field: "global", message: "Email ou mot de passe incorrect." }], 401);
+        }
+
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordMatch) {
+            return sendErrors(res, [{ field: "global", message: "Email ou mot de passe incorrect." }], 401);
+        }
+
+        const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' });
+
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: false,
+            sameSite: "lax"
+        })
+
+        res.json(user)
     } catch (err) {
-
+        return catchError(res, err)
     }
 }
