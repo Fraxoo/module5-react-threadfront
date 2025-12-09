@@ -1,8 +1,8 @@
-import { sequelize} from "../config/database.mjs"
+import { sequelize } from "../config/database.mjs"
 import { DataTypes } from "sequelize"
 export const Post = sequelize.define("Post", {
     user_id: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     content: {
