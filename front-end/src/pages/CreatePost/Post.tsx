@@ -9,16 +9,16 @@ export default function CreatePost() {
     return (
         <div className="post">
             <h1>New Post</h1>
-            <form>
+            <form className='createpost-form'>
                 <div>
                     <label>
-                        Tapez votre post ici
-                        <input type="text" name="post" />
+                        <input type="text" name="post" value=" Tapez votre post ici" />
                     </label>
                 </div>
                 <div>
                     <label className='date'>
-                    15:25 - 13 aout 25
+                        15:25 - 13 aout 25
+                        {/* Ms afficher la date ici */}
                     </label>
                 </div>
                 <div className='poster'>

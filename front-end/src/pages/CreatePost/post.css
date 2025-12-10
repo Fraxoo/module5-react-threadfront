@@ -1,6 +1,6 @@
-*{
+/* *{
     outline: 1px solid blue;
-}
+} */
 
 .post{ 
     display: flex;
@@ -9,7 +9,6 @@
     align-items: center;
     list-style: none;
 }
-
 
 
 /* MS les input et form à mettre peut-re dasn style.css */
@@ -29,3 +28,19 @@ input:hover{
     background: #5a63e6;
     color: #ffffff;
 }
+
+.createpost-form{
+  
+     padding: 30px;
+ 
+
+   
+    background: linear-gradient(135deg, #0D0D0D 60%, rgba(29, 29, 29, 0.25));
+
+}
+
+width: 362;
+height: 226;
+angle: 0 deg;
+opacity: 1;
+border-radius: 23px;
