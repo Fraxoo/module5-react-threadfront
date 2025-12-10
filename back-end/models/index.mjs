@@ -1,7 +1,11 @@
 import { Post } from "./postModel.mjs";
 import { User } from "./userModel.mjs";
+import { Comment } from "./commentModel.mjs";
 
 User.hasMany(Post, { foreignKey: "user_id" });
 Post.belongsTo(User, { foreignKey: "user_id" });
 
-export{User,Post};
+Post.hasMany(Comment, { foreignKey: "post_id" });
+Comment.belongsTo(Post, { foreignKey: "post_id" });
+
+export{User,Post,Comment};

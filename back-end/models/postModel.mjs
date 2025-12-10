@@ -10,7 +10,7 @@ export const Post = sequelize.define("Post", {
         allowNull: false,
         validate: {
             notEmpty: { msg: "Contenu requis" },
-            len: { args: [1, 255], msg: "Entre 1 et 400 caractères" }
+            len: { args: [1, 400], msg: "Entre 1 et 400 caractères" }
         }
     },
 

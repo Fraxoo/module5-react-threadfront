@@ -1,0 +1,13 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: inherit;
+    width: 316;
+    height: 114;
+    border-radius: 23px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #35353540 60%, rgba(255, 255, 255, 0.25));
+
+}

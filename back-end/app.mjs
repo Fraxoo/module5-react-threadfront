@@ -20,6 +20,7 @@ app.use(cors({
 
 app.use("/post",postRoute)
 
+
 async function main() {
     try{
         await testDBConnection();
@@ -33,19 +34,7 @@ async function main() {
         console.error(err)
     }
 
-    // const post1 = await Post.create({
-    //    user_id:1,
-    //     content:"Ici on fait un Post Test yo yo yo wesh wesh"
-    
-    // })
-    // const post2 = await Post.create({
-    //     user_id:2,
-    //     content:"ci on fait un Post Test yo yo yo wesh wesh c'est le terter"
-    // })
-    // const post3 = await Post.create({
-    //     user_id:3,
-    //     content:"Qui veux se battre avec Meiko wesh"
-    // })
+   
 }
 
 main();
