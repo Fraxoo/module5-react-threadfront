@@ -31,4 +31,8 @@ export const User = sequelize.define("User", {
 },{
     tableName: "users",
     timestamps: true
+<<<<<<< HEAD
 })    
+=======
+})
+>>>>>>> origin/1-manage-users-routes-back-john
