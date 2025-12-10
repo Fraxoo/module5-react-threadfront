@@ -7,37 +7,36 @@ export default function NavBarComponent() {
 
 
     return (
-        <div className='footer'>
-            <div className="navigation">
-                <li className="list">
-                    <a href="">
-                        <span className="icon">
-                            <img src="assets/Createplus.svg" alt="create plus" />
-                        </span>
+        <footer className="navigation">
+            <li className="list">
+                <a href="">
+                    <span className="icon">
+                        <img src="assets/Createplus.svg" alt="create plus" />
+                    </span>
 
-                    </a>
+                </a>
 
-                </li>
-                <li className="list">
-                    <a href="">
-                        <span className="icon">
-                            <img src="assets/GoHome.svg" alt="Go Home " />
-                        </span>
+            </li>
+            <li className="list">
+                <a href="">
+                    <span className="icon">
+                        <img src="assets/GoHome.svg" alt="Go Home " />
+                    </span>
 
-                    </a>
+                </a>
 
-                </li>
-                <li className="list">
-                    <a href="">
-                        <span className="icon">
+            </li>
+            <li className="list">
+                <a href="">
+                    <span className="i  </div>con">
 
-                            <img src="assets/comment-alt.svg" alt="comment" />   </span>
+                        <img src="assets/comment-alt.svg" alt="comment" />   </span>
 
-                    </a>
+                </a>
 
-                </li>
+            </li>
 
-            </div>
-        </div>
+
+        </footer>
     )
 }
