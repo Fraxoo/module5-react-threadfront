@@ -6,6 +6,6 @@ export default function Home() {
 
 
     return (
-        <p>yo</p>
+        <p>yoouhou je suis ici</p>
     )
 }

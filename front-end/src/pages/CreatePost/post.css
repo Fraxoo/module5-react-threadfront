@@ -1,0 +1,22 @@
+.navigation {
+    
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: flex-end;
+    background: #1b1b1b;
+    color: #ffffff;
+    list-style: none;
+    gap:50px;
+}
+
+
+img{
+     width: 3rem;
+}
+
+
+
+img:hover {
+    background: #5a63e6;
+}
