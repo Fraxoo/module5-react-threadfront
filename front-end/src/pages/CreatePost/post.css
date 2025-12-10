@@ -42,13 +42,22 @@ input:hover {
 /* *{
     outline:1px blue solid;
 } */
+
+
 .post {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     list-style: none;
+        padding: 30px;
+
 }
+
+.post-title::before{
+    content: "|";
+}
+
 
 .textarea-container {
     background: linear-gradient(135deg, #0D0D0D 60%, rgba(29, 29, 29, 0.25));
@@ -58,7 +67,6 @@ input:hover {
 }
 
 .createpost-form {
-    padding: 30px;
     width: 362px;
     display: flex;
     justify-content: center;

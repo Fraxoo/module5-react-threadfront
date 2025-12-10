@@ -8,9 +8,9 @@ export default function CreatePost() {
 
     return (
         <div className="post">
-            
+             <h1 className="post-title">New Post</h1>
             <form className='createpost-form'>
-            <h1 className="post-title">New Post</h1>
+             
                 <div className="textarea-container">
                 <textarea
                     name="post"
