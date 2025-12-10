@@ -1,22 +1,11 @@
-.navigation {
-    
+*{
+    outline: 1px solid blue;
+}
+
+.post-container { 
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    align-items: flex-end;
-    background: #1b1b1b;
-    color: #ffffff;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     list-style: none;
-    gap:50px;
-}
-
-
-img{
-     width: 3rem;
-}
-
-
-
-img:hover {
-    background: #5a63e6;
 }

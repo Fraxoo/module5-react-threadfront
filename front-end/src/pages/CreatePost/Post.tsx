@@ -7,9 +7,13 @@ export default function CreatePost() {
 
 
     return (
-        <div className='post'>
-              <h1>New Post</h1>
+        <div className='post-container'>
+            <div className="post">
+              <h1>New Post</h1>               
+              <button>Poster !</button>
+              </div>
              {/* <NavBarComponent/> MS NavBarComponent à activer par la personne concernée après validation de mon travail sur NavBar mettre gohome et comment/chat */}
+
         </div>
      
     )

@@ -53,7 +53,7 @@ h1 {
     /* MS code ci-dessous de Bérangère ajouté pour le h1 */
     border-left: 0.3rem solid;
     padding-left: 10px;
-    size: 58px;
+    font-size: 58px;
 }
 
 h2 {
@@ -70,17 +70,18 @@ h3 {
 
 
 
-
+/* 
 link {
     color: #ebdcdc;
 }
 
 link:hover {
     color: #5a63e6;
-}
+} */
 
 button {
     font-weight: 700;
+    font-size: 20px;
     width: 202px;
     height: 56px;
     border-radius: 12px;
