@@ -29,13 +29,15 @@ export default function register() {
                 },
                 body: JSON.stringify(form),
             });
+            const data = await response.json();
+            console.log(data);
+            
             if (!response.ok) {
-                setError("Erreur lors de la création du compte");
+                setError(data);
 
                 return
             }
 
-            const data = await response.json();
             setSuccess(data);
 
 
@@ -47,11 +49,11 @@ export default function register() {
     return (
         <div className='register'>
 
-            <h1>|Création de Compte</h1>
+            <h1>Création de Compte</h1>
 
             <form onSubmit={handleSubmit}>
                 <div className='name'>
-                    <h1>@pseudo</h1>
+                    <h2>@pseudo</h2>
                     <input
                         value={form.username}
                         onChange={(e) => setForm({ ...form, username: (e.target as HTMLInputElement).value })}
@@ -60,7 +62,7 @@ export default function register() {
                 </div>
 
                 <div className='email'>
-                    <h1>email</h1>
+                    <h2>email</h2>
                     <input
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: (e.target as HTMLInputElement).value })}
@@ -69,7 +71,7 @@ export default function register() {
                 </div>
 
                 <div className='password'>
-                    <h1>Password</h1>
+                    <h2>Password</h2>
                     <input
                         type="password"
                         value={form.password}
@@ -79,7 +81,7 @@ export default function register() {
                 </div>
 
                 <div className='confirmPassword'>
-                    <h1>Confirm Password</h1>
+                    <h2>Confirm Password</h2>
                     <input
                         type="password"
                         value={form.confirmPassword}

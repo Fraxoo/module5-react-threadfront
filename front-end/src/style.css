@@ -1,9 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body {
  
     height: 100vh;
     background-color: #1b1b1b;
     color: #f6f6f6;
     font-family: "Josefin Sans", sans-serif;
-    
+    padding:0 2.5rem 0 2.5rem;    
 
+}
+
+h1 {
+    border-left: 0.3rem solid;
+    padding-left: 10px;
+    margin-top: 2.5rem;
+}
+
+h2 {
+    margin: 0;
 }
