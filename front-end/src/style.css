@@ -53,6 +53,7 @@ h1 {
     /* MS code ci-dessous de Bérangère ajouté pour le h1 */
     border-left: 0.3rem solid;
     padding-left: 10px;
+    size: 58px;
 }
 
 h2 {
