@@ -36,7 +36,7 @@ export async function register(req, res) {
     try {
         const { username, email, password, confirmPassword } = req.body;
 
-        if (!username, !email, !password, !confirmPassword) {
+        if (!username || !email || !password ||  !confirmPassword) {
             return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
         }
 
@@ -75,7 +75,7 @@ export async function login(req, res) {
     try {
         const { email, password } = req.body;
 
-        if (!email, !password) {
+        if (!email ||  !password) {
             return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
         }
 
