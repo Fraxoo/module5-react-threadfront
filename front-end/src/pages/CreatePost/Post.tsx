@@ -8,7 +8,7 @@ export default function CreatePost() {
 
     return (
         <div className='post'>
-              au secours je suis dans CreatePost
+              <h1>au secours je suis dans CreatePost</h1>
              {/* <NavBarComponent/> MS NavBarComponent à activer par la personne concernée après validation de mon travail sur NavBar mettre gohome et comment/chat */}
         </div>
      
