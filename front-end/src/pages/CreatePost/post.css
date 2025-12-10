@@ -2,10 +2,30 @@
     outline: 1px solid blue;
 }
 
-.post-container { 
+.post{ 
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     list-style: none;
+}
+
+
+
+/* MS les input et form à mettre peut-re dasn style.css */
+
+input[type=submit] {
+ font-weight: 700;
+    font-size: 20px;
+    width: 202px;
+    height: 56px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: none;
+  cursor: pointer;
+}
+
+input:hover{
+    background: #5a63e6;
+    color: #ffffff;
 }
