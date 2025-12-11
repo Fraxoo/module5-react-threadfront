@@ -39,15 +39,6 @@ export default function NavBarComponent() {
     // -Page Profile(route: /profile/:id) elle les boutons pluscreate et comment/chat
     // -New Post (route: /create/post) elle deux boutons home et comment/chat
 
-    const [navbarbtn, setNavbarbtn] = useState(0);
-
-    function hiddenbtn() {
-
-        setNavbarbtn(
-
-
-        )
-    }
 
 
     return (
