@@ -1,14 +1,23 @@
 .register {
 
     display: flex;
-    align-items: center;
     flex-direction: column;
+    gap: 8rem;
     background-color: #1b1b1b;
     color: #f6f6f6;
     font-family: "Josefin Sans", sans-serif;
-    font-size: 20px;
-    padding: 15px;
+    font-size: 1.5rem;
     
+    
+}
+
+.formRegister {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+    gap: 2.5rem;
 }
 
 .register .name {
@@ -61,21 +70,31 @@
     background-color: #FFFFFF;
     color: #1b1b1b;
     font-family: "Josefin Sans", sans-serif;
+    font-weight: bold;
     font-size: 20px;
-    width: 250px;
-    height: 80px;
-    border-radius: 10px;
-    margin: 40px;
+    width: 15rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    border: none;
+
+}
+.login-input,
+.register-input {
+    background : transparent;
+    border:none;
+    font-family: "Josefin Sans", sans-serif;
+    color: #FFFFFF;
+    font-size: 1rem;
+    cursor: text;
+    padding:10px;
 
 }
 
-input {
-
-    background : transparent;
-    border:none;
-    color: #FFFFFF;
-    font-size: 20px;
-    cursor: text;
+.login-input::placeholder,
+.register-input::placeholder{
+    font-size: 22px;
+    letter-spacing: 3px;
+    
 }
 
 .login {
@@ -86,10 +105,8 @@ input {
     background-color: #1b1b1b;
     color: #f6f6f6;
     font-family: "Josefin Sans", sans-serif;
-    font-size: 20px;
-    
-  
-    
+    font-size: 1.5rem;
+      
 }
 
 .login-form-div{
@@ -98,19 +115,12 @@ input {
     flex-direction: column;
     gap: 2rem;
     align-items: center;
-    color: #f6f6f6;
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 20px;
-}
+   }
 
 .login-form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1b1b1b;
-    font-family: "Josefin Sans", sans-serif;
-    color: #FFFFFF;
-    font-size: 5rem;
     gap: 3rem;
 }
 
@@ -121,7 +131,7 @@ input {
     background-color: #1b1b1b;
     font-family: "Josefin Sans", sans-serif;
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 2rem;
     
 }
 
@@ -130,9 +140,7 @@ input {
     align-items: center;
     background-color: #1b1b1b;
     color: #FFFFFF;
-    font-size: 20px;
-  
-
+    font-size: 2rem;
    
 }
 
@@ -140,8 +148,8 @@ input {
 
     align-items: center;
     text-align: center;
-    color:darkslategrey;
-    font-size: 20px;
+    color:beige;
+    font-size: 1.5rem;
    
 }
 
@@ -151,10 +159,11 @@ input {
     color: #1b1b1b;
     font-family: "Josefin Sans", sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.3rem;
     width: 15rem;
     height: 3.5rem;
     border-radius: 1rem;
+    border: none;
    
 
 }

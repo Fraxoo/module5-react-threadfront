@@ -51,42 +51,43 @@ export default function register() {
 
             <h1>Création de Compte</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className='formRegister'onSubmit={handleSubmit}>
                 <div className='name'>
-                    <h2>@pseudo</h2>
-                    <input
+                    
+                    <input className='register-input'
                         value={form.username}
                         onChange={(e) => setForm({ ...form, username: (e.target as HTMLInputElement).value })}
-                        
+                        placeholder='@Pseudo'
                     />
                 </div>
 
                 <div className='email'>
-                    <h2>email</h2>
-                    <input
+                   
+                    <input className='register-input'
                         value={form.email}
+                        type='email'
                         onChange={(e) => setForm({ ...form, email: (e.target as HTMLInputElement).value })}
-                        
+                        placeholder='Email'
                     />
                 </div>
 
                 <div className='password'>
-                    <h2>Password</h2>
-                    <input
+                    
+                    <input className='register-input'
                         type="password"
                         value={form.password}
                         onChange={(e) => setForm({ ...form, password: (e.target as HTMLInputElement).value })}
-                    
+                        placeholder='Mot de passe'
                     />
                 </div>
 
                 <div className='confirmPassword'>
-                    <h2>Confirm Password</h2>
-                    <input
+                    
+                    <input className='register-input'
                         type="password"
                         value={form.confirmPassword}
                         onChange={(e) => setForm({ ...form, confirmPassword: (e.target as HTMLInputElement).value })}
-                        
+                        placeholder='Confirmer le mot de passe'
                     />
                 </div>
                 {success && <p>{success}</p>}

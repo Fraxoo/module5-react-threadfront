@@ -56,7 +56,7 @@ export default function login() {
 
                     <div className='login-email'>
 
-                        <input
+                        <input className='login-input'
                             value={form.email}
                             onChange={(e) => setForm({ ...form, email: (e.target as HTMLInputElement).value })}
                             placeholder='Email'
@@ -65,7 +65,7 @@ export default function login() {
 
                     <div className='login-password'>
 
-                        <input
+                        <input className='login-input'
                             type="password"
                             value={form.password}
                             onChange={(e) => setForm({ ...form, password: (e.target as HTMLInputElement).value })}
