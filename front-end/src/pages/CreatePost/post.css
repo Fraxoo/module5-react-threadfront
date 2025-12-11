@@ -1,61 +1,37 @@
-/* 
-
-
-/* MS les input et form à mettre peut-re dasn style.css */
-
-/* input[type=submit] {
-    font-weight: 700;
-    font-size: 20px;
-    width: 202px;
-    height: 56px;
-    border-radius: 12px;
-    background: #ffffff;
-    border: none;
-    cursor: pointer;
-}
-
-input:hover {
-    background: #5a63e6;
-    color: #ffffff;
-} */
-
-
-/* username id id post content pour bdd je dois attendre Amaury et Meiko*/
-
-/* .post-input {
-    width: 100%;
-    height: 150px;
-    border-radius: 20px;
-    border: none;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 15px;
-    color: white;
-    resize: none;
-    font-size: 16px;
-}
-
-.post-input::placeholder {
-    color: #bbb;
-} */
-
-
-/* *{
-    outline:1px blue solid;
-} */
-
-
 .post {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     list-style: none;
-        padding: 30px;
+    padding: 30px;
 
 }
 
-.post-title::before{
-    content: "|";
+.post-content {
+    width: 362px; /* Même largeur que le form */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.post-title{
+}
+
+.post-title::before {
+    content: "";
+    display: inline-block;
+    width: 3px;        /* largeur voulue */
+    height: 49px;      /* hauteur de la “barre” */
+    border-left: 2px solid; /* épaisseur de la ligne */
+    margin-right: 2px; /* espace entre la ligne et le texte */
+    
+}
+
+.post-title::after {
+    content: "New Post";
+    margin-left: 2px; /* Espace entre | et New Post */
+    
 }
 
 
@@ -83,18 +59,18 @@ input:hover {
     background: none;
     color: white;
     resize: none;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .post-input::placeholder {
-    color: #bbb;
+    color: #bfbfbf;
 }
 
-/* Date */
+/* Date  */
 .date {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 12px;
     width: 100%;
 
 }
@@ -116,3 +92,7 @@ input:hover {
     background: #5a63e6;
     color: #ffffff;
 }
+
+/* * {
+    outline: 1px solid blue;
+} */
