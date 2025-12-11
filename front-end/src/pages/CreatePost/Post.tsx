@@ -1,27 +1,28 @@
 import './post.css'
-import { utcToZonedTime } from  'date-fns-tz' 
+
 // MS import NavBarComponent from "../../components/navbar/NavBarComponent" à activer par la personne concernée après validation de mon travail sur NavBar
 
 //MS form exemple pris dans site https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events/ pour voir 
 
-// ancien code ci-dessus
 
 export default function CreatePost() {
-    const convertToTimezone = ( utcDate : string , timeZone : string ): Date => { 
-  return  utcToZonedTime (utcDate, timeZone); 
-}; 
 
-// Exemple d'utilisation 
-const tokyoTime = convertToTimezone ( "2024-11-17T10:15:30.000Z" , "Asia/Tokyo" ); 
-console.log ( tokyoTime); // Sortie
- : '2024-11-17T19:15:30.000+09:00' 
-// Ceci est particulièrement utile pour les applications prenant en charge plusieurs régions.
+    const date = new Date();
+    const datefr = date.toLocaleDateString("fr-FR", {
+        day: "2-digit",
+        month: "long",   // ← mois en toutes lettres
+        year: "2-digit", // ← année sur 2 chiffres
+    });
+    const hourTime = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    const month = date.getMonth();
+
 
     return (
         <div className="post">
             <div className="post-content">
                 <h1 className="post-title"></h1>
-                
+
                 <form className='createpost-form'>
                     <div className="textarea-container">
                         <textarea
@@ -29,16 +30,18 @@ console.log ( tokyoTime); // Sortie
                             placeholder="Tapez votre post ici..."
                             className="post-input"
                         />
-                        
+
                         <p className="date">
-                            15:25 - 13 août 25
+                            {/* 15:25 - 13 août 25 */}
+
+                           {hourTime}:{minutes} - {datefr} 
                         </p>
                     </div>
-                    
+
                     <button className='poster' type="submit">Poster !</button>
                 </form>
             </div>
-                {/* <NavBarComponent/> MS NavBarComponent à activer par la personne concernée après validation de mon travail sur NavBar mettre gohome et comment/chat */}
+            {/* <NavBarComponent/> MS NavBarComponent à activer par la personne concernée après validation de mon travail sur NavBar mettre gohome et comment/chat */}
 
         </div>
     )
