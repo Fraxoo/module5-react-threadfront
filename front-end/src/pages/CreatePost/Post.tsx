@@ -15,7 +15,6 @@ export default function CreatePost() {
     });
     const hourTime = date.getHours();
     const minutes = date.getMinutes().toString().padStart(2, "0");
-    const month = date.getMonth();
 
 
     return (
