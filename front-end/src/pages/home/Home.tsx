@@ -6,17 +6,20 @@ import "./home.css"
 
 export default function Home() {
     const [posts, setPosts] = useState([])
-useEffect(()=>{
-    fetch("http://localhost:5173/post/get/all")
-        .then((res) => res.json())
-        .then((data) => setPosts(data))
-     
-},[])
+    useEffect(() => {
+
+        fetch("http://localhost:8000/post/all"
+    )
+            .then((res) => res.json())
+            .then((data) => setPosts(data))
+
+    }, [])
+     console.log(posts);
 
     return (
         <div>
-            <FeedComponent 
-            allPosts = {posts}
+            <FeedComponent
+                allPosts={posts}
             />
         </div>
 

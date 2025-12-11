@@ -8,9 +8,9 @@ export default function FeedComponent({ allPosts }: PostsProps) {
             {allPosts.map((post=>
             <PostComponent 
             key={post.id}
-            username={post.User?.username ?? "Unknown user"}
+            username={post.user?.username ?? "Unknown user"}
             content={post.content}
-            date={post.date} 
+            createdAt={post.createdAt} 
             />
 
             )) }

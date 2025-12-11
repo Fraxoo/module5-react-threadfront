@@ -1,4 +1,4 @@
-import { User, Post } from "../models/index.mjs";
+import { User, Post, Comment } from "../models/index.mjs";
 
 const sendErrors = (res, errors, status = 400) => {
     return res.status(status).json({ errors });
@@ -14,37 +14,44 @@ function catchError(res, err) {
     }
     return sendErrors(res, [{ field: "global", message: err.message }], 500);
 }
-const post1 = await Post.create({
-    user_id: 1,
-    content: "Ici on fait un Post Test yo yo yo wesh wesh"
 
-})
-const post2 = await Post.create({
-    user_id: 1,
-    content: "ci on fait un Post Test yo yo yo wesh wesh c'est le terter"
-})
-const post3 = await Post.create({
-    user_id: 1,
-    content: "Qui veux se battre avec Meiko wesh"
-})
-
-export async function getAllPosts(req, res) {
+export async function getAllData(req, res) {
     try {
-        const postsData = await Post.findAll({
+        const data = await Post.findAll({
+            include: [
+                {
+                    // auteur du post
+                    model: User,
+                    attributes: ["id", "username"]
+                },
+                {
+                    model: Comment,
+                    include: [
+                        {
+                            // auteur du commentaire
+                            model: User,
+                            attributes: ["id", "username"]
+                        }
+                    ]
+                }
+            ]
+        });
 
-        })
+
         if (!postsData || postsData.length === 0) {
             return res.status(200).json([]);
         }
+
+        return res.status(200).json(postsData);
+
     } catch (err) {
         return catchError(res, err);
     }
-
 }
 
 export async function getPostById(req, res) {
     try {
-        const postId = req.params.id
+        const postId = req.params.post_id
         const postData = await Post.findByPk(postId, {
             include: [
                 { model: Comment },

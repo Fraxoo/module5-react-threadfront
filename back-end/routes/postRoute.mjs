@@ -1,9 +1,11 @@
 import express from "express"
 import { getAllPosts ,getPostById } from "../controllers/postController.mjs"
 
-const routeur = express.Router();
 
-routeur.get("/get/all", getAllPosts)
-routeur.get("/get/:id", getPostById)
+const router = express.Router();
 
-export default routeur
+router.get("/all", getAllData)
+router.get("/:post_id", getPostById)
+router.get("/:post_id/comments", getPostById)
+
+export default router

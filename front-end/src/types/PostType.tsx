@@ -1,11 +1,11 @@
+import type { UserType } from "./UserType";
+import type { CommentType } from "./CommentType";
 
-export type PostProps = {
+export type PostType = {
   id?: number,
   username: string,
   content: string,
-  date: string,
-  user_id?: number
-  User?: {
-    username: string;
-  } | null;
+  createdAt: string,
+  user?: UserType;
+  Comments?: CommentType[];
 }

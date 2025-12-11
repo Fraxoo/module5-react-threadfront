@@ -1,5 +1,5 @@
-import type { PostProps } from "./PostType"
+import type { PostType } from "./PostType"
 
-export type PostsProps = {
-  allPosts: PostProps[]
+export type PostsType = {
+  allPosts: PostType[]
 }

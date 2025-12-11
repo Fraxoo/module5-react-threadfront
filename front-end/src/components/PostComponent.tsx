@@ -1,6 +1,6 @@
 import type { PostProps } from "../types/PostType"
 
-export default function PostComponent({ username, content, date }: PostProps) {
+export default function PostComponent({ username, content, createdAt }: PostProps) {
 
 
   return (
@@ -9,7 +9,7 @@ export default function PostComponent({ username, content, date }: PostProps) {
     <div className="post">
       <h3>{username}</h3>
       <p>{content}</p>
-      <p>{date}</p>
+      <p>{createdAt}</p>
     </div>
   )
 }
