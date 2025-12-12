@@ -17,6 +17,9 @@ export default function CreatePost() {
     const minutes = date.getMinutes().toString().padStart(2, "0");
 
 
+    //fetch
+
+
     return (
         <div className="post">
             <div className="post-content">
