@@ -1,12 +1,19 @@
 import type { PostType } from "../types/PostType"
 
-export default function PostComponent({ item }: { item: PostType }) {
+type Props = {
+  post: PostType;
+  onClick?: () => void;
+};
+
+export default function PostComponent({ post, onClick }: Props) {
 
   return (
-    <div className="post">
-      <h3>{item.User.username}</h3>
-      <p>{item.content}</p>
-      <p>{item.createdAt}</p>
+    <div className="post"
+      onClick={onClick}
+    >
+      <h3>{post.User.username}</h3>
+      <p>{post.content}</p>
+      <p>{post.createdAt}</p>
     </div>
   );
 }

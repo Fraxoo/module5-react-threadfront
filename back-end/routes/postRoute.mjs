@@ -5,7 +5,7 @@ import { getAllData ,getPostById } from "../controllers/postController.mjs"
 const router = express.Router();
 
 router.get("/all", getAllData)
-router.get("/:post_id", getPostById)
+router.get("/post/:postId", getPostById)
 
 
 export default router

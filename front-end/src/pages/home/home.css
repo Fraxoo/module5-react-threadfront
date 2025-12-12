@@ -1,14 +1,12 @@
 
 .post {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: inherit;
-    width: 316;
-    height: 114;
-    border-radius: 23px;
-    color: #ffffff;
-    background: linear-gradient(135deg, #07070740 60%, rgba(255, 255, 255, 0.25));
+  background: linear-gradient(to right, #000000, #2c2c2c);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 16px;
+  margin-bottom: 16px;
+  max-width: 500px;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
 
 }

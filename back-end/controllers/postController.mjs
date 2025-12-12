@@ -51,15 +51,13 @@ export async function getAllData(req, res) {
 
 export async function getPostById(req, res) {
     try {
-        const postId = req.params.post_id
+        const postId = req.params.postId
         const postData = await Post.findByPk(postId, {
             include: [
                 { model: Comment },
                 { model: User }
             ]
         });
-
-        const username = postData.User.username
 
         res.json(postData)
     } catch (err) {
