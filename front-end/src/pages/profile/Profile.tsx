@@ -1,3 +1,14 @@
-import NavBarComponent from "../../components/navbar/NavBarComponent"
 
-  <NavBarComponent/>
+  import NavBarComponent from "../../components/navbar/NavBarComponent"
+  
+  export default function Profile() {
+  
+  
+  
+      return (
+          <div>
+     
+           <NavBarComponent/>
+          </div>
+      )
+  }
