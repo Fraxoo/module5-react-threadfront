@@ -28,8 +28,8 @@ export default function NavBarComponent() {
 
     return (
         <footer className="navigation">
-            {location.pathname !== "/create/post" &&
-               ( <Link to="/create/post">
+            {location.pathname !== "/createpost/post" &&
+               ( <Link to="/createpost/post">
                     <li className="list">
                         <span className="icon">
                             <img src="/assets/Createpost.svg" alt="create post" />
