@@ -1,11 +1,13 @@
 import type { UserType } from "./UserType";
 import type { CommentType } from "./CommentType";
 
+
 export type PostType = {
-  id?: number,
-  username: string,
-  content: string,
-  createdAt: string,
-  user?: UserType;
-  Comments?: CommentType[];
-}
+  id: number;
+  content: string;
+  createdAt: string;
+  updatedAt?: string;
+  user_id: number;
+  User: UserType;
+  Comments: CommentType[];
+};

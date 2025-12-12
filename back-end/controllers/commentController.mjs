@@ -1,9 +1,6 @@
 import { Comment } from "../models/index.mjs";
 
 
-
-
-
 const sendErrors = (res, errors, status = 400) => {
     return res.status(status).json({ errors });
 };
@@ -41,7 +38,7 @@ export async function createComment(req, res) {
     }
 }
 
-export async function deleteComments(req, res) {
+export async function deleteComment(req, res) {
     try {
         const { commentId } = req.body;
         const userId = req.user.id;
@@ -71,22 +68,22 @@ export async function deleteComments(req, res) {
     }
 
 }
-// export async function getCommentsByPostId(req, res) {
-//     try {
+export async function getCommentsByPostId(req, res) {
+    try {
 
-//         const commentsData = await Comment.findAll({
-//             where: { post_id },
-//             include: [
-//                 { model: User, attributes: ["id", "username"] },
-//             ]
-//         });
+        const commentsData = await Comment.findAll({
+            where: { post_id },
+            include: [
+                { model: User, attributes: ["id", "username"] },
+            ]
+        });
         
-//         if (!commentsData || commentsData.length === 0) {
-//             return res.status(200).json([]);
-//         }
-//         return res.status(200).json(commentsData);
+        if (!commentsData || commentsData.length === 0) {
+            return res.status(200).json([]);
+        }
+        return res.status(200).json(commentsData);
 
-//     } catch (err) {
-//         return catchError(res, err)
-//     }
-// }
+    } catch (err) {
+        return catchError(res, err)
+    }
+}

@@ -1,6 +1,12 @@
 import { sequelize } from "../config/database.mjs"
 import { DataTypes } from "sequelize"
+
 export const Post = sequelize.define("Post", {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -16,5 +22,5 @@ export const Post = sequelize.define("Post", {
 
 }, {
     tableName: "posts",
-    timeStamp: true
+    timestamps: true
 })

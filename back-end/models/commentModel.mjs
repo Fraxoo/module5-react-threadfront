@@ -2,6 +2,11 @@ import { sequelize } from "../config/database.mjs";
 import { DataTypes } from "sequelize";
 
 export const Comment = sequelize.define("Comment", {
+        id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,

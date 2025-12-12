@@ -1,7 +1,7 @@
-import type { CommentsProps } from "../types/CommentsType"
+import type { CommentsType } from "../types/CommentsType"
 import CommentComponent from "./CommentComponent"
 
-export default function CommentListComponent({allComments}:CommentsProps) {
+export default function CommentListComponent({allComments}:CommentsType) {
   return (
     <div>
         <p>comments</p>

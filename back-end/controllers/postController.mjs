@@ -17,7 +17,7 @@ function catchError(res, err) {
 
 export async function getAllData(req, res) {
     try {
-        const data = await Post.findAll({
+        const postsData = await Post.findAll({
             include: [
                 {
                     // auteur du post

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import FeedComponent from "../../components/FeedComponent";
+import PostComponent from "../../components/PostComponent";
 import "./home.css"
 
 
@@ -9,17 +10,20 @@ export default function Home() {
     useEffect(() => {
 
         fetch("http://localhost:8000/post/all"
-    )
+        )
             .then((res) => res.json())
             .then((data) => setPosts(data))
+            .catch((err) => console.error("Fetch error:", err));
 
     }, [])
-     console.log(posts);
+
+
 
     return (
         <div>
             <FeedComponent
-                allPosts={posts}
+                items={posts||[]}
+                Component={PostComponent}
             />
         </div>
 
