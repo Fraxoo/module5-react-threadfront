@@ -1,3 +1,14 @@
+
   import NavBarComponent from "../../components/navbar/NavBarComponent"
   
-  <NavBarComponent/>
+  export default function Post() {
+  
+  
+  
+      return (
+          <div>
+     
+           <NavBarComponent/>
+          </div>
+      )
+  }

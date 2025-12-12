@@ -32,16 +32,17 @@ export default function NavBarComponent() {
                ( <Link to="/createpost/post">
                     <li className="list">
                         <span className="icon">
-                            <img src="assets/Createpost.svg" alt="create post" />
+                            <img src="/assets/Createpost.svg" alt="create post" />
                         </span>
                     </li>
                 </Link>)
             }
 
-           {!location.pathname.startsWith("/profile/") && (<Link to="/profile/profile">
+           {!location.pathname.startsWith("/profile/") && (
+            <Link to="/profile/profile">
                 <li className="list">
                     <span className="icon">
-                        <img src="assets/profile.svg" alt="profile " />
+                        <img src="/assets/profile.svg" alt="profile " />
                     </span>
                 </li>
             </Link>)}
@@ -50,7 +51,7 @@ export default function NavBarComponent() {
            ( <Link to="/">
                 <li className="list">
                     <span className="icon">
-                        <img src="assets/accueil.svg" alt="accueil" />   </span>
+                        <img src="/assets/accueil.svg" alt="accueil" />   </span>
                 </li>
             </Link>)}
         </footer>
