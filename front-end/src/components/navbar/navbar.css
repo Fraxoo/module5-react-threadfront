@@ -2,10 +2,12 @@
 
 .navigation {
     
-    display: flex;
+    /* display: flex;
     justify-content: space-around;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: flex-end; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     background: #1b1b1b;
     color: #ffffff;
     list-style: none;
@@ -26,3 +28,7 @@ img:hover {
 
 
 
+ li {
+    display: flex;
+    justify-content: center;
+}

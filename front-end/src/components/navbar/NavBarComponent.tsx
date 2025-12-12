@@ -9,9 +9,9 @@ import { useLocation } from 'react-router'
 export default function NavBarComponent() {
 
 
-        const location = useLocation();
+    const location = useLocation();
 
-    
+
     //MS cacher certains boutons dans la navbar dans les pages suivantes avec les conditons &&:
     // - Accueil Feed la navbar a deux boutons create post et profile
     // -Page Post (route : /post/:id) elle a les 3 boutons createpost, profile et accueil
@@ -29,36 +29,36 @@ export default function NavBarComponent() {
     return (
         <footer className="navigation">
             <div className='createpost'>
-            {location.pathname !== "/createpost/post" &&
-               ( <Link to="/createpost/post">
-                    <li className="list">
-                        <span className="icon">
-                            <img src="/assets/Createpost.svg" alt="create post" />
-                        </span>
-                    </li>
-                </Link>)
-            }
+                {location.pathname !== "/createpost/post" &&
+                    (<Link to="/createpost/post">
+                        <li className="list">
+                            <span className="icon">
+                                <img src="/assets/Createpost.svg" alt="create post" />
+                            </span>
+                        </li>
+                    </Link>)
+                }
             </div>
             <div className='profile'>
-           {!location.pathname.startsWith("/profile/") && (
-            <Link to="/profile/profile">
-                <li className="list">
-                    <span className="icon">
-                        <img src="/assets/profile.svg" alt="profile " />
-                    </span>
-                </li>
-            </Link>)}
-           </div>
-           <div className='accueil'>
-           {location.pathname !== "/" && location.pathname !== "/home" && (
-                <Link to="/">
-                    <li className="list">
-                        <span className="icon">
-                            <img src="/assets/accueil.svg" alt="accueil" />
-                        </span>
-                    </li>
-                </Link>
-            )}
+                {!location.pathname.startsWith("/profile/") && (
+                    <Link to="/profile/profile">
+                        <li className="list">
+                            <span className="icon">
+                                <img src="/assets/profile.svg" alt="profile " />
+                            </span>
+                        </li>
+                    </Link>)}
+            </div>
+            <div className='accueil'>
+                {location.pathname !== "/" && location.pathname !== "/home" && (
+                    <Link to="/">
+                        <li className="list">
+                            <span className="icon">
+                                <img src="/assets/accueil.svg" alt="accueil" />
+                            </span>
+                        </li>
+                    </Link>
+                )}
             </div>
         </footer>
     )
