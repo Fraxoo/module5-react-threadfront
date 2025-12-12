@@ -4,8 +4,9 @@ import Post from "./pages/create/Post";
 // à activer
 import Profile from "./pages/profile/Profile";
 //  à activer ça correspond à /profile/:id
-// import Post from "./pages/post/Post";  
-// à activer ça correspond à DetailPost/post/:id
+import Posts from "./pages/post/Posts";  
+// à activer ça correspond à DetailPost/post/:id 
+// J'ai mis Posts ave s S sinon react ne pourra pas lire le post de create/post
 import '../src/style.css';
 
 
@@ -21,7 +22,7 @@ export default function App() {
             
             <Route path="/profile/profile" element={<Profile />} />
             {/* MS à activer   */}
-            <Route path="/detailpost/post" element={<Post />} />
+            <Route path="/post/post" element={<Posts />} />
         </Routes>
 
     );

@@ -28,8 +28,8 @@ export default function NavBarComponent() {
 
     return (
         <footer className="navigation">
-            {location.pathname !== "/createpost/post" &&
-               ( <Link to="/createpost/post">
+            {location.pathname !== "/create/post" &&
+               ( <Link to="/create/post">
                     <li className="list">
                         <span className="icon">
                             <img src="/assets/Createpost.svg" alt="create post" />
@@ -47,13 +47,15 @@ export default function NavBarComponent() {
                 </li>
             </Link>)}
 
-            {location.pathname !== "/" && 
-           ( <Link to="/">
-                <li className="list">
-                    <span className="icon">
-                        <img src="/assets/accueil.svg" alt="accueil" />   </span>
-                </li>
-            </Link>)}
+           {location.pathname !== "/" && location.pathname !== "/home" && (
+                <Link to="/">
+                    <li className="list">
+                        <span className="icon">
+                            <img src="/assets/accueil.svg" alt="accueil" />
+                        </span>
+                    </li>
+                </Link>
+            )}
         </footer>
     )
 }
