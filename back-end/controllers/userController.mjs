@@ -36,7 +36,7 @@ export async function register(req, res) {
     try {
         const { username, email, password, confirmPassword } = req.body;
 
-        if (!username || !email || !password ||  !confirmPassword) {
+        if (!username || !email || !password || !confirmPassword) {
             return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
         }
 
@@ -49,7 +49,7 @@ export async function register(req, res) {
         const existingEmail = await User.findOne({ where: { email } });
 
         if (existingEmail) {
-            return sendErrors(res, [{ field: "username", message: "Pseudo déjà utilisé." }], 409);
+            return sendErrors(res, [{ field: "email", message: "Email déjà utilisé." }], 409);
         }
 
         if (password !== confirmPassword) {
@@ -58,7 +58,7 @@ export async function register(req, res) {
 
         const hashed = await bcrypt.hash(password, 10);
 
-        const newUser = User.create({
+        const newUser = await User.create({
             username,
             email,
             password: hashed,
@@ -69,13 +69,14 @@ export async function register(req, res) {
     } catch (err) {
         return catchError(res, err)
     }
+
 }
 
 export async function login(req, res) {
     try {
         const { email, password } = req.body;
 
-        if (!email ||  !password) {
+        if (!email || !password) {
             return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
         }
 
@@ -86,7 +87,7 @@ export async function login(req, res) {
         }
 
         console.log(user);
-        
+
 
         const isPasswordMatch = await bcrypt.compare(password, user.password);
 

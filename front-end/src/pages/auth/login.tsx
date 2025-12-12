@@ -39,6 +39,11 @@ export default function login() {
             }
 
             setSuccess(data);
+            setForm({
+            email: "",
+            password: "",
+            
+        });
 
 
         } catch (err) {
