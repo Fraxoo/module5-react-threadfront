@@ -28,6 +28,7 @@ export default function NavBarComponent() {
 
     return (
         <footer className="navigation">
+            <div className='createpost'>
             {location.pathname !== "/createpost/post" &&
                ( <Link to="/createpost/post">
                     <li className="list">
@@ -37,7 +38,8 @@ export default function NavBarComponent() {
                     </li>
                 </Link>)
             }
-
+            </div>
+            <div className='profile'>
            {!location.pathname.startsWith("/profile/") && (
             <Link to="/profile/profile">
                 <li className="list">
@@ -46,7 +48,8 @@ export default function NavBarComponent() {
                     </span>
                 </li>
             </Link>)}
-
+           </div>
+           <div className='accueil'>
            {location.pathname !== "/" && location.pathname !== "/home" && (
                 <Link to="/">
                     <li className="list">
@@ -56,6 +59,7 @@ export default function NavBarComponent() {
                     </li>
                 </Link>
             )}
+            </div>
         </footer>
     )
 }
