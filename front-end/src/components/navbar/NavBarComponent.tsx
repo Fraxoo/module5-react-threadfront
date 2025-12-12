@@ -8,23 +8,6 @@ import { useLocation } from 'react-router'
 // le lien pour m'aider à afficher tels boutons dans telles pages
 
 
-
-// function SomeComponent() {
-//   let location = useLocation()
-
-//   React.useEffect(() => {
-//     // Google Analytics
-//     ga('send', 'pageview')
-//   }, [location]);
-
-//   return (
-//     // ne pas utiliser ce useeffeect pour ma navbar MS...
-//   );
-// }
-
-
-
-
 export default function NavBarComponent() {
     {
         location != "/profile/:id"
@@ -45,7 +28,7 @@ export default function NavBarComponent() {
         <footer className="navigation">
             {
                 condition &&
-                <Link>
+                <Link to = "/">
                     <li className="list">
                         <a href="">
                             <span className="icon">
