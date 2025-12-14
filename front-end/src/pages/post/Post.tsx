@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import type { PostType } from "../../types/PostType";
+import PostComponent from "../../components/PostComponent";
+import FeedComponent from "../../components/FeedComponent";
 
 export default function Post() {
   const { postId } = useParams<{ postId: string }>();
@@ -30,8 +32,14 @@ export default function Post() {
 
   return (
     <div>
-      <h1>{post.User.username}</h1>
-      <p>{post.content}</p>
+      {/* Post principal */}
+      <PostComponent post={post} />
+
+      {/* <FeedComponent
+        items={post.Comments}
+        Component={({ item }) => <PostComponent post={item} />}
+      /> */}
+
     </div>
   );
 }
