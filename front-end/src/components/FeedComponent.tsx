@@ -1,0 +1,17 @@
+import type { FeedType } from "../types/FeedType";
+
+
+export default function FeedComponent<T>({ items, Component }: FeedType<T>) {
+ return (
+    <div>
+      <h1>Feed</h1>
+
+      {items.map((item, index) => (
+        <Component
+          key={(item as any).id ?? index}
+          item={item}
+        />
+      ))}
+    </div>
+  );
+}
