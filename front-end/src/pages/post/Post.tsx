@@ -14,21 +14,21 @@ export default function Post() {
   const [post, setPost] = useState<PostType | null>(null);
   const [error, setError] = useState<string>("");
 
+  if (!postId) return;
+  
+  const fetchPost = async () => {
+    try {
+      const res = await fetch(`http://localhost:8000/post/${postId}`);
+      if (!res.ok) throw new Error(`Post ${postId} introuvable`);
+      const data = await res.json();
+      setPost(data);
+    } catch (err: any) {
+      console.error(err);
+      setError(err.message || "Erreur réseau");
+    }
+  };
+  
   useEffect(() => {
-    if (!postId) return;
-
-    const fetchPost = async () => {
-      try {
-        const res = await fetch(`http://localhost:8000/post/${postId}`);
-        if (!res.ok) throw new Error(`Post ${postId} introuvable`);
-        const data = await res.json();
-        setPost(data);
-      } catch (err: any) {
-        console.error(err);
-        setError(err.message || "Erreur réseau");
-      }
-    };
-
     fetchPost();
   }, [postId]);
 
@@ -39,7 +39,9 @@ export default function Post() {
     <div>
       {/* Post principal */}
       <PostComponent post={post} />
-      <NewCommentComponent />
+      <NewCommentComponent
+        postId={Number(postId)}
+      />
       <CommentCountComponent
         count={post.commentsCount} />
 
