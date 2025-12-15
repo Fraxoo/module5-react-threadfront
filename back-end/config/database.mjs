@@ -19,7 +19,6 @@ export async function testDBConnection() {
     try{
         await sequelize.authenticate();
         console.log("Connected");
-        
     } catch(err){
         console.error(`Erreur DB : ${err}`)
     }
