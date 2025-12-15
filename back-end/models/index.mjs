@@ -2,7 +2,7 @@ import { User } from "./userModel.mjs";
 import { Comment } from "./commentModel.mjs";
 
 
-// ici on defini les relations 
+// ici on définit les relations 
 
 User.hasMany(Comment, {
     foreignKey: "user_id",

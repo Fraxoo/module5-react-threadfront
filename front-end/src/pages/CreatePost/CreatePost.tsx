@@ -1,6 +1,6 @@
 import './post.css'
 
-// MS import NavBarComponent from "../../components/navbar/NavBarComponent" à activer par la personne concernée après validation de mon travail sur NavBar
+import NavBarComponent from "../../components/navbar/NavBarComponent" ;
 
 //MS form exemple pris dans site https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events/ pour voir 
 
@@ -34,7 +34,6 @@ export default function CreatePost() {
                         />
 
                         <p className="date">
-                            {/* 15:25 - 13 août 25 */}
 
                            {hourTime}:{minutes} - {datefr} 
                         </p>
@@ -43,8 +42,10 @@ export default function CreatePost() {
                     <button className='poster' type="submit">Poster !</button>
                 </form>
             </div>
-            {/* <NavBarComponent/> MS NavBarComponent à activer par la personne concernée après validation de mon travail sur NavBar mettre gohome et comment/chat */}
 
+              <NavBarComponent/> 
         </div>
+
+       
     )
 }

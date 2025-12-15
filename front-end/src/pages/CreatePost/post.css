@@ -25,11 +25,10 @@
 .post-title::before {
     content: "";
     display: inline-block;
-    width: 3px;        /* largeur voulue */
+    width: 5px;        /* largeur voulue */
     height: 49px;      /* hauteur de la “barre” */
     border-left: 2px solid white; /* épaisseur de la ligne */
-    margin-right: 2px; /* espace entre la ligne et le texte */
-    
+    margin-right: 2px; /* espace entre la ligne et le texte */    
 }
 
 .post-title::after {
