@@ -49,18 +49,40 @@ export async function getAllData(req, res) {
     }
 }
 
-export async function getPostById(req, res) {
-    try {
-        const postId = req.params.postId
-        const postData = await Post.findByPk(postId, {
-            include: [
-                { model: Comment },
-                { model: User }
-            ]
-        });
+import { Sequelize } from "sequelize";
 
-        res.json(postData)
-    } catch (err) {
-        return catchError(res, err);
+export async function getPostById(req, res) {
+  try {
+    const postId = req.params.postId;
+
+    // Récupérer le post avec commentaires et users
+    const postData = await Post.findByPk(postId, {
+      include: [
+        {
+          model: Comment,
+          include: [{ model: User }],
+        },
+        {
+          model: User, // auteur du post
+        },
+      ],
+    });
+
+    if (!postData) {
+      return res.status(404).json({ error: "Post introuvable" });
     }
+
+    // Ajouter le nombre total de commentaires
+    const commentsCount = await Comment.count({
+      where: { post_id: postId },
+    });
+
+    // Convertir en JSON et ajouter le champ commentsCount
+    const postJson = postData.toJSON();
+    postJson.commentsCount = commentsCount;
+
+    res.json(postJson);
+  } catch (err) {
+    return catchError(res, err);
+  }
 }

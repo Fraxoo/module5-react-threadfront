@@ -1,15 +1,15 @@
 import type { CommentType } from "../types/CommentType"
 
 
-export default function CommentComponent({ item }: { item: CommentType }) {
+export default function CommentComponent({ comment }: { comment: CommentType }) {
 
 
 
     return (
         <div className="comment">
-            <p>{item.User.username}</p>
-            <p>{item.content}</p>
-            <p>{item.createdAt}</p>
+            <p>{comment.User.username}</p>
+            <p>{comment.content}</p>
+            <p>{comment.createdAt}</p>
         </div>
     )
 }

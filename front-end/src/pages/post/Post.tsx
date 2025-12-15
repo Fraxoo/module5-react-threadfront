@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import type { PostType } from "../../types/PostType";
+import type { CommentType } from "../../types/CommentType";
+
 import PostComponent from "../../components/PostComponent";
 import FeedComponent from "../../components/FeedComponent";
+import CommentComponent from "../../components/CommentComponent";
+import CommentCountComponent from "../../components/CommentCountComponent";
+import NewCommentComponent from "../../components/NewCommentComponent";
 
 export default function Post() {
   const { postId } = useParams<{ postId: string }>();
@@ -34,11 +39,14 @@ export default function Post() {
     <div>
       {/* Post principal */}
       <PostComponent post={post} />
+      <NewCommentComponent />
+      <CommentCountComponent
+        count={post.commentsCount} />
 
-      {/* <FeedComponent
+      <FeedComponent<CommentType>
         items={post.Comments}
-        Component={({ item }) => <PostComponent post={item} />}
-      /> */}
+        Component={({ item }) => <CommentComponent comment={item} />}
+      />
 
     </div>
   );

@@ -10,4 +10,5 @@ export type PostType = {
   user_id: number;
   User: UserType;
   Comments: CommentType[];
+  commentsCount:number;
 };

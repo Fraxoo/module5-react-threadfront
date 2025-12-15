@@ -2,16 +2,15 @@ import type { FeedType } from "../types/FeedType";
 
 
 export default function FeedComponent<T>({ items, Component }: FeedType<T>) {
-  return (
+ return (
     <div>
       <h1>Feed</h1>
 
-      {items.map((item: any) => (
-        <Component 
-        key={item.id} 
-        item={item}
-         />
-         
+      {items.map((item, index) => (
+        <Component
+          key={(item as any).id ?? index}
+          item={item}
+        />
       ))}
     </div>
   );
