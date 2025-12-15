@@ -1,11 +1,11 @@
+import NavBarComponent from "../../components/navbar/NavBarComponent"
 
 
-
-export default function Home() {
+export default function Posts() {
 
 
 
     return (
-        <p>yo</p>
+         <NavBarComponent/>
     )
 }
