@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './auth.css';
 
 
-export default function register() {
+export default function Register() {
 
-    const [success, setSuccess] = useState("");
+    const [success, setSuccess] = useState<string>("");
 
     const [form, setForm] = useState({
         username: "",
@@ -33,19 +33,39 @@ export default function register() {
             console.log(data);
 
             if (!response.ok) {
-                setErrors([data.field] = data.message)
+                if (data && data.field) {
+                    setErrors({ [data.field]: data.message });
+                } else if (data && data.message) {
+                    setErrors({ global: data.message });
+                } else {
+                    setErrors({ global: "Erreur serveur" });
+                }
                 return;
             }
 
-            setSuccess(data);
-
-
+            // Expecting server to return a message or string on success
+            setSuccess(typeof data === "string" ? data : (data.message || "Compte créé"));
 
         } catch (err) {
             setErrors({ global: "Erreur" });
         }
     };
 
+    const handleLogout = async () => {
+        try {
+            const response = await fetch("http://localhost:8000/users/logout", {
+                method: "POST",
+                credentials: "include"
+            });
+
+            const data = await response.json();
+            console.log(data);
+
+            // If you manage user state in a parent or context, clear it there.
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     return (
         <div className='register'>
@@ -94,9 +114,9 @@ export default function register() {
                     />
                 </div>
                 {success && <p>{success}</p>}
-                <button className="button" type="submit">Créer un compte</button>
-
-
+                {errors.global && <p>{errors.global}</p>}
+                <button className="register-button" type="submit">Créer un compte</button>
+                <button className="logout-button" type="button" onClick={handleLogout}>Se déconnecter</button>
 
             </form>
 

@@ -2,7 +2,7 @@
 
     display: flex;
     flex-direction: column;
-    gap: 7rem;
+    gap: 5rem;
     background-color: #1b1b1b;
     color: #f6f6f6;
     font-family: "Josefin Sans", sans-serif;
@@ -37,7 +37,6 @@
     font-size: 18px;
     background-color: #1b1b1b;
     color: #FFFFFF;
-    
     padding: 15px;
 }
 
@@ -58,6 +57,9 @@
     background-color: #1b1b1b;
     color: #FFFFFF;
     padding: 15px;
+    white-space:normal;
+    resize: none;
+    height: 60px;
 }
 
 .button {
@@ -152,6 +154,7 @@
    
 }
 
+.register-button,
 .login-button {
     align-items: center;
     background-color: #FFFFFF;
@@ -159,11 +162,23 @@
     font-family: "Josefin Sans", sans-serif;
     font-weight: bold;
     letter-spacing: 0.3rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
     width: 15rem;
     height: 3.5rem;
     border-radius: 1rem;
     border: none;
-   
+}
 
+.logout-button{
+    align-items: center;
+    background-color: #FFFFFF;
+    color: #1b1b1b;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+    font-size: 1rem;
+    width: 10rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    border: none;
 }
