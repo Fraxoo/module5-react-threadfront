@@ -111,3 +111,28 @@ export async function logout(req, res) {
 
     return res.json({ message: "Déconnecté" });
 }
+
+//MS create post ci-desous je ne sais pas si c'est au bon endroit
+
+app.post("/posts", isLoggedInJWT(userModel), async (req, res) => {
+    console.log(req.body);
+    const newPostData = req.body;
+    try {
+        // +
+        const newPost = await Post.create({
+             content: newPostData.content,
+              UserId: newPostData.user_id, // ça marche !!
+         
+            content: req.body.content,
+            UserId: req.user_id,
+            PostId:req.postId
+        });
+
+        res.status(201).json(newPost)
+
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Erreur lors de la création du post" });
+    }
+});

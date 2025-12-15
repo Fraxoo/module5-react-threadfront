@@ -1,52 +1,52 @@
 import { User, Post, Comment } from "../models/index.mjs";
 
 const sendErrors = (res, errors, status = 400) => {
-    return res.status(status).json({ errors });
+  return res.status(status).json({ errors });
 };
 
 function catchError(res, err) {
-    if (err.name === "SequelizeValidationError") {
-        const errors = err.errors.map((e) => ({
-            field: e.path,
-            message: e.message,
-        }));
-        return sendErrors(res, errors, 400);
-    }
-    return sendErrors(res, [{ field: "global", message: err.message }], 500);
+  if (err.name === "SequelizeValidationError") {
+    const errors = err.errors.map((e) => ({
+      field: e.path,
+      message: e.message,
+    }));
+    return sendErrors(res, errors, 400);
+  }
+  return sendErrors(res, [{ field: "global", message: err.message }], 500);
 }
 
 export async function getAllData(req, res) {
-    try {
-        const postsData = await Post.findAll({
-            include: [
-                {
-                    // auteur du post
-                    model: User,
-                    attributes: ["id", "username"]
-                },
-                {
-                    model: Comment,
-                    include: [
-                        {
-                            // auteur du commentaire
-                            model: User,
-                            attributes: ["id", "username"]
-                        }
-                    ]
-                }
-            ]
-        });
-
-
-        if (!postsData || postsData.length === 0) {
-            return res.status(200).json([]);
+  try {
+    const postsData = await Post.findAll({
+      include: [
+        {
+          // auteur du post
+          model: User,
+          attributes: ["id", "username"]
+        },
+        {
+          model: Comment,
+          include: [
+            {
+              // auteur du commentaire
+              model: User,
+              attributes: ["id", "username"]
+            }
+          ]
         }
+      ]
+    });
 
-        return res.status(200).json(postsData);
 
-    } catch (err) {
-        return catchError(res, err);
+    if (!postsData || postsData.length === 0) {
+      return res.status(200).json([]);
     }
+
+    return res.status(200).json(postsData);
+
+  } catch (err) {
+    return catchError(res, err);
+  }
 }
 
 import { Sequelize } from "sequelize";
@@ -86,3 +86,27 @@ export async function getPostById(req, res) {
     return catchError(res, err);
   }
 }
+
+///////
+
+//MS create post ci-dessous
+
+//mes codes je réfléchis MS je ne sais pas je l'ai bien placé
+
+
+// Création d'un post
+const newPost = await Post.create({
+  content: "pour anniversaire Amaury",
+  datetime: new Date(),
+  UserId: user_id
+});
+
+
+
+
+
+
+
+
+
+
