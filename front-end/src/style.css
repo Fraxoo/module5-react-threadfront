@@ -1,24 +1,3 @@
-
-/* MS mes commentaires
-Le button  du figma à revoir j'ai fait le style.css de tête
-.josefin-sans-<uniquifier> {
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-} */
-
-/* https://fonts.google.com/selection/embed 
-
-les dates sont de cette couleur 15:25 - 13 aout 25 bref il faut mettre color : #535353;
-
-les posts sont en en border-radius : 16px;
-
-Le @ryu est en font-weight: 700; c'est un h2 email aussi
-
-se créer un compte est un lien de couleur #EBDCDC bref mettre color : #ebdcdc ;
-
-*/
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 
@@ -44,13 +23,8 @@ body {
     align-items: center;
     background: #1b1b1b;
     color: #ffffff;
-
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
 }
+
 
 /* le body de John body {
  
