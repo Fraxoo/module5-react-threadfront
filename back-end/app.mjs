@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import express from "express";
 import { sequelize, testDBConnection } from "./config/database.mjs";
+import postRouter from "./routes/postRoute.mjs";
 import userRouter from "./routes/userRoute.mjs";
 import commentRouter from "./routes/commentRoute.mjs"
 
@@ -18,6 +19,7 @@ app.use(cors({
     credentials: true
 }));
 
+app.use("/post",postRouter)
 app.use("/users", userRouter)
 app.use("/comments", commentRouter);
 
@@ -34,6 +36,7 @@ async function main() {
     } catch (err) {
         console.error(err)
     }
+
 }
 
 main();

@@ -8,5 +8,4 @@ const router = express.Router();
 router.post("/create", isLoggedInJWT(), createComment);
 router.post("/delete", isLoggedInJWT(), deleteComment);
 
-
 export default router
