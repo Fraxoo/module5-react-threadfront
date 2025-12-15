@@ -1,7 +1,7 @@
 
   import NavBarComponent from "../../components/navbar/NavBarComponent"
   
-  export default function Profile() {
+  export default function CreatePost() {
   
   
   

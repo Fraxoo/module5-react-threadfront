@@ -1,3 +1,4 @@
+import NavBarComponent from "../../components/navbar/NavBarComponent"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import type { PostType } from "../../types/PostType";
@@ -32,6 +33,7 @@ export default function Post() {
     fetchPost();
   }, [postId]);
 
+
   if (error) return <div>{error}</div>;
   if (!post) return <div>Chargement...</div>;
 
@@ -49,7 +51,7 @@ export default function Post() {
         items={post.Comments}
         Component={({ item }) => <CommentComponent comment={item} />}
       />
-
+<NavBarComponent/>
     </div>
   );
 }
