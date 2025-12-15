@@ -1,19 +1,18 @@
 import { User } from "./userModel.mjs";
-import { Comment } from "./commentModel.mjs";
-
+import { Post } from "./postModel.mjs";
 
 // ici on defini les relations 
 
-User.hasMany(Comment, {
+User.hasMany(Post, {
     foreignKey: "user_id",
     onDelete: "CASCADE"
 })
 
-Comment.belongsTo(User, {
+Post.belongsTo(User, {
     foreignKey: "user_id"
 })
 
 
 
 
-export { User, Comment };
+export { User, Post };

@@ -21,22 +21,24 @@ const sendErrors = (res, errors, status = 400) => {
 
 function catchError(res, err) {
     if (err.name === "SequelizeValidationError") {
-        const errors = err.errors.map((e) => ({
-            field: e.path,
-            message: e.message,
-        }));
-        return sendErrors(res, errors, 400);
-    }
-    return sendErrors(res, [{ field: "global", message: err.message }], 500);
-}
+        const formattedErrors = {};
 
+        err.errors.forEach((e) => {
+            formattedErrors[e.path] = e.message;
+        });
+
+        return sendErrors(res, formattedErrors, 400);
+    }
+
+    return sendErrors(res, { global: err.message }, 500);
+}
 
 
 export async function register(req, res) {
     try {
         const { username, email, password, confirmPassword } = req.body;
 
-        if (!username || !email || !password ||  !confirmPassword) {
+        if (!username || !email || !password || !confirmPassword) {
             return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
         }
 
@@ -75,7 +77,7 @@ export async function login(req, res) {
     try {
         const { email, password } = req.body;
 
-        if (!email ||  !password) {
+        if (!email || !password) {
             return sendErrors(res, [{ field: "global", message: "Tous les champs sont obligatoires." }], 400);
         }
 
@@ -86,7 +88,7 @@ export async function login(req, res) {
         }
 
         console.log(user);
-        
+
 
         const isPasswordMatch = await bcrypt.compare(password, user.password);
 

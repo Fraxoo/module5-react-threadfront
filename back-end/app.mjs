@@ -4,8 +4,7 @@ import dotenv from "dotenv";
 import express from "express";
 import { sequelize, testDBConnection } from "./config/database.mjs";
 import userRouter from "./routes/userRoute.mjs";
-import commentRouter from "./routes/commentRoute.mjs"
-
+import postRouter from "./routes/postRoute.mjs"
 dotenv.config();
 
 const app = express();
@@ -18,8 +17,8 @@ app.use(cors({
     credentials: true
 }));
 
-app.use("/users", userRouter)
-app.use("/comments", commentRouter);
+app.use("/users", userRouter);
+app.use("/posts", postRouter)
 
 
 async function main() {
