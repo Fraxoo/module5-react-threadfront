@@ -6,6 +6,7 @@ import { sequelize, testDBConnection } from "./config/database.mjs";
 import postRouter from "./routes/postRoute.mjs";
 import userRouter from "./routes/userRoute.mjs";
 import commentRouter from "./routes/commentRoute.mjs"
+import profileRouter from "./routes/profileRoute.mjs"
 
 dotenv.config();
 
@@ -22,7 +23,7 @@ app.use(cors({
 app.use("/post",postRouter)
 app.use("/users", userRouter)
 app.use("/comments", commentRouter);
-
+app.use("/profile",profileRouter);
 
 async function main() {
     try {

@@ -49,7 +49,6 @@ export async function getAllData(req, res) {
     }
 }
 
-import { Sequelize } from "sequelize";
 
 export async function getPostById(req, res) {
   try {

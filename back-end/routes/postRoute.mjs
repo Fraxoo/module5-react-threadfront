@@ -1,5 +1,5 @@
 import express from "express"
-import { getAllData ,getPostById } from "../controllers/postController.mjs"
+import { getAllData ,getPostById} from "../controllers/postController.mjs"
 
 
 const router = express.Router();

@@ -1,0 +1,50 @@
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: inherit;
+    width: 316;
+    height: 114;
+    border-radius: 23px;
+    color: #000000;
+    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+
+}
+
+.text-comment {
+    width: 100%;
+    min-height: 120px;
+    /* ← 大きく */
+    padding: 12px;
+    font-size: 1rem;
+    resize: vertical;
+
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: inherit;
+    width: 316;
+    height: 114;
+    border-radius: 23px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #35353540 60%, rgba(255, 255, 255, 0.25));
+
+}
+
+.comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: inherit;
+    width: 316;
+    height: 114;
+    border-radius: 23px;
+    color: #000000;
+    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+}

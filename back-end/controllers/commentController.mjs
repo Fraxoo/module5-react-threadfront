@@ -18,10 +18,16 @@ function catchError(res, err) {
 
 export async function createComment(req, res) {
     try {
-        const postId = Number(req.body)
-        const { content } = req.body;
+   
+        const { content, postId } = req.body;
         const userId = req.user.id;
 
+              if (!postId) {
+            return sendErrors(res, [
+                { field: "postId", message: "postId requis" }
+            ], 400);
+        }
+        
         if (!content || content.trim() === "") {
             return sendErrors(res, [{ field: "content", message: "Contenu requis" }], 400);
         }

@@ -9,7 +9,7 @@ import FeedComponent from "../../components/FeedComponent";
 import CommentComponent from "../../components/CommentComponent";
 import CommentCountComponent from "../../components/CommentCountComponent";
 import NewCommentComponent from "../../components/NewCommentComponent";
-
+import "./post.css"
 export default function Post() {
   const { postId } = useParams<{ postId: string }>();
   const [post, setPost] = useState<PostType | null>(null);

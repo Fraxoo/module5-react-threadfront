@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { NewCommentType } from "../types/NewCommentType";
 
+
 export default function NewCommentComponent({ postId }: NewCommentType) {
     const [content, setContent] = useState("");
     const [error, setError] = useState("");
@@ -39,10 +40,10 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
 
     return (
         <div>
-            <p>username</p>
+            <h2>username</h2>
 
             <form onSubmit={handleSubmit}>
-                <textarea
+                <textarea className="text-comment"
                     
                     name="content"
                     placeholder="Tapez votre commentaire ici !"

@@ -3,7 +3,7 @@ import type { FeedType } from "../types/FeedType";
 
 export default function FeedComponent<T>({ items, Component }: FeedType<T>) {
  return (
-    <div>
+    <div className="list">
      
       {items.map((item, index) => (
         <Component

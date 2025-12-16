@@ -16,7 +16,7 @@ export default function Profile() {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const res = await fetch("http://localhost:8000/post/all");
+                const res = await fetch(`http://localhost:8000/post/${user_id}`);
 
                 if (!res.ok) {
                     throw new Error("Erreur serveur");
