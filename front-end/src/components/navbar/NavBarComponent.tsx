@@ -41,7 +41,7 @@ export default function NavBarComponent() {
             </div>
             <div className='profile'>
                 {!location.pathname.startsWith("/profile/") && (
-                    <Link to="/profile/profile">
+                    <Link to="/profile">
                         <li className="list">
                             <span className="icon">
                                 <img src="/assets/profile.svg" alt="profile " />

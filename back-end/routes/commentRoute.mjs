@@ -5,7 +5,7 @@ import { isLoggedInJWT } from "../middlewares/isLoggedInJWT.mjs";
 const router = express.Router();
 
 
-router.post("/create", isLoggedInJWT(), createComment);
-router.post("/delete", isLoggedInJWT(), deleteComment);
+router.post("/create", createComment);
+router.post("/delete", deleteComment);
 
 export default router

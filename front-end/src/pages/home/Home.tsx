@@ -39,6 +39,7 @@ export default function Home() {
 
     return (
         <div>
+             <h1>Feed</h1>
             <FeedComponent
                 items={posts || []}
                 Component={({ item }) => (

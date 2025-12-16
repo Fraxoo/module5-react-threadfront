@@ -4,11 +4,15 @@ import NavBarComponent from "../../components/navbar/NavBarComponent"
 import type { PostType } from "../../types/PostType"
 import ProfilComponent from "../../components/ProfilComponent";
 import PostComponent from "../../components/PostComponent";
-
+import "./profile.css"
+import { useNavigate } from "react-router";
+import FeedComponent from "../../components/FeedComponent";
 
 export default function Profile() {
     const [posts, setPosts] = useState<PostType[]>([]);
     const [errors, setErrors] = useState("");
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchPost = async () => {
             try {
@@ -21,7 +25,7 @@ export default function Profile() {
                 setPosts(Array.isArray(data) ? data : []);
             } catch (err) {
                 console.error("fetch error", err);
-                setErrors( err || "Erreur réseau");
+                setErrors(err || "Erreur réseau");
             }
         };
         fetchPost();
@@ -36,15 +40,23 @@ export default function Profile() {
 
     const latestPost = sortedPosts[0];
     const otherPosts = sortedPosts.slice(1);
+    const handlePostClick = (id: number) => {
+        navigate(`/post/${id}`);
+    };
 
 
     return (
         <div>
+            <h1>Profile</h1>
             {latestPost && <ProfilComponent
                 post={latestPost} />}
-            {otherPosts.map((post) => (
-                <PostComponent key={post.id} post={post} />
-            ))}
+            <FeedComponent
+                items={otherPosts || []}
+                Component={({ item }) => (
+                <PostComponent post={item} onClick={()=>handlePostClick(item.id)}/>
+            
+            )}
+            />
             <NavBarComponent />
         </div>
     )

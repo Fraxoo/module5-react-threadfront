@@ -1,0 +1,16 @@
+.card-profile{
+    display: flex;
+    flex-direction:column;
+    gap:30px;
+    
+}
+.newest-post {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    background: linear-gradient(to right, #000000, #2c2c2c);
+    max-width: 500px;
+    padding:16px;
+    margin-bottom: 16px;
+    
+
+}
