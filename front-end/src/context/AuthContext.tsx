@@ -15,7 +15,8 @@ type AuthContextType = {
  * Création du contexte
  * undefined = erreur si utilisé hors Provider
  */
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+const AuthContext = createContext<AuthContextType | null>(null);
 
 /**
  * Provider = composant qui "enveloppe" l'app
@@ -37,7 +38,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     <AuthContext.Provider
       value={{
         user,
-        isAuthenticated: !!user,
+        isAuthenticated: Boolean(user),
         login,
         logout,
       }}

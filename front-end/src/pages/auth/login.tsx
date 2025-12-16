@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./auth.css";
 import { Link } from "react-router";
 import { useAuth } from "../../context/AuthContext";
+import "./auth.css"
 
 export default function Login() {
   const { login } = useAuth(); // 👈 récupération du context
@@ -47,14 +47,14 @@ export default function Login() {
     <div className="login">
       <h1>Connexion</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
+      <form className="login-form" onSubmit={handleSubmit}>
+        <input className="login-email"
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           placeholder="Email"
         />
 
-        <input
+        <input className="login-password"
           type="password"
           value={form.password}
           onChange={(e) => setForm({ ...form, password: e.target.value })}
@@ -64,10 +64,10 @@ export default function Login() {
         {success && <p>{success}</p>}
         {errors.global && <p>{errors.global}</p>}
 
-        <button type="submit">Se connecter</button>
+        <button className="login-button" type="submit">Se connecter</button>
       </form>
 
-      <Link to="/register">Créer un compte</Link>
+      <Link className="login-lien-register" to="/register">Créer un compte</Link>
     </div>
   );
 }
