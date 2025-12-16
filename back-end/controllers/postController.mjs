@@ -1,6 +1,7 @@
 import { User, Post, Comment } from "../models/index.mjs";
 import { Sequelize } from "sequelize";
 
+
 const sendErrors = (res, errors, status = 400) => {
   return res.status(status).json({ errors });
 };
@@ -88,11 +89,6 @@ export async function getPostById(req, res) {
   }
 }
 
-///////
-
-//MS create post ci-dessous
-
-//mes codes je réfléchis MS je ne sais pas je l'ai bien placé
 
 // MS create post ci-dessous
 
@@ -100,7 +96,7 @@ export async function createPost(req, res) {
   try {
     const { content } = req.body;
 
-    if (!content) {
+    if (!content || content.trim() === "") {
       return res.status(400).json({
         errors: [{ field: "content", message: "Le contenu est requis" }]
       });
@@ -121,40 +117,7 @@ export async function createPost(req, res) {
 
 
 
-// Création d'un post
-// const newPost = await Post.create({
-//   content: "pour anniversaire Amaury",
-//   datetime: new Date(),
-//   UserId: user_id
-// }); 
-// 
-//gestion d'erreur trim 
 
-
-//MS create post ci-desous je ne sais pas si c'est au bon endroit
-
-// app.post("/posts", isLoggedInJWT(userModel), async (req, res) => {
-//     console.log(req.body);
-//     const newPostData = req.body;
-//     try {
-//         // +
-//         const newPost = await Post.create({
-//              content: newPostData.content,
-//               UserId: newPostData.user_id, 
-//             datetime: new Date(),
-//             content: req.body.content,
-//             UserId: req.user_id,
-//             PostId:req.postId
-//         });
-
-//         res.status(201).json(newPost)
-
-
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).json({ error: "Erreur lors de la création du post" });
-//     }
-// });
 
 
 
