@@ -31,8 +31,9 @@ export default function CreatePost() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    // Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
+                credentials: "include",
                 body: JSON.stringify({ content }),
             });
 

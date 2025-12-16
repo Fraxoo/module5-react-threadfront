@@ -109,7 +109,7 @@ export async function createPost(req, res) {
     const newPost = await Post.create({
       content,
     
-      "user_id": req.user_id, // injecté par le middleware JWT
+      "user_id": req.userId, // injecté par le middleware JWT
     });
 
     return res.status(201).json(newPost);
@@ -126,7 +126,9 @@ export async function createPost(req, res) {
 //   content: "pour anniversaire Amaury",
 //   datetime: new Date(),
 //   UserId: user_id
-// });
+// }); 
+// 
+//gestion d'erreur trim 
 
 
 //MS create post ci-desous je ne sais pas si c'est au bon endroit
