@@ -36,7 +36,7 @@ export default function Register() {
             const data = await res.json();
 
             if (!res.ok) {
-                setErrors(Object.fromEntries((data.errors ?? []).map((e: any) => [e.field, e.message])));
+                setErrors(data.errors || { global: "Erreur inconnue." });
                 return;
             }
 

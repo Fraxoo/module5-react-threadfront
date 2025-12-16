@@ -31,7 +31,7 @@ export default function Login() {
 
 
             if (!res.ok) {
-                setErrors(Object.fromEntries((data.errors ?? []).map((e: any) => [e.field, e.message])));
+                setErrors(data.errors)
                 return;
             }
 

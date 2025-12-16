@@ -21,3 +21,11 @@ h1 {
     line-height: 1;
     display: inline-block;
 }
+
+.success-message {
+    color: green;
+}
+
+.error-message {
+    color: red;
+}

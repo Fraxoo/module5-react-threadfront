@@ -1,0 +1,31 @@
+.create-post {
+    background: linear-gradient(125deg, rgba(0, 0, 0, 1) 0%, rgba(23, 23, 23, 1) 100%);
+    color: white;
+    padding: 1rem;
+    box-shadow: rgba(82, 81, 81, 0.24) 0px 3px 8px;
+    border-radius: 1rem;
+}
+
+.create-post textarea {
+    background: none;
+    color: white;
+    border: none;
+    height: 10rem;
+    width: 100%;
+}
+
+.create-post textarea:focus {
+    outline: none;
+}
+
+.create-post-page {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.create-post form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
