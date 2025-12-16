@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './auth.css';
-
+import {useAuth} from "../../context/AuthContext"
 
 export default function Register() {
-
+    const{login} = useAuth();
     const [success, setSuccess] = useState<string>("");
 
     const [form, setForm] = useState({
@@ -45,6 +45,7 @@ export default function Register() {
 
             // Expecting server to return a message or string on success
             setSuccess(typeof data === "string" ? data : (data.message || "Compte créé"));
+           
 
         } catch (err) {
             setErrors({ global: "Erreur" });
