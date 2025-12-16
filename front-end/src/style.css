@@ -23,6 +23,7 @@ body {
     align-items: center;
     background: #1b1b1b;
     color: #ffffff;
+    height:100vh;
 }
 
 
@@ -40,6 +41,7 @@ body {
 h1 {
 
     font-weight: 700;
+    font-size: 58px;
 
 }
 
@@ -70,6 +72,7 @@ button {
     border-radius: 12px;
     background: #ffffff;
     border: none;
+    font-size: 20px;
 }
 
 
@@ -110,21 +113,3 @@ button:hover {
     color: #535353;
 }
 
-/* .post{
-        background: linear-gradient(135deg, #35353540 60%, white);
-
-}
-
-
-} */
-
- /*   border-left: 0.3rem solid;
-    padding-left: 10px;
-    margin-top: 2.5rem;
-}
-
-h2 {
-    margin: 0;
-}
-
-Il y a un bout de code qui n'est pas le mien qui seblade je commente MS*/

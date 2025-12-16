@@ -45,7 +45,9 @@ export default function Home() {
                     <PostComponent post={item} onClick={() => handlePostClick(item.id)} />
                 )}
             />
+           <NavBarComponent/>
         </div>
 
     )
 }
+
