@@ -1,0 +1,59 @@
+.login-form form,
+.register-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.login-form,
+.register-form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+}
+
+.login-form a,
+.register-form a {
+    color: #403d3d;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.login-form input,
+.register-form input {
+    background: none;
+    border: none;
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.login-form button,
+.register-form button {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.7rem;
+    padding: 0.8rem 2.2rem;
+    font-size: 1rem;
+}
+
+.login,
+.register{
+    display: flex;
+    flex-direction: column;
+    gap: 12rem;
+}
+
+.success-message{
+    color: green;
+}
+
+.error-message{
+    color: red;
+}

@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+
+body {
+    background-color: #1b1b1b;
+    margin: 2rem;
+}
+
+h1 {
+    color: white;
+    padding-left: 0.5rem;
+    border-left: 2px white solid;
+    line-height: 1;
+    display: inline-block;
+}
