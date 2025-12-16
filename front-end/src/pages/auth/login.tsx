@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
 import "./auth.css"
 
+
 export default function Login() {
   const { login } = useAuth(); // 👈 récupération du context
+  const navigate = useNavigate();
 
   const [success, setSuccess] = useState("");
   const [form, setForm] = useState({
@@ -36,8 +38,14 @@ export default function Login() {
        * IMPORTANT :
        * On suppose que le backend renvoie l'utilisateur
        */
-      login(data.user); // 👈 stockage global
+      console.log(data);
+
+      login(data); // 👈 stockage global
       setSuccess("Connexion réussie");
+      setInterval(() => {
+        navigate("/home")
+      }, 1000)
+
     } catch {
       setErrors({ global: "Erreur serveur" });
     }
