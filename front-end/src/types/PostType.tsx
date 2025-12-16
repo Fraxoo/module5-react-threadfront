@@ -5,7 +5,7 @@ export type Post = {
     content: string;
     createdAt: string;
     commentCount: number;
-    user: {
+    User: {
         id: number;
         username: string;
         name: string;

@@ -1,4 +1,3 @@
-import NavBarComponent from "../../components/NavBarComponent"
 import { useState } from "react";
 import TitleComponent from "../../components/TitleComponent";
 import "./post.css"

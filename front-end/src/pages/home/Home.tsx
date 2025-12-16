@@ -2,6 +2,7 @@ import FeedComponent from "../../components/FeedComponent"
 import type { Post } from "../../types/PostType"
 import TitleComponent from "../../components/TitleComponent"
 import { useEffect, useState } from "react"
+import "./home.css"
 
 
 
@@ -44,9 +45,11 @@ export default function Home() {
 
     return (
         <main>
-            <TitleComponent title="Feed" />
-            <FeedComponent posts={posts} />
-            {errors.global && <p className="error-message">{errors.global}</p>}
+            <div className="home">
+                <TitleComponent title="Feed" />
+                <FeedComponent posts={posts} />
+                {errors.global && <p className="error-message">{errors.global}</p>}
+            </div>
         </main>
     )
 }
