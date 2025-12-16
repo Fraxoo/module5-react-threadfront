@@ -39,7 +39,7 @@ export default function Home() {
 
     return (
         <div>
-            <FeedComponent 
+            <FeedComponent
                 items={posts || []}
                 Component={({ item }) => (
                     <PostComponent post={item} onClick={() => handlePostClick(item.id)} />
