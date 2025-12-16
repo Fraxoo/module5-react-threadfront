@@ -37,7 +37,7 @@ export default function CreatePost() {
             });
 
             // MS optionnel : reset form
-            e.currentTarget.reset();
+            // e.currentTarget.reset();
 
         } catch (error) {
             console.error("Erreur création post", error);
