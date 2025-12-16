@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 import NavBarComponent from "../../components/navbar/NavBarComponent"
-=======
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import type { PostType } from "../../types/PostType";
@@ -8,7 +6,6 @@ import FeedComponent from "../../components/FeedComponent";
 import PostComponent from "../../components/PostComponent";
 import "./home.css"
 
->>>>>>> origin/3-post-front-end-display
 
 export default function Home() {
     const [posts, setPosts] = useState<PostType[]>([]);
@@ -42,11 +39,6 @@ export default function Home() {
 
     return (
         <div>
-<<<<<<< HEAD
-   
-         <NavBarComponent/>
-        </div>
-=======
             <FeedComponent
                 items={posts || []}
                 Component={({ item }) => (
@@ -55,6 +47,5 @@ export default function Home() {
             />
         </div>
 
->>>>>>> origin/3-post-front-end-display
     )
 }

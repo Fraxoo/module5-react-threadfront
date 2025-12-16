@@ -64,6 +64,7 @@ export async function register(req, res) {
     } catch (err) {
         return catchError(res, err);
     }
+
 }
 
 export async function login(req, res) {
