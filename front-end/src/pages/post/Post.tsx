@@ -19,11 +19,11 @@ export default function Post() {
 
   const fetchPost = async () => {
     try {
-      const res = await fetch("`http://localhost:8000/post/${postId}`", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include"
-      })
+               const res = await fetch(`http://localhost:8000/post/${postId}`, {
+                    method: "GET",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include"
+                })
       if (!res.ok) throw new Error(`Post ${postId} introuvable`);
       const data = await res.json();
       setPost(data);

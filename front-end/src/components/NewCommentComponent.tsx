@@ -20,8 +20,15 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                credentials: "include",
                 body: JSON.stringify({ postId, content }),
             });
+            //  このコメントを残すことで、フェッチをして何が出てくるのかが理解できる。毎回このようにここに残すことで絵ーが起きたときにな二が原因なのか特定しやすい
+
+            const data = await res.json()
+
+            console.log(data);
+
 
             if (!res.ok) {
                 throw new Error("Erreur lors de l'envoi");
