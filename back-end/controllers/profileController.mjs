@@ -17,38 +17,72 @@ function catchError(res, err) {
     return sendErrors(res, [{ field: "global", message: err.message }], 500);
 }
 
-export async function getPostByUserId(req, res) {
-    try {
-        const userId = req.params.userId;
+export async function getPostsByUserId(req, res) {
+  try {
+    const userId = req.params.userId;
 
-        // Récupérer le post avec commentaires et users
-        const postData = await Post.findByPk(userId, {
-            include: [
-                {
-                    model: Comment,
-                    include: [{ model: User }],
-                },
-                {
-                    model: User, // auteur du post
-                },
-            ],
-        });
+    // Récupérer tous les posts de l'utilisateur
+    const posts = await Post.findAll({
+      where: { user_id: userId },
+      include: [
+        {
+          model: Comment,
+          include: [{ model: User }],
+        },
+        {
+          model: User, // auteur du post
+        },
+      ],
+      order: [["createdAt", "DESC"]],
+    });
 
-        if (!postData) {
-            return res.status(404).json({ error: "Post introuvable" });
-        }
-
-        // Ajouter le nombre total de commentaires
-        const postsCount = await Post.count({
-            where: { user_id: userId },
-        });
-
-        // Convertir en JSON et ajouter le champ commentsCount
-        const postJson = postData.toJSON();
-        postJson.postsCount = postsCount;
-
-        res.json(postJson);
-    } catch (err) {
-        return catchError(res, err);
+    if (!posts || posts.length === 0) {
+      return res.status(404).json({ error: "Aucun post trouvé pour cet utilisateur" });
     }
+
+    // Ajouter le nombre de commentaires à chaque post
+    const postsWithCounts = posts.map((post) => {
+      const postJson = post.toJSON();
+      postJson.commentsCount = postJson.Comments ? postJson.Comments.length : 0;
+      return postJson;
+    });
+
+    res.json(postsWithCounts);
+  } catch (err) {
+    return catchError(res, err);
+  }
+}
+
+export async function getPostsByUserLog(req, res) {
+  try {
+    const userId = req.userId;
+
+    const posts = await Post.findAll({
+      where: { user_id: userId },
+      include: [
+        {
+          model: Comment,
+          include: [{ model: User }],
+        },
+        {
+          model: User,
+        },
+      ],
+      order: [["createdAt", "DESC"]],
+    });
+
+    if (!posts || posts.length === 0) {
+      return res.status(404).json({ error: "Aucun post trouvé pour cet utilisateur" });
+    }
+
+    const postsWithCounts = posts.map((post) => {
+      const postJson = post.toJSON();
+      postJson.commentsCount = postJson.Comments ? postJson.Comments.length : 0;
+      return postJson;
+    });
+
+    res.json(postsWithCounts);
+  } catch (err) {
+    return catchError(res, err);
+  }
 }

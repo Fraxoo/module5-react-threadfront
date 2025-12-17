@@ -17,21 +17,31 @@ export default function Profile() {
         const fetchPost = async () => {
 
             try {
-                const res = await fetch(`hhttp://localhost:8000/post/${user_id}`, {
+                const res = await fetch("http://localhost:8000/profile/me", {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
                     credentials: "include"
                 })
 
+
+
                 if (!res.ok) {
                     throw new Error("Erreur serveur");
                 }
+
                 const data = await res.json();
+                console.log("posts:", data);
                 setPosts(Array.isArray(data) ? data : []);
-                
+
             } catch (err) {
                 console.error("fetch error", err);
-                setErrors(err || "Erreur réseau");
+
+                if (err instanceof Error) {
+                    setErrors(err.message);
+                } else {
+                    setErrors("Erreur réseau");
+                }
+
             }
         };
         fetchPost();

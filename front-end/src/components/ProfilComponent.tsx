@@ -10,7 +10,7 @@ export default function ProfilComponent({ post }: Props) {
 
             <h2>{post.User.username}</h2>
             <div className="newest-post">
-                <p >Dernier post le{post.createdAt}</p>
+                <p >Dernier post le {post.createdAt}</p>
                 <p>{post.content}</p>
 
             </div>

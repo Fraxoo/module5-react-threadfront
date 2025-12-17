@@ -6,9 +6,19 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
     const [content, setContent] = useState("");
     const [error, setError] = useState("");
 
+    const date = new Date();
+    const datefr = date.toLocaleDateString("fr-FR", {
+        day: "2-digit",
+        month: "long",   // ← mois en toutes lettres
+        year: "2-digit", // ← année sur 2 chiffres
+    });
+    const hourTime = date.getHours();
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    // MS pour que ça marche entre le back-end et le front-end ici début
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        
         if (!content.trim()) {
             setError("Ajoutez un commentaire.");
             return;
@@ -36,6 +46,7 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
 
             setContent("");
             setError("");
+
         } catch (err) {
             if (err instanceof Error) {
                 setError(err.message);
@@ -57,7 +68,9 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
-                <p>Date</p>
+                <p className="date">
+                    {hourTime}:{minutes} - {datefr}
+                </p>
                 <button className="comment-button" type="submit">Envoyer</button>
             </form>
 

@@ -1,10 +1,10 @@
 import express from "express"
-import { getPostByUserId } from "../controllers/profileController.mjs"
+import { getPostsByUserLog } from "../controllers/profileController.mjs";
 import { isLoggedInJWT } from "../middlewares/isLoggedInJWT.mjs";
 
 const router = express.Router();
 
-router.get("/:userId", isLoggedInJWT(), getPostByUserId)
+router.get("/me", isLoggedInJWT(), getPostsByUserLog)
 
 
 export default router
