@@ -7,7 +7,7 @@ export default function PostComponent({ post }: { post: Post }) {
 
     return (
         <div className="post-card">
-            <h2>@{post.User.username}</h2>
+            <h3>@{post.User.username}</h3>
             <p className="content">{post.content}</p>
             <p>15:25 - 13 aout</p>
         </div>

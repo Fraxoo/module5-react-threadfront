@@ -12,6 +12,6 @@ const router = express.Router();
 router.post("/register", register);
 router.post("/login", login);
 router.post("/logout", logout);
-router.get("/profil/:id", isLoggedInJWT(), getProfil)
+router.get("/profil/:id/:offset", isLoggedInJWT(), getProfil)
 
 export default router

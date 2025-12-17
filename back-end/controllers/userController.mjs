@@ -2,7 +2,8 @@ import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { Post, User } from "../models/index.mjs";
 import bcrypt from "bcrypt";
-
+import { Op } from "sequelize";
+import { sequelize } from "../config/database.mjs";
 // Ici, on fait tout ce qui est vérification, etc. des routes
 
 dotenv.config();
@@ -109,23 +110,46 @@ export async function logout(req, res) {
 
 export async function getProfil(req, res) {
     try {
-        const id = req.params.id;
+        const id = Number(req.params.id);
+        const offset = Number(req.params.offset) || 0;
+        const limit = 10;
 
         if (!id) {
-            return sendErrors(res, { global: "Parametre manquant" })
+            return sendErrors(res, { global: "Paramètre manquant." }, 400);
         }
 
-        const user = await User.findByPk(id, {
-            include: [{ model: Post }],
-            order: [["createdAt", "DESC"]],
-        })
-
+        const user = await User.findByPk(id);
         if (!user) {
-            return sendErrors(res, { global: "Utilisateur introuvable" })
+            return sendErrors(res, { global: "Utilisateur introuvable." }, 404);
         }
 
-        return res.status(200).json(user)
+        const lastPost = await Post.findOne({
+            where: { user_id: id, parent_id: null },
+            order: [["createdAt", "DESC"]],
+        });
+
+        const posts = await Post.findAll({
+            where: {
+                user_id: id,
+                parent_id: null,
+                ...(offset === 0 && lastPost ? { id: { [Op.ne]: lastPost.id } } : {}),
+            },
+            include: [{ model: User }],
+            order: [["createdAt", "DESC"]],
+            limit,
+            offset
+        });
+
+        const totalPosts = await Post.count({
+            where: {
+                parent_id: null,
+                user_id: id
+            }
+        });
+
+
+        return res.status(200).json({ user, lastPost, posts,totalPosts });
     } catch (err) {
-        return catchError(res, err)
+        return catchError(res, err);
     }
 }

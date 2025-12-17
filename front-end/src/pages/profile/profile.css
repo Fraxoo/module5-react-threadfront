@@ -1,0 +1,38 @@
+.profil{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profil-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profil-hour{
+    color: rgb(153, 153, 153);
+}
+
+.profil-last-post-info{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.profil-content-count{
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-left: 1rem;
+}
+
+.profil-content-count img{
+    width: 1.5rem;
+}
+
+.profil-feed{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
