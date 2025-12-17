@@ -23,18 +23,12 @@ export default function Home() {
                     headers: { "Content-Type": "application/json" },
                     credentials: "include"
                 })
-
                 const data = await res.json();
-                console.log(data);
-
-
                 if (!res.ok) {
                     setErrors(data.errors)
                     return
                 }
-
                 setPosts(data);
-
             } catch (err) {
                 console.error(err);
                 return

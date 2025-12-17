@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
-import { User } from "../models/index.mjs";
+import { Post, User } from "../models/index.mjs";
 import bcrypt from "bcrypt";
 
 // Ici, on fait tout ce qui est vérification, etc. des routes
@@ -105,4 +105,27 @@ export async function logout(req, res) {
     });
 
     return res.json({ message: "Déconnecté" });
+}
+
+export async function getProfil(req, res) {
+    try {
+        const id = req.params.id;
+
+        if (!id) {
+            return sendErrors(res, { global: "Parametre manquant" })
+        }
+
+        const user = await User.findByPk(id, {
+            include: [{ model: Post }],
+            order: [["createdAt", "DESC"]],
+        })
+
+        if (!user) {
+            return sendErrors(res, { global: "Utilisateur introuvable" })
+        }
+
+        return res.status(200).json(user)
+    } catch (err) {
+        return catchError(res, err)
+    }
 }
