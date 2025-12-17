@@ -1,25 +1,57 @@
 .list {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    font-family: inherit;
-    width: 316;
-    height: 114;
-    border-radius: 23px;
-    color: #000000;
-    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+    gap: 15px;
+}
+
+.post {
+    margin-top: 15px;
+}
+
+.new-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
 }
 
+.comment-username {
+    margin-left: 15px;
+}
+
+.formcomment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.count {
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
 .text-comment {
-    width: 100%;
-    min-height: 120px;
-    /* ← 大きく */
+
+    width: 90%;
+    border-radius: 23px;
+    min-height: 60px;
     padding: 12px;
     font-size: 1rem;
     resize: vertical;
+    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+}
 
+
+
+
+.comment-button {
+    width: 90%;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+    margin-bottom: 10px;
 }
 
 .card {
@@ -47,4 +79,5 @@
     border-radius: 23px;
     color: #000000;
     background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+
 }

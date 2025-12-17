@@ -14,3 +14,6 @@ export default function FeedComponent<T>({ items, Component }: FeedType<T>) {
     </div>
   );
 }
+
+
+//MS ne pas mettre de "any" dans un projet react jamais !!!! 

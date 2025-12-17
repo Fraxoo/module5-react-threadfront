@@ -39,21 +39,21 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
     };
 
     return (
-        <div>
-            <h2>username</h2>
+        <div className="new-comment">
+            <h2 className="comment-username">username</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form className="formcomment" onSubmit={handleSubmit}>
                 <textarea className="text-comment"
-                    
+
                     name="content"
                     placeholder="Tapez votre commentaire ici !"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
-                <button type="submit">Envoyer</button>
+                <p>Date</p>
+                <button className="comment-button" type="submit">Envoyer</button>
             </form>
 
-            <p>Date</p>
         </div>
     );
 }

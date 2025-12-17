@@ -1,93 +1,73 @@
-import React, { useState } from 'react';
-import './auth.css';
-import { Link } from 'react-router';
+import React, { useState } from "react";
+import "./auth.css";
+import { Link } from "react-router";
+import { useAuth } from "../../context/AuthContext";
 
+export default function Login() {
+  const { login } = useAuth(); // 👈 récupération du context
 
+  const [success, setSuccess] = useState("");
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-export default function login() {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrors({});
 
-    const [success, setSuccess] = useState("");
+    try {
+      const response = await fetch("http://localhost:8000/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+        credentials: "include",
+      });
 
-    const [form, setForm] = useState({
-        email: "",
-        password: "",
-    })
+      const data = await response.json();
 
-    const [error, setError] = useState("")
+      if (!response.ok) {
+        setErrors({ global: data.message || "Erreur" });
+        return;
+      }
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+      /**
+       * IMPORTANT :
+       * On suppose que le backend renvoie l'utilisateur
+       */
+      login(data.user); // 👈 stockage global
+      setSuccess("Connexion réussie");
+    } catch {
+      setErrors({ global: "Erreur serveur" });
+    }
+  };
 
-        setError("");
+  return (
+    <div className="login">
+      <h1>Connexion</h1>
 
+      <form onSubmit={handleSubmit}>
+        <input
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          placeholder="Email"
+        />
 
-        try {
-            const response = await fetch("http://localhost:8000/users/login", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(form),
-            });
-            const data = await response.json();
-            console.log(data);
+        <input
+          type="password"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          placeholder="Mot de passe"
+        />
 
-            if (!response.ok) {
-                setError(data);
+        {success && <p>{success}</p>}
+        {errors.global && <p>{errors.global}</p>}
 
-                return
-            }
+        <button type="submit">Se connecter</button>
+      </form>
 
-            setSuccess(data);
-
-
-        } catch (err) {
-            setError("Erreur réseau");
-        }
-    };
-
-    return (
-        <div className='login'>
-
-            <h1>Connexion</h1>
-
-            <div className='login-form-div'>
-                <form className='login-form' onSubmit={handleSubmit}>
-
-                    <div className='login-email'>
-
-                        <input className='login-input'
-                            value={form.email}
-                            onChange={(e) => setForm({ ...form, email: (e.target as HTMLInputElement).value })}
-                            placeholder='Email'
-                        />
-                    </div>
-
-                    <div className='login-password'>
-
-                        <input className='login-input'
-                            type="password"
-                            value={form.password}
-                            onChange={(e) => setForm({ ...form, password: (e.target as HTMLInputElement).value })}
-                            placeholder='Mot de passe'
-                        />
-
-
-                    </div>
-                    {success && <p>{success}</p>}
-                    <button className="login-button" type="submit">Se connecter</button>
-                    {error && <p style={{ color: 'pink' }}>{error}</p>}
-
-                </form>
-                <Link className="login-lien-register" to={"/register"} >
-                    <p>Se créer un compte</p>
-                </Link>
-            </div>
-
-
-
-
-        </div>
-
-    );
-};
+      <Link to="/register">Créer un compte</Link>
+    </div>
+  );
+}

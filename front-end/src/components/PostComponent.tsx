@@ -8,7 +8,7 @@ type Props = {
 export default function PostComponent({ post, onClick }: Props) {
 
   return (
-    <div className="post"
+    <div className="posts"
       onClick={onClick}
     >
       <h3>{post.User.username}</h3>

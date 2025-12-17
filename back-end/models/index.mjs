@@ -11,6 +11,7 @@ Post.belongsTo(User, {
     foreignKey: "user_id",
 });
 
+// ici on définit les relations 
 // Post <-> Comment
 Post.hasMany(Comment, {
     foreignKey: "post_id",
