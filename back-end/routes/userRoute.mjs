@@ -1,5 +1,5 @@
 import express from "express"
-import { register, login, logout, getProfil } from "../controllers/userController.mjs";
+import { register, login, logout, getProfil, getMe } from "../controllers/userController.mjs";
 import { isLoggedInJWT } from "../middlewares/isLoggedInJWT.mjs";
 
 
@@ -13,5 +13,6 @@ router.post("/register", register);
 router.post("/login", login);
 router.post("/logout", logout);
 router.get("/profil/:id/:offset", isLoggedInJWT(), getProfil)
+router.get("/me", isLoggedInJWT(), getMe)
 
 export default router

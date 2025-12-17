@@ -148,8 +148,27 @@ export async function getProfil(req, res) {
         });
 
 
-        return res.status(200).json({ user, lastPost, posts,totalPosts });
+        return res.status(200).json({ user, lastPost, posts, totalPosts });
     } catch (err) {
         return catchError(res, err);
+    }
+}
+
+
+export async function getMe(req, res) {
+    try {
+        const id = req.user.id;
+
+        const user = await User.findByPk(id, {
+            attributes: { exclude: ["password"] }, //pratique
+        });
+
+        if (!user) {
+            return sendErrors(res, { global: "Erreur Aucun utilisateur trouvée " });
+        }
+
+        return res.status(200).json(user)
+    } catch (err) {
+        return catchError(res, err)
     }
 }

@@ -7,21 +7,24 @@ import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import "./style.css"
 import AppLayout from "./components/appLayout";
+import { AuthProvider } from "./context/AuthContext";
 
 export default function App() {
     return (
-        <Routes>
-            <Route element={<AppLayout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/create/post" element={<CreatePost />} />
-                <Route path="/profil/:id" element={<Profile />} />
-            </Route>
+        <AuthProvider>
+            <Routes>
+                <Route element={<AppLayout />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/create/post" element={<CreatePost />} />
+                    <Route path="/profil/:id" element={<Profile />} />
+                </Route>
 
-            <Route path="/post/:id" element={<Post />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-        </Routes>
+                <Route path="/post/:id" element={<Post />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </AuthProvider>
 
     );
 }
