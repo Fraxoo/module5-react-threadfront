@@ -1,4 +1,6 @@
-
+/* *{
+    outline: #5a63e6 1px solid;
+} */
 .navigation {
     position: relative;
     display: grid;
@@ -147,6 +149,20 @@ item.addEventListener('click',activeLink)); */
     grid-column: 3;
 }
 
+/* Hover Create */
+.navigation:has(.createpost:hover) .indicator {
+    grid-column: 1;
+}
+
+/* Hover Profile */
+.navigation:has(.profile:hover) .indicator {
+    grid-column: 2;
+}
+
+/* Hover Home */
+.navigation:has(.accueil:hover) .indicator {
+    grid-column: 3;
+}
 
 .navigation.create-active .createpost .icon img,
 .navigation.profile-active .profile .icon img,
