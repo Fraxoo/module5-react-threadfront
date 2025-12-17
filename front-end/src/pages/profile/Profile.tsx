@@ -15,14 +15,20 @@ export default function Profile() {
 
     useEffect(() => {
         const fetchPost = async () => {
+
             try {
-                const res = await fetch(`http://localhost:8000/post/${user_id}`);
+                const res = await fetch(`hhttp://localhost:8000/post/${user_id}`, {
+                    method: "GET",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include"
+                })
 
                 if (!res.ok) {
                     throw new Error("Erreur serveur");
                 }
                 const data = await res.json();
                 setPosts(Array.isArray(data) ? data : []);
+                
             } catch (err) {
                 console.error("fetch error", err);
                 setErrors(err || "Erreur réseau");
@@ -53,9 +59,9 @@ export default function Profile() {
             <FeedComponent
                 items={otherPosts || []}
                 Component={({ item }) => (
-                <PostComponent post={item} onClick={()=>handlePostClick(item.id)}/>
-            
-            )}
+                    <PostComponent post={item} onClick={() => handlePostClick(item.id)} />
+
+                )}
             />
             <NavBarComponent />
         </div>

@@ -12,8 +12,11 @@
     margin-left: 2px; /* Espace entre | et Feed je vous mets une partie pour vous aider ;) après c'est à vous de jouer !!!!!! */
     
 }
-
-.posts {
+.feed-container{
+    display: flex;
+    flex-direction: column;
+}
+/* .posts {
 
     display: flex;
     justify-content: center;
@@ -25,4 +28,4 @@
     background: linear-gradient(135deg, #0D0D0D 60%, rgba(29, 29, 29, 0.25));
     border-radius: 23px;
     padding: 22px 20px;      /* ← padding augmenté */
-}
+/* } */ 

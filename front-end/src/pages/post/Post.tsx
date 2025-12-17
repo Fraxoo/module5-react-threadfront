@@ -16,10 +16,14 @@ export default function Post() {
   const [error, setError] = useState<string>("");
 
   if (!postId) return;
-  
+
   const fetchPost = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/post/${postId}`);
+      const res = await fetch("`http://localhost:8000/post/${postId}`", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include"
+      })
       if (!res.ok) throw new Error(`Post ${postId} introuvable`);
       const data = await res.json();
       setPost(data);
@@ -28,7 +32,7 @@ export default function Post() {
       setError(err.message || "Erreur réseau");
     }
   };
-  
+
   useEffect(() => {
     fetchPost();
   }, [postId]);
@@ -39,6 +43,7 @@ export default function Post() {
 
   return (
     <div>
+      <h1>Post</h1>
       {/* Post principal */}
       <PostComponent post={post} />
       <NewCommentComponent
@@ -51,7 +56,7 @@ export default function Post() {
         items={post.Comments}
         Component={({ item }) => <CommentComponent comment={item} />}
       />
-<NavBarComponent/>
+      <NavBarComponent />
     </div>
   );
 }

@@ -3,9 +3,10 @@
     flex-direction: column;
     gap: 15px;
 }
-
-.post {
-    margin-top: 15px;
+.post{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .new-comment {
