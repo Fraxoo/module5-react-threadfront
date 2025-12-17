@@ -27,7 +27,12 @@ export default function NavBarComponent() {
 
 
     return (
-        <footer className="navigation">
+        <footer className={`navigation
+    ${location.pathname === "/createpost/post" ? "create-active" : ""}
+    ${location.pathname.startsWith("/profile") ? "profile-active" : ""}
+    ${location.pathname === "/" ? "home-active" : ""}
+  `}>
+          
             <div className='createpost'>
                 {location.pathname !== "/createpost/post" &&
                     (<Link to="/createpost/post">
@@ -63,6 +68,7 @@ export default function NavBarComponent() {
                     </Link>
                 )}
             </div>
+           
             <div className="indicator"></div>
         </footer>
     )
