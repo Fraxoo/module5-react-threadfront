@@ -69,7 +69,7 @@ export default function NavBarComponent() {
                 )}
             </div>
            
-            <div className="indicator"></div>
+            <div className="indicator"><img className="indicator-icon" src="/assets/Createpost.svg" alt="" /></div>
         </footer>
     )
 }

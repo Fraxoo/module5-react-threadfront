@@ -254,7 +254,6 @@ item.addEventListener('click',activeLink)); */
 
 .list:hover .icon img {
     transform: translateY(-28px);
-    background: #5a63e6;
 }
 
 .list:hover .text {
@@ -272,7 +271,7 @@ item.addEventListener('click',activeLink)); */
     left: calc(100% / 6);
     width: 70px;
     height: 70px;
-    background: greenyellow;
+    background: #5a63e6;
     border-radius: 50%;
     border: 6px solid #1b1b1b;
 
@@ -359,4 +358,26 @@ item.addEventListener('click',activeLink)); */
     opacity: 1;
     transform: translate(-50%, -1px);
     /* 👈 monte comme l’icône */
+}
+
+.indicator-icon {
+    width: 1.4rem;
+    filter: invert(1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.navigation:has(.createpost:hover) .indicator-icon {
+    content: url("/assets/Createpost.svg");
+}
+
+.navigation:has(.profile:hover) .indicator-icon {
+    content: url("/assets/profile.svg");
+}
+
+.navigation:has(.accueil:hover) .indicator-icon {
+    content: url("/assets/accueil.svg");
 }
