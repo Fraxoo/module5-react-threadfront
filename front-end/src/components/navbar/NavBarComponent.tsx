@@ -35,6 +35,7 @@ export default function NavBarComponent() {
                             <span className="icon">
                                 <img src="/assets/Createpost.svg" alt="create post" />
                             </span>
+                            <span className='text'>Create</span>
                         </li>
                     </Link>)
                 }
@@ -46,6 +47,7 @@ export default function NavBarComponent() {
                             <span className="icon">
                                 <img src="/assets/profile.svg" alt="profile " />
                             </span>
+                             <span className='text'>Profile</span>
                         </li>
                     </Link>)}
             </div>
@@ -56,10 +58,12 @@ export default function NavBarComponent() {
                             <span className="icon">
                                 <img src="/assets/accueil.svg" alt="accueil" />
                             </span>
+                             <span className='text'>Home</span>
                         </li>
                     </Link>
                 )}
             </div>
+            <div className="indicator"></div>
         </footer>
     )
 }

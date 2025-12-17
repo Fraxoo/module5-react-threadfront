@@ -1,4 +1,3 @@
-import NavBarComponent from "../../components/navbar/NavBarComponent"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import type { PostType } from "../../types/PostType";
@@ -49,7 +48,6 @@ export default function Post() {
         items={post.Comments}
         Component={({ item }) => <CommentComponent comment={item} />}
       />
-<NavBarComponent/>
     </div>
   );
 }

@@ -8,18 +8,34 @@
     color: #ffffff;
     list-style: none;
     gap:50px;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
 }
 
 
 img{
-     width: 3rem;
+     width: 1.5rem;
+     /* bonus */
+      line-height: 75px;
+    
 }
 
 
+
+/* img:hover {
+    background: #5a63e6;
+    /* bonus ci-dessous */
+    /* transform: translateY(-35px);
+    transition: 0.5s;
+} */ 
 
 img:hover {
     background: #5a63e6;
+    /* bonus ci-dessous */
+    transform: translateY(-32px);
+    transition: 0.5s;
 }
+
 
 
 
@@ -27,4 +43,89 @@ img:hover {
  li {
     display: flex;
     justify-content: center;
+    /* bonus ci-dessous entre ses parenthèses MS*/
+    z-index: 1;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
 }
+
+/* Bonus */
+
+.text{
+   font-size: 0.75rem;
+   color: #ffffff;
+   letter-spacing: 0.05rem;
+   transition: 0.5s;
+   opacity:0;
+   transform: translateY(20px);
+}
+
+ li:hover .text{
+opacity: 1;
+transform: translateY(10px);
+}
+
+.indicator{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: greenyellow;
+    border-radius: 50%;
+    border:6px solid #1b1b1b;
+    transition: 0.5s;
+}
+
+.indicator::before{
+  content: '';
+  position: absolute;
+  top:50%;
+  left: -22px;
+  width: 20px;
+  height:20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 1px -10px 0 0 #1b1b1b;
+}
+
+
+.indicator::after{
+  content: '';
+  position: absolute;
+  top:50%;
+  right: -22px;
+  width: 20px;
+  height:20px;
+  background: transparent;
+  border-top-left-radius: 20px;
+  box-shadow: -1px -10px 0 0 #1b1b1b;
+}
+
+
+/* c'est le script javascript mais je suis en react et en plus ilo y a du remove ce n'est pas bon */
+
+/* const list = document.querySelectorAll('.list');
+function activeLink(){
+list.forEach((item)=> item.classList.remove('active'));
+this.classList.add('active');
+}
+
+list.forEach((item)=>
+item.addEventListener('click',activeLink)); */
+
+/*MS à partir de navigation etc... je ne sais pas ce que c'est je vasi me documenter à ce sujet */
+/* .navigation ul li:nth-child(1).active ~ .indicator
+{
+    transform:trasnlateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator
+{
+    transform:trasnlateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator
+{
+    transform:trasnlateX(calc(70px * 2));
+} */
+
