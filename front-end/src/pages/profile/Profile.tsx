@@ -6,6 +6,7 @@ import type { Post } from "../../types/PostType";
 import type { UserType } from "../../types/UserType";
 import "./profile.css"
 import postAsset from "../../assets/posts.png"
+import NavBarComponent from "../../components/NavBarComponent";
 
 
 
@@ -56,6 +57,7 @@ export default function Profile() {
 
 
     return (
+
         <main>
             <div className="profil">
                 <TitleComponent title="Profile" />
@@ -78,5 +80,6 @@ export default function Profile() {
                 </div>
             </div>
         </main>
+
     )
 }

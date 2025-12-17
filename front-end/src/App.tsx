@@ -6,17 +6,19 @@ import Profile from "./pages/profile/Profile";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 import "./style.css"
-
-
+import AppLayout from "./components/appLayout";
 
 export default function App() {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/profil/:id" element={<Profile />} />
+            <Route element={<AppLayout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/create/post" element={<CreatePost />} />
+                <Route path="/profil/:id" element={<Profile />} />
+            </Route>
+
             <Route path="/post/:id" element={<Post />} />
-            <Route path="/create/post" element={<CreatePost />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
         </Routes>
