@@ -1,7 +1,7 @@
 /* *{
     outline: #5a63e6 1px solid;
 } */
-.navigation {
+/* .navigation {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -19,8 +19,8 @@
 .icon img {
     width: 1.5rem;
     /* bonus */
-    /* line-height: 75px; */
-    transition: 0.5s;
+/* line-height: 75px; */
+/* transition: 0.5s;
 
 }
 
@@ -29,27 +29,27 @@
 .list:hover .icon img {
     background: #5a63e6;
     /* bonus ci-dessous */
-    transform: translateY(-32px);
+/* transform: translateY(-32px);
 
-}
-
-
+} */
 
 
 
-li {
+
+
+/* li {
     display: flex;
     justify-content: center;
     /* bonus ci-dessous entre ses parenthèses MS*/
-    z-index: 1;
+/* z-index: 1;
     align-items: center;
     flex-direction: column;
    
-}
+} */
 
 /* Bonus */
 
-.text {
+/* .text {
     font-size: 0.75rem;
     letter-spacing: 0.05rem;
     opacity: 0;
@@ -111,7 +111,7 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 /* c'est le script javascript mais je suis en react et en plus ilo y a du remove ce n'est pas bon */
 
@@ -137,7 +137,7 @@ item.addEventListener('click',activeLink)); */
     transform: translateX(calc(70px * 2));
 } */
 
-.navigation.create-active .indicator {
+/* .navigation.create-active .indicator {
     grid-column: 1;
 }
 
@@ -150,30 +150,213 @@ item.addEventListener('click',activeLink)); */
 }
 
 /* Hover Create */
-.navigation:has(.createpost:hover) .indicator {
+/* .navigation:has(.createpost:hover) .indicator {
     grid-column: 1;
 }
 
 /* Hover Profile */
-.navigation:has(.profile:hover) .indicator {
+/* .navigation:has(.profile:hover) .indicator {
     grid-column: 2;
-}
+} */
 
 /* Hover Home */
-.navigation:has(.accueil:hover) .indicator {
+/* .navigation:has(.accueil:hover) .indicator {
     grid-column: 3;
+} */
+
+/* .navigation.create-active .createpost .icon img,
+.navigation.profile-active .profile .icon img,
+.navigation.home-active .accueil .icon img {
+    transform: translateY(-32px);
+    background: #5a63e6;
+} */
+
+/* .navigation.create-active .createpost .text,
+.navigation.profile-active .profile .text,
+.navigation.home-active .accueil .text {
+    opacity: 1;
+    transform: translateY(10px);
+} */
+
+
+/* ===================== */
+/* RESET & BASE          */
+/* ===================== */
+
+.navigation a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===================== */
+/* NAVIGATION            */
+/* ===================== */
+
+.navigation {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    height: 90px;
+    background: #1b1b1b;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+/* ===================== */
+/* COLONNES              */
+/* ===================== */
+
+.navigation>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===================== */
+/* ITEMS                 */
+/* ===================== */
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* ===================== */
+/* ICONES                */
+/* ===================== */
+
+.icon img {
+    width: 1.5rem;
+    transition: transform 0.4s ease, background 0.4s ease;
+}
+
+/* ===================== */
+/* TEXTE                 */
+/* ===================== */
+
+.text {
+    font-size: 0.75rem;
+    letter-spacing: 0.05rem;
+    margin-top: 6px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ===================== */
+/* HOVER                 */
+/* ===================== */
+
+.list:hover .icon img {
+    transform: translateY(-28px);
+    background: #5a63e6;
+}
+
+.list:hover .text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================== */
+/* INDICATOR             */
+/* ===================== */
+
+.indicator {
+    position: absolute;
+    top: -35px;
+    left: calc(100% / 6);
+    width: 70px;
+    height: 70px;
+    background: greenyellow;
+    border-radius: 50%;
+    border: 6px solid #1b1b1b;
+
+    transform: translate(-50%, 10px);
+    /* 👈 plus bas au repos */
+    transition: left 0.4s ease, opacity 0.3s ease, transform 0.4s ease;
+    z-index: 1;
+    opacity: 0;
+}
+
+
+
+/* COURBES */
+.indicator::before,
+.indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+
+.indicator::before {
+    left: -22px;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 #1b1b1b;
+}
+
+.indicator::after {
+    right: -22px;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 #1b1b1b;
+}
+
+/* ===================== */
+/* ROUTE ACTIVE          */
+/* ===================== */
+
+.navigation.create-active .indicator {
+    left: calc(100% / 6);
+}
+
+.navigation.profile-active .indicator {
+    left: calc(100% / 2);
+}
+
+.navigation.home-active .indicator {
+    left: calc(100% * 5 / 6);
 }
 
 .navigation.create-active .createpost .icon img,
 .navigation.profile-active .profile .icon img,
 .navigation.home-active .accueil .icon img {
-    transform: translateY(-32px);
-    background: #5a63e6;
+    transform: translateY(-28px);
 }
 
 .navigation.create-active .createpost .text,
 .navigation.profile-active .profile .text,
 .navigation.home-active .accueil .text {
     opacity: 1;
-    transform: translateY(10px);
+    transform: translateY(0);
+}
+
+/* ===================== */
+/* HOVER PRIORITAIRE     */
+/* ===================== */
+
+.navigation:has(.createpost:hover) .indicator {
+    left: calc(100% / 6);
+}
+
+.navigation:has(.profile:hover) .indicator {
+    left: calc(100% / 2);
+}
+
+.navigation:has(.accueil:hover) .indicator {
+    left: calc(100% * 5 / 6);
+}
+
+.navigation:has(.createpost:hover) .indicator,
+.navigation:has(.profile:hover) .indicator,
+.navigation:has(.accueil:hover) .indicator {
+    opacity: 1;
+    transform: translate(-50%, -1px);
+    /* 👈 monte comme l’icône */
 }
