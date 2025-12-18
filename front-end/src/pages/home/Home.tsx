@@ -41,8 +41,6 @@ export default function Home() {
         loadPosts();
     }, [offset])
 
-    console.log(posts);
-
 
     return (
         <main>

@@ -151,3 +151,13 @@ a {
     visibility: hidden;
     pointer-events: none;
 }
+
+.infinite-scroll-component {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.end-message {
+    color: white;
+}

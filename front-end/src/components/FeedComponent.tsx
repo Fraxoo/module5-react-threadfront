@@ -73,7 +73,7 @@ export default function FeedComponent({ hasMore, setOffset, posts, isReplies, se
                     <form onSubmit={handleSubmit}>
                         <p className="bold">@{user?.username}</p>
                         <input className="bold" value={formData.content} onChange={handleChange} name="content" placeholder="Taper votre commentaire ici ..." />
-                        <p className="comment-date">13:25 - 13 aout 25</p>
+                        <p className="comment-date"></p>
                     </form>
                 </div>
             ) : ""}
@@ -84,7 +84,7 @@ export default function FeedComponent({ hasMore, setOffset, posts, isReplies, se
                 loader={"chargement"}
                 endMessage={
                     <p className="end-message">
-                        <b>Yay! You have seen it all</b>
+                        <b>Aucun autre post disponible</b>
                     </p>
                 }
                 scrollableTarget="scrollable"

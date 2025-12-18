@@ -16,6 +16,9 @@ export default function Post() {
     const [commentsCount, setCommentsCount] = useState(0)
     const [hasMore, setHasMore] = useState(false)
 
+    console.log(post);
+
+
     const param = useParams();
     const id = param.id
 
