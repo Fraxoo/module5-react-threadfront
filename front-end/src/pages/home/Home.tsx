@@ -5,6 +5,7 @@ import type { PostType } from "../../types/PostType";
 import FeedComponent from "../../components/FeedComponent";
 import PostComponent from "../../components/PostComponent";
 import "./home.css"
+import { useAuth } from "../../context/AuthContext"
 
 
 export default function Home() {
@@ -42,6 +43,9 @@ export default function Home() {
     const handlePostClick = (id: number) => {
         navigate(`/post/${id}`);
     };
+    const { user } = useAuth();
+    console.log(user);
+
 
 
     return (

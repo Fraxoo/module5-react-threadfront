@@ -25,6 +25,7 @@ app.use("/users", userRouter)
 app.use("/comments", commentRouter);
 app.use("/profile", profileRouter);
 
+
 async function main() {
     try {
         await testDBConnection();
