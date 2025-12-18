@@ -4,7 +4,6 @@ import type { Post } from "../types/PostType"
 
 export default function PostComponent({ post, isReplies }: { post: Post, isReplies: boolean }) {
 
-    console.log(post);
 
     return (
         <div className={isReplies ? "comment-card" : "post-card"} >
@@ -12,11 +11,16 @@ export default function PostComponent({ post, isReplies }: { post: Post, isRepli
                 <Link to={`/profil/${post.User.id}`}>
                     <h3>@{post.User.username}</h3>
                 </Link>
-                <Link to={`/post/${post.id}`} >
-                    <p className="content">{post.content}</p>
-                </Link>
+                {isReplies
+                    ?
+                        <p className="content">{post.content}</p>
+                    :
+                        <Link to={`/post/${post.id}`} >
+                            <p className="content">{post.content}</p>
+                        </Link>}
+
             </div>
-            <p>15:25 - 13 aout</p>
+            <p className={isReplies ? "comment-date" : "post-date"}>15:25 - 13 aout</p>
         </div>
     )
 }

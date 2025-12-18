@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 
 
 
-export default function FeedComponent({ posts, isReplies }: { posts: Post[], isReplies: boolean }) {
+export default function FeedComponent({ posts, isReplies, setPosts }: { posts: Post[], isReplies: boolean, setPosts: React.Dispatch<React.SetStateAction<Post[]>> }) {
 
     const { user } = useAuth();
     const param = useParams();
@@ -15,6 +15,7 @@ export default function FeedComponent({ posts, isReplies }: { posts: Post[], isR
     const [formData, setFormData] = useState({
         content: "",
     });
+    const [success, setSuccess] = useState("")
 
 
 
@@ -37,17 +38,26 @@ export default function FeedComponent({ posts, isReplies }: { posts: Post[], isR
 
             const data = await res.json();
 
+
             if (!res.ok) {
                 console.log(data);
                 return
             }
 
-            console.log("post creer");
+            console.log(data);
+
+
+            setPosts((prev) => [data.post, ...prev]);
+            setSuccess("Commentaire ajouté!")
+            setFormData({ content: "" });
 
         } catch (err) {
             console.error(err);
         }
     }
+
+    console.log(posts);
+
 
     return (
         <div className="feed">
@@ -55,11 +65,11 @@ export default function FeedComponent({ posts, isReplies }: { posts: Post[], isR
                 <div className="comment-card">
                     <form onSubmit={handleSubmit}>
                         <p className="bold">@{user?.username}</p>
-                        <input className="bold" onChange={handleChange} name="content" placeholder="Taper votre commentaire ici ..." />
-                        <p>13:25 - 13 aout 25</p>
+                        <input className="bold" value={formData.content} onChange={handleChange} name="content" placeholder="Taper votre commentaire ici ..." />
+                        <p className="comment-date">13:25 - 13 aout 25</p>
                     </form>
                 </div>
-            ) : "salut"}
+            ) : ""}
             {posts.map((post) => (
                 <PostComponent isReplies={isReplies} post={post} />
             )

@@ -75,7 +75,7 @@ export default function Profile() {
                             <p className="white">{totalPosts}</p>
                             <img src={postAsset} alt="logo" />
                         </div>
-                        <FeedComponent posts={posts} />
+                        <FeedComponent setPosts={setPosts} isReplies={false} posts={posts} />
                     </div>
                 </div>
             </div>

@@ -48,13 +48,17 @@ export async function createPost(req, res) {
             return sendErrors(res, { content: "Contenu obligatoire." }, 400);
         }
 
-        await Post.create({
+        const newPost = await Post.create({
             user_id: userId,
             content: content.trim(),
             parent_id: post_id || null,
         });
 
-        return res.status(200).json({ message: "Post créé avec succès !" });
+        const post = await Post.findByPk(newPost.id, {
+            include: [{ model: User }],
+        })
+
+        return res.status(200).json({ message: "Post créé avec succès !", post });
     } catch (err) {
         return catchError(res, err);
     }

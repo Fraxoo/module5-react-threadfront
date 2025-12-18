@@ -45,7 +45,7 @@ export default function CreatePost() {
             }
 
             setSuccess("Post crée avec succés!")
-            setInterval(() => {
+            setTimeout(() => {
                 navigate("/home");
             }, 1000)
         } catch (err) {
