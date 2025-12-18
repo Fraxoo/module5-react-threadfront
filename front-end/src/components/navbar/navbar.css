@@ -1,196 +1,8 @@
-/* *{
-    outline: #5a63e6 1px solid;
-} */
-/* .navigation {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background: #1b1b1b;
-    color: #ffffff;
-    list-style: none;
-    gap: 50px;
-    border-radius: 10px;
-    border: 1px solid #ffffff;
-    height: 90px;
-}
-
-
-
-.icon img {
-    width: 1.5rem;
-    /* bonus */
-/* line-height: 75px; */
-/* transition: 0.5s;
-
-}
-
-
-
-.list:hover .icon img {
-    background: #5a63e6;
-    /* bonus ci-dessous */
-/* transform: translateY(-32px);
-
-} */
-
-
-
-
-
-/* li {
-    display: flex;
-    justify-content: center;
-    /* bonus ci-dessous entre ses parenthèses MS*/
-/* z-index: 1;
-    align-items: center;
-    flex-direction: column;
-   
-} */
-
-/* Bonus */
-
-/* .text {
-    font-size: 0.75rem;
-    letter-spacing: 0.05rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.5s;
-    
-}
-
-.navigation  a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.list:hover .text {
-    opacity: 1;
-    transform: translateY(10px);
-}
-
-.indicator {
-     grid-row: 1;
-    align-self: start;
-    justify-self: center;
-    transform: translateY(-35px);
-    width: 70px;
-    height: 70px;
-    background: greenyellow;
-    border-radius: 50%;
-    border: 6px solid #1b1b1b;
-    transition: 0.5s;
-    z-index: 0;
-}
-
-.indicator::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -22px;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border-top-right-radius: 20px;
-    box-shadow: 1px -10px 0 0 #1b1b1b;
-}
-
-
-.indicator::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -22px;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border-top-left-radius: 20px;
-    box-shadow: -1px -10px 0 0 #1b1b1b;
-}
-
-.navigation>div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-/* c'est le script javascript mais je suis en react et en plus ilo y a du remove ce n'est pas bon */
-
-/* const list = document.querySelectorAll('.list');
-function activeLink(){
-list.forEach((item)=> item.classList.remove('active'));
-this.classList.add('active');
-}
-
-list.forEach((item)=>
-item.addEventListener('click',activeLink)); */
-
-/*MS à partir de navigation etc... je ne sais pas ce que c'est je vasi me documenter à ce sujet */
-/* .navigation ul li:nth-child(1).active~.indicator {
-    transform: translateX(calc(70px * 0));
-}
-
-.navigation ul li:nth-child(2).active~.indicator {
-    transform: translateX(calc(70px * 1));
-}
-
-.navigation ul li:nth-child(3).active~.indicator {
-    transform: translateX(calc(70px * 2));
-} */
-
-/* .navigation.create-active .indicator {
-    grid-column: 1;
-}
-
-.navigation.profile-active .indicator {
-    grid-column: 2;
-}
-
-.navigation.home-active .indicator {
-    grid-column: 3;
-}
-
-/* Hover Create */
-/* .navigation:has(.createpost:hover) .indicator {
-    grid-column: 1;
-}
-
-/* Hover Profile */
-/* .navigation:has(.profile:hover) .indicator {
-    grid-column: 2;
-} */
-
-/* Hover Home */
-/* .navigation:has(.accueil:hover) .indicator {
-    grid-column: 3;
-} */
-
-/* .navigation.create-active .createpost .icon img,
-.navigation.profile-active .profile .icon img,
-.navigation.home-active .accueil .icon img {
-    transform: translateY(-32px);
-    background: #5a63e6;
-} */
-
-/* .navigation.create-active .createpost .text,
-.navigation.profile-active .profile .text,
-.navigation.home-active .accueil .text {
-    opacity: 1;
-    transform: translateY(10px);
-} */
-
-
-/* ===================== */
-/* RESET & BASE          */
-/* ===================== */
-
 .navigation a {
     text-decoration: none;
     color: inherit;
 }
 
-/* ===================== */
-/* NAVIGATION            */
-/* ===================== */
 
 .navigation {
     position: relative;
@@ -198,15 +10,14 @@ item.addEventListener('click',activeLink)); */
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     height: 90px;
-    background: #1b1b1b;
     border-radius: 10px;
     border: 1px solid #ffffff;
     color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #1b1b1b 60%, rgba(255, 255, 255, 0.15));
+
 }
 
-/* ===================== */
-/* COLONNES              */
-/* ===================== */
 
 .navigation>div {
     display: flex;
@@ -214,9 +25,7 @@ item.addEventListener('click',activeLink)); */
     align-items: center;
 }
 
-/* ===================== */
-/* ITEMS                 */
-/* ===================== */
+
 
 .list {
     display: flex;
@@ -226,18 +35,13 @@ item.addEventListener('click',activeLink)); */
     cursor: pointer;
 }
 
-/* ===================== */
-/* ICONES                */
-/* ===================== */
+
 
 .icon img {
     width: 1.5rem;
     transition: transform 0.4s ease, background 0.4s ease;
 }
 
-/* ===================== */
-/* TEXTE                 */
-/* ===================== */
 
 .text {
     font-size: 0.75rem;
@@ -248,43 +52,41 @@ item.addEventListener('click',activeLink)); */
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* ===================== */
-/* HOVER                 */
-/* ===================== */
+
 
 .list:hover .icon img {
     transform: translateY(-28px);
+    visibility: hidden;
 }
+
 
 .list:hover .text {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* ===================== */
-/* INDICATOR             */
-/* ===================== */
+
+
+
 
 .indicator {
     position: absolute;
-    top: -35px;
+    top: -30px;
     left: calc(100% / 6);
     width: 70px;
     height: 70px;
     background: #5a63e6;
     border-radius: 50%;
-    border: 6px solid #1b1b1b;
-
-    transform: translate(-50%, 10px);
-    /* 👈 plus bas au repos */
-    transition: left 0.4s ease, opacity 0.3s ease, transform 0.4s ease;
+    border: 10px solid #1b1b1b;
+    /* transform: translate(-80%, 10px); */
+    transform: translateX(-50%) translateY(20px);
+    transition: top 0.4s ease, opacity 0.3s ease, transform 0.4s ease;
     z-index: 1;
     opacity: 0;
 }
 
 
 
-/* COURBES */
 .indicator::before,
 .indicator::after {
     content: '';
@@ -307,9 +109,7 @@ item.addEventListener('click',activeLink)); */
     box-shadow: -1px -10px 0 0 #1b1b1b;
 }
 
-/* ===================== */
-/* ROUTE ACTIVE          */
-/* ===================== */
+
 
 .navigation.create-active .indicator {
     left: calc(100% / 6);
@@ -336,9 +136,6 @@ item.addEventListener('click',activeLink)); */
     transform: translateY(0);
 }
 
-/* ===================== */
-/* HOVER PRIORITAIRE     */
-/* ===================== */
 
 .navigation:has(.createpost:hover) .indicator {
     left: calc(100% / 6);
@@ -356,8 +153,7 @@ item.addEventListener('click',activeLink)); */
 .navigation:has(.profile:hover) .indicator,
 .navigation:has(.accueil:hover) .indicator {
     opacity: 1;
-    transform: translate(-50%, -1px);
-    /* 👈 monte comme l’icône */
+    transform: translate(-50%, -10px);
 }
 
 .indicator-icon {
@@ -381,3 +177,16 @@ item.addEventListener('click',activeLink)); */
 .navigation:has(.accueil:hover) .indicator-icon {
     content: url("/assets/accueil.svg");
 }
+
+
+
+/* c'est le script javascript mais je suis en react et en plus ilo y a du remove ce n'est pas bon */
+
+/* const list = document.querySelectorAll('.list');
+function activeLink(){
+list.forEach((item)=> item.classList.remove('active'));
+this.classList.add('active');
+}
+
+list.forEach((item)=>
+item.addEventListener('click',activeLink)); */
