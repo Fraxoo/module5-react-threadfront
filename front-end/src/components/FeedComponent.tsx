@@ -57,7 +57,6 @@ export default function FeedComponent({ posts, isReplies, setPosts }: { posts: P
             console.error(err);
         }
     }
-    console.log(errors);
 
 
     return (
@@ -74,7 +73,7 @@ export default function FeedComponent({ posts, isReplies, setPosts }: { posts: P
                 </div>
             ) : ""}
             {posts.map((post) => (
-                <PostComponent isReplies={isReplies} post={post} />
+                <PostComponent key={post.id} isReplies={isReplies} post={post} />
             )
             )}
         </div>
