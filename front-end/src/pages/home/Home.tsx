@@ -41,7 +41,7 @@ export default function Home() {
         <main>
             <div className="home">
                 <TitleComponent title="Feed" />
-                <FeedComponent posts={posts} />
+                <FeedComponent posts={posts} isReplies={false} />
                 {errors.global && <p className="error-message">{errors.global}</p>}
             </div>
         </main>

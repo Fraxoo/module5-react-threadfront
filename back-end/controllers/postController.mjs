@@ -42,7 +42,7 @@ export async function getAllPostWithOffset(req, res) {
 export async function createPost(req, res) {
     try {
         const userId = req.user.id;
-        const { content, parent_id } = req.body;
+        const { content, post_id } = req.body;
 
         if (!content || content.trim() === "") {
             return sendErrors(res, { content: "Contenu obligatoire." }, 400);
@@ -51,7 +51,7 @@ export async function createPost(req, res) {
         await Post.create({
             user_id: userId,
             content: content.trim(),
-            parent_id: parent_id || null,
+            parent_id: post_id || null,
         });
 
         return res.status(200).json({ message: "Post créé avec succès !" });
@@ -119,7 +119,12 @@ export async function getPostWithRepliesOffset(req, res) {
         }
 
         const post = await Post.findByPk(postId, {
-            include: [{ model: User }],
+            include: [
+                {
+                    model: User,
+                    attributes: { exclude: ["password"] },
+                },
+            ], //pratique
         });
 
         if (!post) {
@@ -132,7 +137,12 @@ export async function getPostWithRepliesOffset(req, res) {
 
         const replies = await Post.findAll({
             where: { parent_id: postId },
-            include: [{ model: User }],
+            include: [
+                {
+                    model: User,
+                    attributes: { exclude: ["password"] },
+                },
+            ], //pratique
             order: [["createdAt", "DESC"]],
             limit: 10,
             offset,
@@ -146,4 +156,17 @@ export async function getPostWithRepliesOffset(req, res) {
     } catch (err) {
         return catchError(res, err);
     }
+}
+
+
+export async function createReplies(req, res) {
+    const id = req.params.id;
+
+    if (!id) {
+        return sendErrors(res, { global: "Aucun parametre" })
+    }
+
+    const replie = await Post.create({
+
+    })
 }
