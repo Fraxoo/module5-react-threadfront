@@ -1,35 +1,55 @@
+.post-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .list {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-.post{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+
+.post-title {
+    margin-top: 15px;
+    padding: 25px;
+    align-self: flex-start;
 }
+
+
 
 .new-comment {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    background-color: #e5e5e5;
+    border-radius: 23px;
+    width: 362px;
+    padding-top: 15px;
 
 }
 
 .comment-username {
     margin-left: 15px;
+    color: #000000;
+    align-self: flex-start;
+    font-size: 15px;
 }
 
 .formcomment {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+
 }
 
 .count {
     margin-left: 15px;
     margin-bottom: 15px;
+    align-self: flex-start;
+    padding-left: 40px;
 }
 
 .text-comment {
@@ -43,16 +63,12 @@
     background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
 }
 
-
-
-
 .comment-button {
-    width: 90%;
+    width: 40%;
     font-size: 0.9rem;
-    margin-top: 8px;
     cursor: pointer;
     background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
-    margin-bottom: 10px;
+ 
 }
 
 .card {
@@ -61,8 +77,6 @@
     align-items: center;
     flex-direction: column;
     font-family: inherit;
-    width: 316;
-    height: 114;
     border-radius: 23px;
     color: #ffffff;
     background: linear-gradient(135deg, #35353540 60%, rgba(255, 255, 255, 0.25));
@@ -75,10 +89,16 @@
     align-items: center;
     flex-direction: column;
     font-family: inherit;
-    width: 316;
-    height: 114;
+    width: 362px;
+    height: 65px;
     border-radius: 23px;
     color: #000000;
     background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
 
+}
+
+.date-button {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
 }

@@ -59,9 +59,9 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
 
     return (
         <div className="new-comment">
-            <h2 className="comment-username"> {user ? user.username : "Invité"}</h2>
 
             <form className="formcomment" onSubmit={handleSubmit}>
+                <h2 className="comment-username">@{user ? user.username : "Invité"}</h2>
                 <textarea className="text-comment"
 
                     name="content"
@@ -69,10 +69,13 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
+                <div className="date-button">
                 <p className="date">
                     {hourTime}:{minutes} - {datefr}
                 </p>
                 <button className="comment-button" type="submit">Envoyer</button>
+
+                </div>
             </form>
 
         </div>

@@ -1,15 +1,17 @@
-import NavBarComponent from "../../components/navbar/NavBarComponent"
-import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { useEffect, useState } from "react";
 import type { PostType } from "../../types/PostType";
 import type { CommentType } from "../../types/CommentType";
 
-import PostComponent from "../../components/PostComponent";
 import FeedComponent from "../../components/FeedComponent";
+import PostComponent from "../../components/PostComponent";
+import NewCommentComponent from "../../components/NewCommentComponent";
 import CommentComponent from "../../components/CommentComponent";
 import CommentCountComponent from "../../components/CommentCountComponent";
-import NewCommentComponent from "../../components/NewCommentComponent";
+import NavBarComponent from "../../components/navbar/NavBarComponent"
+
 import "./post.css"
+
 export default function Post() {
   const { postId } = useParams<{ postId: string }>();
   const [post, setPost] = useState<PostType | null>(null);
@@ -19,11 +21,11 @@ export default function Post() {
 
   const fetchPost = async () => {
     try {
-               const res = await fetch(`http://localhost:8000/post/${postId}`, {
-                    method: "GET",
-                    headers: { "Content-Type": "application/json" },
-                    credentials: "include"
-                })
+      const res = await fetch(`http://localhost:8000/post/${postId}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include"
+      })
       if (!res.ok) throw new Error(`Post ${postId} introuvable`);
       const data = await res.json();
       setPost(data);

@@ -62,8 +62,8 @@ export default function Profile() {
 
 
     return (
-        <div>
-            <h1>Profile</h1>
+        <div className="profile-page">
+            <h1 className="profile-title">|Profile</h1>
             {latestPost && <ProfilComponent
                 post={latestPost} />}
             <FeedComponent

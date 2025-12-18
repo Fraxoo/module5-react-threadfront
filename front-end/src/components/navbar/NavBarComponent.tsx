@@ -46,7 +46,7 @@ export default function NavBarComponent() {
                 }
             </div>
             <div className='profile'>
-                {!location.pathname.startsWith(`/profil/${user.id}`) && (
+                {!location.pathname.startsWith(`/profile/${user.id}`) && (
                     <Link to="/profile">
                         <li className="list">
                             <span className="icon">
