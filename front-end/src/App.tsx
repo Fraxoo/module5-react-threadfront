@@ -9,24 +9,26 @@ import Post from "./pages/post/Post";
 import '../src/style.css';
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
-//import "./style.css" MS chemin pas bon qui ne vient pas de mon code car le style doit être mius dans src
-
+import "./style.css"
+import { AuthProvider } from "./context/AuthContext";
 
 
 
 export default function App() {
     return (
 
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/createpost/post" element={<CreatePost />} />
-            <Route path="/profile/profile" element={<Profile />} />
-            <Route path="/post/post" element={<Post />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/post/:postId" element={<Post />} />
-        </Routes>
+        <AuthProvider>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/createpost/post" element={<CreatePost />} />
+                <Route path="/profile/profile" element={<Profile />} />
+                <Route path="/post/post" element={<Post />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/post/:postId" element={<Post />} />
+            </Routes>
+        </AuthProvider>
 
     );
 }
