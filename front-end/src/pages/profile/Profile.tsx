@@ -6,7 +6,6 @@ import type { Post } from "../../types/PostType";
 import type { UserType } from "../../types/UserType";
 import "./profile.css"
 import postAsset from "../../assets/posts.png"
-import NavBarComponent from "../../components/NavBarComponent";
 
 
 
