@@ -72,7 +72,7 @@
 .indicator {
     position: absolute;
     top: -30px;
-    left: calc(100% / 6);
+    left: -50%; /*Position par défault de la balise */
     width: 70px;
     height: 70px;
     background: #5a63e6;
@@ -110,7 +110,7 @@
 }
 
 
-
+/* 
 .navigation.create-active .indicator {
     left: calc(100% / 6);
 }
@@ -121,13 +121,13 @@
 
 .navigation.home-active .indicator {
     left: calc(100% * 5 / 6);
-}
+} */
 
-.navigation.create-active .createpost .icon img,
+/* .navigation.create-active .createpost .icon img,
 .navigation.profile-active .profile .icon img,
 .navigation.home-active .accueil .icon img {
     transform: translateY(-28px);
-}
+} */
 
 .navigation.create-active .createpost .text,
 .navigation.profile-active .profile .text,
@@ -141,6 +141,14 @@
     left: calc(100% / 6);
 }
 
+
+/*THis one is useful not the others :)*/
+.navigation:has(.createpost:hover) .indicator,
+.navigation:has(.profile:hover) .indicator,
+.navigation:has(.accueil:hover) .indicator {
+    opacity: 1;
+    transform: translate(-50%, -10px);
+}
 .navigation:has(.profile:hover) .indicator {
     left: calc(100% / 2);
 }
@@ -149,12 +157,6 @@
     left: calc(100% * 5 / 6);
 }
 
-.navigation:has(.createpost:hover) .indicator,
-.navigation:has(.profile:hover) .indicator,
-.navigation:has(.accueil:hover) .indicator {
-    opacity: 1;
-    transform: translate(-50%, -10px);
-}
 
 .indicator-icon {
     width: 1.4rem;
