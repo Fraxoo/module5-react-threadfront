@@ -28,6 +28,8 @@ export default function Login() {
       });
 
       const data = await response.json();
+      console.log(data);
+      
 
       if (!response.ok) {
         setErrors({ global: data.message || "Erreur" });
@@ -40,9 +42,10 @@ export default function Login() {
        */
       console.log(data);
 
-      login(data); // 👈 stockage global
+      login(data.user); // 👈 stockage global
       setSuccess("Connexion réussie");
-      setInterval(() => {
+      
+      setTimeout(() => {
         navigate("/home")
       }, 1000)
 

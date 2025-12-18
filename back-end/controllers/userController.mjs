@@ -54,7 +54,7 @@ export async function register(req, res) {
 
         const hashed = await bcrypt.hash(password, 10);
 
-        await User.create({
+        const user = await User.create({
             username,
             email,
             password: hashed,
@@ -111,4 +111,24 @@ export async function logout(req, res) {
     });
 
     return res.json({ message: "Déconnecté" });
+}
+
+export async function getMe(req,res) {
+    try {
+
+        const id = req.user.id;
+
+        const user = await User.findByPk(id,{
+            attributes: {exclude:["password"]},
+        });
+        if (!user) {
+            return sendErrors (res,{ global: "Erreur aucun utilisateur trouvé"});
+        }
+
+        return res.status(200).json(user)
+
+        
+    } catch (err) {
+        return catchError(res, err);
+    }
 }

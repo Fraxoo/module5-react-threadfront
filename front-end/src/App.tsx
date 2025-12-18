@@ -3,17 +3,20 @@ import Home from "./pages/home/Home";
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
 import "./style.css"
+import { AuthProvider } from "./context/AuthContext";
 
 
 
 export default function App() {
     return (
+        <AuthProvider>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login/>} />
+                <Route path="/login" element={<Login />} />
             </Routes>
+        </AuthProvider>
 
     );
 }

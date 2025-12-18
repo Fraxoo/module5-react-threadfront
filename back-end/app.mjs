@@ -22,6 +22,7 @@ app.use("/users", userRouter)
 app.use("/comments", commentRouter);
 
 
+
 async function main() {
     try {
         await testDBConnection();

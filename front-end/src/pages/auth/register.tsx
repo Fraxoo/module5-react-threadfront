@@ -81,7 +81,7 @@ export default function Register() {
           onChange={(e) =>
             setForm({ ...form, confirmPassword: e.target.value })
           }
-          placeholder="Confirmer le mot de passe"
+          placeholder="Confirmer"
         />
 
         {success && <p>{success}</p>}
