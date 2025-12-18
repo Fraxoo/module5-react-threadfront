@@ -136,7 +136,7 @@ export async function getProfil(req, res) {
             },
             include: [{ model: User }],
             order: [["createdAt", "DESC"]],
-            limit,
+            limit: limit,
             offset
         });
 
@@ -147,8 +147,10 @@ export async function getProfil(req, res) {
             }
         });
 
+        const hasMore = offset + limit < totalPosts;
 
-        return res.status(200).json({ user, lastPost, posts, totalPosts });
+
+        return res.status(200).json({ user, lastPost, posts, totalPosts, hasMore });
     } catch (err) {
         return catchError(res, err);
     }

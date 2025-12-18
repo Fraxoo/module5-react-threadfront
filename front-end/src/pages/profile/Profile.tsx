@@ -19,7 +19,9 @@ export default function Profile() {
     const [user, setUser] = useState<UserType>()
     const [offset, setOffset] = useState(0);
     const [lastPost, setLastPost] = useState<Post>()
-    const [totalPosts, setTotalPosts] = useState(0)
+    const [totalPosts, setTotalPosts] = useState(0);
+    const [hasMore, setHasMore] = useState(false)
+
 
 
     useEffect(() => {
@@ -41,8 +43,9 @@ export default function Profile() {
                 }
                 console.log(data);
 
+                setHasMore(data.hasMore)
                 setLastPost(data.lastPost)
-                setPosts(data.posts)
+                setPosts((prev) => [...prev, ...data.posts])
                 setUser(data.user)
                 setTotalPosts(data.totalPosts)
             } catch (err) {
@@ -52,7 +55,7 @@ export default function Profile() {
         }
 
         getProfil();
-    }, [])
+    }, [offset])
 
 
     return (
@@ -74,7 +77,7 @@ export default function Profile() {
                             <p className="white">{totalPosts}</p>
                             <img src={postAsset} alt="logo" />
                         </div>
-                        <FeedComponent setPosts={setPosts} isReplies={false} posts={posts} />
+                        <FeedComponent hasMore={hasMore} setOffset={setOffset} setPosts={setPosts} isReplies={false} posts={posts} />
                     </div>
                 </div>
             </div>

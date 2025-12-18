@@ -20,20 +20,31 @@ function catchError(res, err) {
 export async function getAllPostWithOffset(req, res) {
     try {
         const offset = Number(req.params.offset) || 0;
+        const limit = Number(10);
 
         const posts = await Post.findAll({
             where: { parent_id: null },
             include: [{ model: User }],
             order: [["createdAt", "DESC"]],
-            limit: 10,
+            limit: limit,
             offset,
         });
+
+        const postsCount = await Post.count({
+            where: { parent_id: null }
+        })
+
+        const hasMore = offset + limit < postsCount;
+
 
         if (posts.length === 0) {
             return sendErrors(res, { global: "Aucun post pour le moment." }, 400);
         }
 
-        return res.status(200).json(posts);
+        return res.status(200).json({
+            posts,
+            hasMore
+        });
     } catch (err) {
         return catchError(res, err);
     }
@@ -117,6 +128,7 @@ export async function getPostWithRepliesOffset(req, res) {
     try {
         const postId = Number(req.params.id);
         const offset = Number(req.params.offset) || 0;
+        const limit = Number(10);
 
         if (!postId) {
             return sendErrors(res, { global: "Aucun id." }, 400);
@@ -148,14 +160,17 @@ export async function getPostWithRepliesOffset(req, res) {
                 },
             ], //pratique
             order: [["createdAt", "DESC"]],
-            limit: 10,
+            limit: limit,
             offset,
         });
+
+        const hasMore = offset + limit < comments_count;
 
         return res.status(200).json({
             post,
             comments_count,
             replies,
+            hasMore
         });
     } catch (err) {
         return catchError(res, err);

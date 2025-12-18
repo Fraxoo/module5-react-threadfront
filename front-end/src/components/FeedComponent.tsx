@@ -3,10 +3,11 @@ import type { Post } from "../types/PostType"
 import { useState } from "react"
 import { useParams } from "react-router";
 import { useAuth } from "../context/AuthContext";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 
-export default function FeedComponent({ posts, isReplies, setPosts }: { posts: Post[], isReplies: boolean, setPosts: React.Dispatch<React.SetStateAction<Post[]>> }) {
+export default function FeedComponent({ hasMore, setOffset, posts, isReplies, setPosts }: { hasMore: boolean, posts: Post[], isReplies: boolean, setPosts: React.Dispatch<React.SetStateAction<Post[]>>, setOffset: React.Dispatch<React.SetStateAction<number>> }) {
 
     const { user } = useAuth();
     const param = useParams();
@@ -58,9 +59,13 @@ export default function FeedComponent({ posts, isReplies, setPosts }: { posts: P
         }
     }
 
+    function loadNext() {
+        setOffset((prev) => prev + 10); // se baser sur le offset par sur le chargement de page sinon doublon les key
+    }
+
 
     return (
-        <div className="feed">
+        <div id="scrollable" className="feed">
             {success && <p className="success-message">{success}</p>}
             {errors && <p className="error-message">{errors.content}</p>}
             {isReplies ? (
@@ -72,10 +77,22 @@ export default function FeedComponent({ posts, isReplies, setPosts }: { posts: P
                     </form>
                 </div>
             ) : ""}
-            {posts.map((post) => (
-                <PostComponent key={post.id} isReplies={isReplies} post={post} />
-            )
-            )}
+            <InfiniteScroll
+                dataLength={posts.length} //This is important field to render the next data
+                next={loadNext}
+                hasMore={hasMore}
+                loader={"chargement"}
+                endMessage={
+                    <p className="end-message">
+                        <b>Yay! You have seen it all</b>
+                    </p>
+                }
+                scrollableTarget="scrollable"
+            >
+                {posts.map((post) => {
+                    return <PostComponent isReplies={isReplies} key={post.id} post={post} />
+                })}
+            </InfiniteScroll>
         </div>
     )
 }

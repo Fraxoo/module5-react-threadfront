@@ -10,7 +10,9 @@ export default function Home() {
 
     const [posts, setPosts] = useState<Post[]>([]);
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
-    const [offset, setOffset] = useState(0)
+    const [offset, setOffset] = useState(0);
+    const [hasMore, setHasMore] = useState(false)
+
 
     useEffect(() => {
         setErrors({})
@@ -28,7 +30,9 @@ export default function Home() {
                     setErrors(data.errors)
                     return
                 }
-                setPosts(data);
+                setHasMore(data.hasMore)
+                setPosts((prev) => [...prev, ...data.posts]);
+
             } catch (err) {
                 console.error(err);
                 return
@@ -37,11 +41,14 @@ export default function Home() {
         loadPosts();
     }, [offset])
 
+    console.log(posts);
+
+
     return (
         <main>
             <div className="home">
                 <TitleComponent title="Feed" />
-                <FeedComponent setPosts={setPosts} posts={posts} isReplies={false} />
+                <FeedComponent hasMore={hasMore} setOffset={setOffset} setPosts={setPosts} posts={posts} isReplies={false} />
                 {errors.global && <p className="error-message">{errors.global}</p>}
             </div>
         </main>
