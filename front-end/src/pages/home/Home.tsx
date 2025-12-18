@@ -43,10 +43,10 @@ export default function Home() {
     const handlePostClick = (id: number) => {
         navigate(`/post/${id}`);
     };
+    
+    
     const { user } = useAuth();
     console.log(user);
-
-
 
     return (
         <div className="home-page">

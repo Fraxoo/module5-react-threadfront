@@ -7,6 +7,7 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
     const [content, setContent] = useState("");
     const [error, setError] = useState("");
     const { user } = useAuth();
+    console.log(user);
     const date = new Date();
     const datefr = date.toLocaleDateString("fr-FR", {
         day: "2-digit",

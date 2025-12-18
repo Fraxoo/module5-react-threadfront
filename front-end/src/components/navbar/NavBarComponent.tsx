@@ -1,6 +1,9 @@
 import { Link } from 'react-router';
 import './navbar.css'
 import { useLocation } from 'react-router'
+import { useAuth } from '../../context/AuthContext';
+
+
 
 // https://api.reactrouter.com/v7/functions/react_router.useLocation.html
 // le lien pour m'aider à afficher tels boutons dans telles pages
@@ -8,9 +11,12 @@ import { useLocation } from 'react-router'
 
 export default function NavBarComponent() {
 
-
     const location = useLocation();
-
+    const { user, loading } = useAuth();
+    if (loading || !user) {
+        return null;
+    }
+    console.log(user);
 
     //MS cacher certains boutons dans la navbar dans les pages suivantes avec les conditons &&:
     // - Accueil Feed la navbar a deux boutons create post et profile
@@ -40,7 +46,7 @@ export default function NavBarComponent() {
                 }
             </div>
             <div className='profile'>
-                {!location.pathname.startsWith("/profile/") && (
+                {!location.pathname.startsWith(`/profil/${user.id}`) && (
                     <Link to="/profile">
                         <li className="list">
                             <span className="icon">

@@ -19,14 +19,17 @@ export default function App() {
 
         <AuthProvider>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/createpost/post" element={<CreatePost />} />
-                <Route path="/profile/profile" element={<Profile />} />
-                <Route path="/post/post" element={<Post />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+
+                <Route path="/post" element={<Post />} />
                 <Route path="/post/:postId" element={<Post />} />
+                <Route path="/createpost/post" element={<CreatePost />} />
+
+                <Route path="/profile/" element={<Profile />} />
             </Routes>
         </AuthProvider>
 
