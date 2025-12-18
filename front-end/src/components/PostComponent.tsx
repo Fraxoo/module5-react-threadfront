@@ -11,7 +11,7 @@ export default function PostComponent({ post, onClick }: Props) {
     <div className="post"
       onClick={onClick}
     >
-      <h3>{post.User.username}</h3>
+      <h3>@{post.User.username}</h3>
       <p>{post.content}</p>
       <p>{post.createdAt}</p>
     </div>

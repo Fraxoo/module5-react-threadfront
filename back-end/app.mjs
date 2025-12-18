@@ -20,10 +20,10 @@ app.use(cors({
     credentials: true
 }));
 
-app.use("/post",postRouter)
+app.use("/post", postRouter)
 app.use("/users", userRouter)
 app.use("/comments", commentRouter);
-app.use("/profile",profileRouter);
+app.use("/profile", profileRouter);
 
 async function main() {
     try {

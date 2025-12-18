@@ -1,11 +1,12 @@
 import { useState } from "react";
 import type { NewCommentType } from "../types/NewCommentType";
+import { useAuth } from "../context/AuthContext";
 
 
 export default function NewCommentComponent({ postId }: NewCommentType) {
     const [content, setContent] = useState("");
     const [error, setError] = useState("");
-
+    const { user } = useAuth();
     const date = new Date();
     const datefr = date.toLocaleDateString("fr-FR", {
         day: "2-digit",
@@ -14,11 +15,10 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
     });
     const hourTime = date.getHours();
     const minutes = date.getMinutes().toString().padStart(2, "0");
-    // MS pour que ça marche entre le back-end et le front-end ici début
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
+
         if (!content.trim()) {
             setError("Ajoutez un commentaire.");
             return;
@@ -58,7 +58,7 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
 
     return (
         <div className="new-comment">
-            <h2 className="comment-username">username</h2>
+            <h2 className="comment-username"> {user ? user.username : "Invité"}</h2>
 
             <form className="formcomment" onSubmit={handleSubmit}>
                 <textarea className="text-comment"

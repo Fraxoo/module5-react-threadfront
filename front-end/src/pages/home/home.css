@@ -1,31 +1,15 @@
-.post-title::before {
-    content: "";
-    display: inline-block;
-    width: 5px;        /* largeur voulue */
-    height: 49px;      /* hauteur de la “barre” */
-    border-left: 2px solid white; /* épaisseur de la ligne */
-    margin-right: 2px; /* espace entre la ligne et le texte */    
-}
-
-.post-title::after {
-    content: "Feed";
-    margin-left: 2px; /* Espace entre | et Feed je vous mets une partie pour vous aider ;) après c'est à vous de jouer !!!!!! */
-    
-}
-.feed-container{
+.home-page{
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
-/* .posts {
+.feed{
+    margin-top: 15px;
+}
 
+
+ .list{
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-     width: 362px;
-    gap: 3rem;
-    text-align: left;
-    background: linear-gradient(135deg, #0D0D0D 60%, rgba(29, 29, 29, 0.25));
-    border-radius: 23px;
-    padding: 22px 20px;      /* ← padding augmenté */
-/* } */ 
+     }

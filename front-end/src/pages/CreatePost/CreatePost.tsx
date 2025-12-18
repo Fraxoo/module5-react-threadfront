@@ -1,4 +1,4 @@
-import './post.css'
+import './createPost.css'
 
 import NavBarComponent from "../../components/navbar/NavBarComponent"
 

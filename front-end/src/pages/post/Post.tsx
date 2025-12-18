@@ -42,8 +42,8 @@ export default function Post() {
   if (!post) return <div>Chargement...</div>;
 
   return (
-    <div>
-      <h1>Post</h1>
+    <div className="post-page">
+      <h1 className="post-title">|Post</h1>
       {/* Post principal */}
       <PostComponent post={post} />
       <NewCommentComponent

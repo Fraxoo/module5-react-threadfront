@@ -45,8 +45,8 @@ export default function Home() {
 
 
     return (
-        <div className="feed-cont">
-            <h1>Feed</h1>
+        <div className="home-page">
+            <h1 className="feed">|Feed</h1>
             <FeedComponent
                 items={posts || []}
                 Component={({ item }) => (
