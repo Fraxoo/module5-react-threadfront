@@ -16,6 +16,7 @@ export default function FeedComponent({ posts, isReplies, setPosts }: { posts: P
         content: "",
     });
     const [success, setSuccess] = useState("")
+    const [errors, setErrors] = useState<{ [key: string]: string }>()
 
 
 
@@ -27,6 +28,9 @@ export default function FeedComponent({ posts, isReplies, setPosts }: { posts: P
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        setSuccess("")
+        setErrors({})
 
         try {
             const res = await fetch(`http://localhost:8000/posts/add`, {
@@ -40,27 +44,26 @@ export default function FeedComponent({ posts, isReplies, setPosts }: { posts: P
 
 
             if (!res.ok) {
-                console.log(data);
+                setErrors(data.errors)
                 return
             }
-
-            console.log(data);
-
 
             setPosts((prev) => [data.post, ...prev]);
             setSuccess("Commentaire ajouté!")
             setFormData({ content: "" });
 
         } catch (err) {
+            setErrors({ global: "Erreur" })
             console.error(err);
         }
     }
-
-    console.log(posts);
+    console.log(errors);
 
 
     return (
         <div className="feed">
+            {success && <p className="success-message">{success}</p>}
+            {errors && <p className="error-message">{errors.content}</p>}
             {isReplies ? (
                 <div className="comment-card">
                     <form onSubmit={handleSubmit}>
