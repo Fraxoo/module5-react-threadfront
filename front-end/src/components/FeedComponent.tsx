@@ -2,17 +2,21 @@ import PostComponent from "./PostComponent"
 import type { Post } from "../types/PostType"
 import { useState } from "react"
 import { useParams } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
 
 
 export default function FeedComponent({ posts, isReplies }: { posts: Post[], isReplies: boolean }) {
 
+    const { user } = useAuth();
     const param = useParams();
     const post_id = param.id;
 
     const [formData, setFormData] = useState({
         content: "",
     });
+
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -28,7 +32,7 @@ export default function FeedComponent({ posts, isReplies }: { posts: Post[], isR
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ formData, post_id })
+                body: JSON.stringify({ ...formData, post_id })
             })
 
             const data = await res.json();
@@ -50,8 +54,8 @@ export default function FeedComponent({ posts, isReplies }: { posts: Post[], isR
             {isReplies ? (
                 <div className="comment-card">
                     <form onSubmit={handleSubmit}>
-                        <p>@vous</p>
-                        <input onChange={handleChange} type="text" name="content" placeholder="Taper votre commentaire ici ..." />
+                        <p className="bold">@{user?.username}</p>
+                        <input className="bold" onChange={handleChange} name="content" placeholder="Taper votre commentaire ici ..." />
                         <p>13:25 - 13 aout 25</p>
                     </form>
                 </div>
