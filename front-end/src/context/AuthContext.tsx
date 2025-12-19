@@ -45,7 +45,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
         if (!response.ok) {
           setUser(null);
-          navigate("/login")
+          if (location.pathname !== "/register" && location.pathname !== "/login") {
+            navigate("/login")
+          }
           return;
         }
 
@@ -54,7 +56,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
       catch {
         setUser(null);
-        navigate("/login")
+        if (location.pathname !== "/register" && location.pathname !== "/login") {
+          navigate("/login")
+        }
         return;
       }
       finally {

@@ -9,17 +9,18 @@
     font-optical-sizing: auto;
 }
 
-#root{
+#root {
     width: 100%;
-} 
+}
+
 /* important le root doit être à 100% */
 
 
 body {
-    
+
     background: #1b1b1b;
     color: #ffffff;
-    height:100vh;
+    height: 100vh;
 }
 
 
@@ -33,6 +34,14 @@ body {
 
 
 }*/
+
+main {
+    height: 90vh;
+}
+
+footer {
+    height: 10vh;
+}
 
 h1 {
 
@@ -108,4 +117,3 @@ button:hover {
 .date {
     color: #535353;
 }
-

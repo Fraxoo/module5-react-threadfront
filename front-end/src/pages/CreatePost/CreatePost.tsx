@@ -1,6 +1,5 @@
 import './CreatePost.css'
 
-import NavBarComponent from "../../components/navbar/NavBarComponent"
 
 import type { FormEvent } from 'react'
 
@@ -121,7 +120,6 @@ export default function CreatePost() {
                 </form>
             </div>
 
-            <NavBarComponent />
         </div>
 
 

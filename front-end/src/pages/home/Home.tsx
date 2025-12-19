@@ -1,4 +1,3 @@
-import NavBarComponent from "../../components/navbar/NavBarComponent"
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import type { PostType } from "../../types/PostType";
@@ -49,7 +48,6 @@ export default function Home() {
                     <PostComponent post={item} onClick={() => handlePostClick(item.id)} />
                 )}
             />
-           <NavBarComponent/>
         </div>
 
     )
