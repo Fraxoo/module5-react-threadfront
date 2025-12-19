@@ -17,6 +17,7 @@ export default function CreatePost() {
     const [formData, setFormData] = useState({
         content: "",
     });
+    const [delay, setDelay] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setFormData({
@@ -30,31 +31,40 @@ export default function CreatePost() {
         setSuccess("");
         setErrors({});
 
-        try {
-            const res = await fetch(`http://localhost:8000/posts/add`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                credentials: "include",
-                body: JSON.stringify(formData)
-            })
+        if (!delay) {
 
-            const data = await res.json();
-            console.log(data);
+            try {
+                const res = await fetch(`http://localhost:8000/posts/add`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include",
+                    body: JSON.stringify(formData)
+                })
+
+                const data = await res.json();
+                console.log(data);
 
 
-            if (!res.ok) {
-                setErrors(data.errors)
-                return
+                if (!res.ok) {
+                    setErrors(data.errors)
+                    return
+                }
+                setDelay(true)
+                setSuccess("Post crée avec succés!")
+                setTimeout(() => {
+                    navigate("/home");
+                    setDelay(false)
+                }, 1000)
+            } catch (err) {
+                setDelay(true)
+                setTimeout(() => {
+                    setDelay(false);
+                })
+                console.error(err);
             }
-
-            setSuccess("Post crée avec succés!")
-            setTimeout(() => {
-                navigate("/home");
-            }, 1000)
-        } catch (err) {
-            console.error(err);
-
         }
+
+
     }
 
 
@@ -71,7 +81,9 @@ export default function CreatePost() {
                             <p>{date}</p>
                         </div>
                     </div>
-                    <button>Poster !</button>
+                 
+                        <button>Poster !</button>
+                    
                 </form>
                 {errors.content && <p className="error-message">{errors.content}</p>}
                 {success && <p className="success-message">{success}</p>}
