@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-.post {
+.createpost {
     display: flex;
     flex-direction: column;
     text-align: left;

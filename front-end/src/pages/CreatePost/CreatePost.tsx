@@ -79,7 +79,7 @@ export default function CreatePost() {
 
     // MS pour que ça marche entre le back-end et le front-end ici fin 
     return (
-        <div className="post">
+        <div className="createpost">
             <div className="post-content">
                 <h1 className="post-title"></h1>
 
