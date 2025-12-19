@@ -8,6 +8,7 @@
     color: #ffffff;
     list-style: none;
     gap:50px;
+    
 }
 
 
@@ -27,4 +28,5 @@ img:hover {
  li {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
