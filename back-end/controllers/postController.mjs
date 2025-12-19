@@ -20,6 +20,7 @@ function catchError(res, err) {
 export async function getAllData(req, res) {
   try {
     const postsData = await Post.findAll({
+      order: [["createdAt", "DESC"]],
       include: [
         {
           // auteur du post
