@@ -3,7 +3,8 @@ import type { NewCommentType } from "../types/NewCommentType";
 import { useAuth } from "../context/AuthContext";
 
 
-export default function NewCommentComponent({ postId }: NewCommentType) {
+export default function NewCommentComponent({ postId ,setComments}: NewCommentType) {
+
     const [content, setContent] = useState("");
     const [error, setError] = useState("");
     const { user } = useAuth();
@@ -34,7 +35,7 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
                 credentials: "include",
                 body: JSON.stringify({ postId, content }),
             });
-            //  このコメントを残すことで、フェッチをして何が出てくるのかが理解できる。毎回このようにここに残すことで絵ーが起きたときにな二が原因なのか特定しやすい
+            //  このコメントを残すことで、フェッチをして何が出てくるのかが理解できる。毎回このようにここに残すことで絵ーが起きたときになにが原因なのか特定しやすい
 
             const data = await res.json()
 
@@ -44,6 +45,7 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
             if (!res.ok) {
                 throw new Error("Erreur lors de l'envoi");
             }
+           
 
             setContent("");
             setError("");

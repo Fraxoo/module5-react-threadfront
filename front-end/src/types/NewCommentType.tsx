@@ -1,3 +1,6 @@
-export type NewCommentType ={
-    postId:number;
+
+
+export type NewCommentType = {
+    postId: number;
+ 
 }
