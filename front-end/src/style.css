@@ -120,3 +120,6 @@ button:hover {
 .date {
     color: #535353;
 }
+.feed-list{
+   overflow-y: auto;  
+}
