@@ -18,9 +18,15 @@ function catchError(res, err) {
 
 export async function createComment(req, res) {
     try {
-        const postId = Number(req.body)
-        const { content } = req.body;
+
+        const { content, postId } = req.body;
         const userId = req.user.id;
+
+        if (!postId) {
+            return sendErrors(res, [
+                { field: "postId", message: "postId requis" }
+            ], 400);
+        }
 
         if (!content || content.trim() === "") {
             return sendErrors(res, [{ field: "content", message: "Contenu requis" }], 400);
@@ -77,7 +83,7 @@ export async function getCommentsByPostId(req, res) {
                 { model: User, attributes: ["id", "username"] },
             ]
         });
-        
+
         if (!commentsData || commentsData.length === 0) {
             return res.status(200).json([]);
         }

@@ -52,7 +52,6 @@ export async function getAllData(req, res) {
 }
 
 
-
 export async function getPostById(req, res) {
   try {
     const postId = req.params.postId;
@@ -104,7 +103,7 @@ export async function createPost(req, res) {
 
     const newPost = await Post.create({
       content,
-    
+
       "user_id": req.userId, // injecté par le middleware JWT
     });
 

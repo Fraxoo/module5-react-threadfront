@@ -1,4 +1,4 @@
-import './CreatePost.css'
+import './createPost.css'
 
 
 import type { FormEvent } from 'react'
