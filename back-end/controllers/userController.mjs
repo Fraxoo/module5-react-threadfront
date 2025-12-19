@@ -114,47 +114,39 @@ export async function getProfil(req, res) {
         const offset = Number(req.params.offset) || 0;
         const limit = 10;
 
-        if (!id) {
-            return sendErrors(res, { global: "Paramètre manquant." }, 400);
-        }
+        if (!id) return sendErrors(res, { global: "Paramètre manquant." }, 400);
 
         const user = await User.findByPk(id);
-        if (!user) {
-            return sendErrors(res, { global: "Utilisateur introuvable." }, 404);
-        }
+        if (!user) return sendErrors(res, { global: "Utilisateur introuvable." }, 404);
 
         const lastPost = await Post.findOne({
             where: { user_id: id, parent_id: null },
-            order: [["createdAt", "DESC"]],
+            order: [["createdAt", "DESC"], ["id", "DESC"]],
         });
+
+        const wherePosts = {
+            user_id: id,
+            parent_id: null,
+            ...(lastPost ? { id: { [Op.ne]: lastPost.id } } : {}),
+        };
 
         const posts = await Post.findAll({
-            where: {
-                user_id: id,
-                parent_id: null,
-                ...(offset === 0 && lastPost ? { id: { [Op.ne]: lastPost.id } } : {}),
-            },
+            where: wherePosts,
             include: [{ model: User }],
-            order: [["createdAt", "DESC"]],
-            limit: limit,
-            offset
+            order: [["createdAt", "DESC"], ["id", "DESC"]],
+            limit,
+            offset,
         });
 
-        const totalPosts = await Post.count({
-            where: {
-                parent_id: null,
-                user_id: id
-            }
-        });
-
+        const totalPosts = await Post.count({ where: wherePosts });
         const hasMore = offset + limit < totalPosts;
-
 
         return res.status(200).json({ user, lastPost, posts, totalPosts, hasMore });
     } catch (err) {
         return catchError(res, err);
     }
 }
+
 
 
 export async function getMe(req, res) {

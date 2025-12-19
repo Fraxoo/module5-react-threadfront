@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import type { Post } from "../types/PostType"
+import DateLabel from "./dateDisplay";
 
 
 export default function PostComponent({ post, isReplies }: { post: Post, isReplies: boolean }) {
@@ -13,14 +14,15 @@ export default function PostComponent({ post, isReplies }: { post: Post, isRepli
                 </Link>
                 {isReplies
                     ?
-                        <p className="content">{post.content}</p>
+                    <p className="content">{post.content}</p>
                     :
-                        <Link to={`/post/${post.id}`} >
-                            <p className="content">{post.content}</p>
-                        </Link>}
+                    <Link to={`/post/${post.id}`} >
+                        <p className="content">{post.content}</p>
+                    </Link>}
 
             </div>
-            <p className={isReplies ? "comment-date" : "post-date"}>15:25 - 13 aout</p>
+            <p>{post.id}</p>
+            <p className={isReplies ? "comment-date" : "post-date"}><DateLabel iso={post.createdAt} /></p>
         </div>
     )
 }

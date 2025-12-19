@@ -6,6 +6,7 @@ import type { Post } from "../../types/PostType";
 import type { UserType } from "../../types/UserType";
 import "./profile.css"
 import postAsset from "../../assets/posts.png"
+import DateLabel from "../../components/dateDisplay";
 
 
 
@@ -65,13 +66,15 @@ export default function Profile() {
                 <TitleComponent title="Profile" />
                 <div className="profil-content">
                     <h2>@{user?.username}</h2>
-                    <div className="post-card">
-                        <div className="profil-last-post-info">
-                            <p className="bold">Dernier post le </p>
-                            <p className="profil-hour">15:25 - 13 aout 25</p>
-                        </div>
-                        <p>{lastPost?.content}</p>
-                    </div>
+                    {lastPost ?
+                        <div className="post-card">
+                            <div className="profil-last-post-info">
+                                <p className="bold">Dernier post le </p>
+                                <p className="profil-hour"><DateLabel iso={lastPost.createdAt} /></p>
+                            </div>
+                            <p>{lastPost?.content}</p>
+                        </div> : "Aucun post pour le moment "}
+
                     <div className="profil-feed">
                         <div className="profil-content-count">
                             <p className="white">{totalPosts}</p>
