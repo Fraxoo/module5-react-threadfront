@@ -17,6 +17,7 @@ export default function Post() {
   const [post, setPost] = useState<PostType | null>(null);
   const [error, setError] = useState<string>("");
 
+
   if (!postId) return;
 
   const fetchPost = async () => {
@@ -29,6 +30,9 @@ export default function Post() {
       if (!res.ok) throw new Error(`Post ${postId} introuvable`);
       const data = await res.json();
       setPost(data);
+
+        
+
     } catch (err: any) {
       console.error(err);
       setError(err.message || "Erreur réseau");
