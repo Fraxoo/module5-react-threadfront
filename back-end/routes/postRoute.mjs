@@ -1,11 +1,12 @@
 import express from "express"
-import { getAllData ,getPostById,createPost } from "../controllers/postController.mjs"
-import {isLoggedInJWT} from "../middlewares/isLoggedInJWT.mjs"
+import { getAllData, getPostById, createPost } from "../controllers/postController.mjs"
+import { isLoggedInJWT } from "../middlewares/isLoggedInJWT.mjs";
+
 
 const router = express.Router();
 
-router.get("/all", getAllData)
-router.get("/:postId", getPostById)
+router.get("/all", isLoggedInJWT(), getAllData)
+router.get("/:postId", isLoggedInJWT(), getPostById)
 //  MS create post router
 router.post("/create", isLoggedInJWT(), createPost)
 

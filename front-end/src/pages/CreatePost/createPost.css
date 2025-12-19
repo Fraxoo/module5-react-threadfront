@@ -2,12 +2,14 @@
     outline: 1px blue solid;
 } */
 
+<<<<<<<< HEAD:front-end/src/pages/CreatePost/CreatePost.css
 .createpost {
-display: flex;
-flex-direction: column;
-}
+========
 .post-page {
     height: 100vh;
+>>>>>>>> 3-post-front-end-display:front-end/src/pages/CreatePost/createPost.css
+    display: flex;
+    flex-direction: column;
 }
 
 .createpost {

@@ -15,13 +15,20 @@ export default function Home() {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const res = await fetch("http://localhost:8000/post/all");
+                const res = await fetch("http://localhost:8000/post/all", {
+                    method: "GET",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include"
+                })
+
+                const data = await res.json();
+                console.log(data);
 
                 if (!res.ok) {
                     throw new Error("Erreur serveur");
+
                 }
 
-                const data = await res.json();
 
                 setPosts(Array.isArray(data) ? data : []);
             } catch (err) {
@@ -35,13 +42,14 @@ export default function Home() {
     const handlePostClick = (id: number) => {
         navigate(`/post/${id}`);
     };
+    
+    
     const { user } = useAuth();
     console.log(user);
 
-
-
     return (
-        <div>
+        <div className="home-page">
+            <h1 className="feed">|Feed</h1>
             <FeedComponent
                 items={posts || []}
                 Component={({ item }) => (
