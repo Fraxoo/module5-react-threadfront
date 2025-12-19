@@ -120,7 +120,8 @@ export default function CreatePost() {
                     <button className='poster'>Poster !</button>
                 </form>
             </div>
-   
+
+            <NavBarComponent />
         </div>
 
 
