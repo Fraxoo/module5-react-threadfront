@@ -56,7 +56,7 @@ export default function Login() {
 
   return (
     <div className="login">
-      <h1>Connexion</h1>
+      <h1 className="login-title">Connexion</h1>
 
       <form className="login-form" onSubmit={handleSubmit}>
         <input className="login-email"
