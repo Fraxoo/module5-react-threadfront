@@ -11,24 +11,30 @@ import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
 import "./style.css"
 import { AuthProvider } from "./context/AuthContext";
+import NavBarComponent from "./components/navbar/NavBarComponent";
 
 
 
 export default function App() {
     return (
 
-        <AuthProvider>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/createpost/post" element={<CreatePost />} />
-                <Route path="/profile/profile" element={<Profile />} />
-                <Route path="/post/post" element={<Post />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/post/:postId" element={<Post />} />
-            </Routes>
-        </AuthProvider>
+           <section>
+            <main>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/createpost/post" element={<CreatePost />} />
+                    <Route path="/profile/profile" element={<Profile />} />
+                    <Route path="/post/post" element={<Post />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/post/:postId" element={<Post />} />
+                </Routes>
+
+            </main>
+
+            <NavBarComponent />
+        </section>
 
     );
 }

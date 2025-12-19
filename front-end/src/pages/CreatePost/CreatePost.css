@@ -2,7 +2,7 @@
     outline: 1px blue solid;
 } */
 
-.post {
+.createpost {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -48,7 +48,6 @@
 }
 
 .createpost-form {
-    width: 362px;
     display: flex;
     justify-content: center;
     flex-direction: column;
