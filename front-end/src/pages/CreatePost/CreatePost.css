@@ -48,7 +48,6 @@
 }
 
 .createpost-form {
-    width: 362px;
     display: flex;
     justify-content: center;
     flex-direction: column;
