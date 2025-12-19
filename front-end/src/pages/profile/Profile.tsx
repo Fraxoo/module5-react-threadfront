@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from "react"
-import NavBarComponent from "../../components/navbar/NavBarComponent"
 import type { PostType } from "../../types/PostType"
 import ProfilComponent from "../../components/ProfilComponent";
 import PostComponent from "../../components/PostComponent";

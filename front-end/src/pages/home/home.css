@@ -1,13 +1,9 @@
 .home-page {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
 }
 
-.feed {
-    margin-top: 15px;
-    padding: 35px;
-}
 
 .newest-post {
     display: flex;
@@ -18,7 +14,6 @@
     border-radius: 23px;
     padding: 22px 20px;
     gap: 1rem;
-
     /* ← padding augmenté */
 }
 

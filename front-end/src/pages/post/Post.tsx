@@ -46,19 +46,23 @@ export default function Post() {
   return (
     <div className="post-page">
       <h1 className="posttitle">|Post</h1>
-      {/* Post principal */}
-      <PostComponent post={post} />
-      <NewCommentComponent
-        postId={Number(postId)}
-      />
-      <CommentCountComponent
-        count={post.commentsCount} />
+      <div className="post-container">
 
-      <FeedComponent<CommentType>
-        items={post.Comments}
-        Component={({ item }) => <CommentComponent comment={item} />}
-      />
-     
+        {/* Post principal */}
+        <PostComponent post={post} />
+        <NewCommentComponent
+          postId={Number(postId)}
+        />
+        <CommentCountComponent
+          count={post.commentsCount} />
+
+        <FeedComponent<CommentType>
+          items={post.Comments}
+          Component={({ item }) => <CommentComponent comment={item} />}
+        />
+
+      </div>
+
     </div>
   );
 }
