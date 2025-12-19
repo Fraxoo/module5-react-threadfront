@@ -45,7 +45,7 @@ export default function Post() {
 
   return (
     <div className="post-page">
-      <h1 className="post-title">|Post</h1>
+      <h1 className="posttitle">|Post</h1>
       {/* Post principal */}
       <PostComponent post={post} />
       <NewCommentComponent

@@ -3,44 +3,48 @@
 } */
 
 .createpost {
-display: flex;
-flex-direction: column;
-}
-.post-page {
-    height: 100vh;
-}
-
-.createpost {
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
-    text-align: left;
-    width: 362px;
-    background: linear-gradient(135deg, #0D0D0D 60%, rgba(142, 131, 131, 0.25));
-    border-radius: 23px;
-    padding: 22px 20px;
-    gap: 1rem;
-    margin-bottom: 20px;
-    /* ← padding augmenté */
+    align-items: center;
+    list-style: none;
+    padding:16px;
+
 }
 
 .post-content {
-    width: 362px;
-    /* Même largeur que le form */
+    width: 362px; /* Même largeur que le form */
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap:3rem;
+     
+ 
 }
 
-.textarea-container {
 
+.post-title::before {
+    content: "";
+    display: inline-block;
+    width: 5px;        /* largeur voulue */
+    height: 49px;      /* hauteur de la “barre” */
+    border-left: 2px solid white; /* épaisseur de la ligne */
+    margin-right: 2px; /* espace entre la ligne et le texte */    
+}
+
+.post-title::after {
+    content: "New Post";
+    margin-left: 2px; /* Espace entre | et New Post */
+    
+}
+
+
+.textarea-container {
+ 
     background: linear-gradient(135deg, #0D0D0D 60%, rgba(29, 29, 29, 0.25));
     border-radius: 23px;
-    padding: 22px 20px;
-    /* ← padding augmenté */
-    width: 100%;
-    /* ← assure que le bloc prend toute la largeur disponible */
-    box-sizing: border-box;
-    /* ← évite que le padding élargisse trop */
+    padding: 22px 20px;      /* ← padding augmenté */
+    width: 100%;             /* ← assure que le bloc prend toute la largeur disponible */
+    box-sizing: border-box;  /* ← évite que le padding élargisse trop */
 }
 
 .createpost-form {
