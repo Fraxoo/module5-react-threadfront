@@ -2,7 +2,7 @@
     outline: 1px blue solid;
 } */
 
-.post {
+.createpost {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;

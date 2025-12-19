@@ -1,4 +1,4 @@
-import './post.css'
+import './CreatePost.css'
 
 import NavBarComponent from "../../components/navbar/NavBarComponent"
 
@@ -11,6 +11,8 @@ import { useState } from 'react';
 
 export default function CreatePost() {
     const [error, setError] = useState<string | null>(null);
+    const [success, setSuccess] = useState<string | null>(null);
+
     const date = new Date();
     const datefr = date.toLocaleDateString("fr-FR", {
         day: "2-digit",
@@ -22,28 +24,32 @@ export default function CreatePost() {
     // MS pour que ça marche entre le back-end et le front-end ici début
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-          setError(null);
+        setError(null);
+        setSuccess(null);
+
         const formTag = e.currentTarget;
         const formData = new FormData(e.currentTarget);
         const content = formData.get("post");
-        
+        // ici il faudrait afficher le message "votre post a été posté si le post a été posté "
+
+
         if (!content || typeof content !== "string" || content.trim() === "") {
             setError("Le contenu du post est vide");
             return;
         }
-        
+
         try {
             const res = await fetch("http://localhost:8000/post/create", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,// sert a rien
+                    // Authorization: `Bearer ${localStorage.getItem("token")}`,// sert a rien
                 },
                 credentials: "include",
                 body: JSON.stringify({ content: content.trim() }),
             });
             console.log(formTag);
-            
+
             console.log(res);
 
 
@@ -52,18 +58,30 @@ export default function CreatePost() {
 
             console.log(data);
 
-            if (!res.ok) {
+            // if (!res.ok) {
 
+            //     if (data.errors && data.errors.length > 0) {
+            //         setError(data.errors[0].message);
+            //     } else {
+            //         setError("Erreur inconnue/erreur 500");
+            //     }
+
+            //     return;//utiliser un state john m'a fait cette base
+            // }
+
+            // console.log(e.target)
+            // Modification ici pour gérer le succès
+            if (!res.ok) {
                 if (data.errors && data.errors.length > 0) {
                     setError(data.errors[0].message);
                 } else {
                     setError("Erreur inconnue/erreur 500");
                 }
-
-                return;//utiliser un state john m'a fait cette base
+                return; //utiliser un state john m'a fait cette base
             }
-          
-            console.log(e.target)
+
+            setSuccess("Votre post a été posté");
+            return; // message succès
             formTag.reset();
 
             // MS optionnel : reset form
@@ -79,7 +97,7 @@ export default function CreatePost() {
 
     // MS pour que ça marche entre le back-end et le front-end ici fin 
     return (
-        <div className="post">
+        <div className="createpost">
             <div className="post-content">
                 <h1 className="post-title"></h1>
 
@@ -92,6 +110,7 @@ export default function CreatePost() {
                         />
 
                         {error && <p className="error">{error}</p>}
+                          {success && <p className="success">{success}</p>} 
                         <p className="date">
 
                             {hourTime}:{minutes} - {datefr}
