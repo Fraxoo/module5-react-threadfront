@@ -8,7 +8,7 @@ import PostComponent from "../../components/PostComponent";
 import NewCommentComponent from "../../components/NewCommentComponent";
 import CommentComponent from "../../components/CommentComponent";
 import CommentCountComponent from "../../components/CommentCountComponent";
-import NavBarComponent from "../../components/navbar/NavBarComponent"
+
 
 import "./post.css"
 
@@ -45,7 +45,7 @@ export default function Post() {
 
   return (
     <div className="post-page">
-      <h1 className="post-title">|Post</h1>
+      <h1 className="posttitle">|Post</h1>
       {/* Post principal */}
       <PostComponent post={post} />
       <NewCommentComponent

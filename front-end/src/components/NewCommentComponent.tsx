@@ -70,10 +70,8 @@ export default function NewCommentComponent({ postId }: NewCommentType) {
                     onChange={(e) => setContent(e.target.value)}
                 />
                 <div className="date-button">
-                <p className="date">
-                    {hourTime}:{minutes} - {datefr}
-                </p>
-                <button className="comment-button" type="submit">Envoyer</button>
+                    <p className="date">{hourTime}:{minutes}-{datefr}</p>
+                    <button className="comment-button" type="submit">Envoyer</button>
 
                 </div>
             </form>
