@@ -52,7 +52,6 @@ export default function FeedComponent({ hasMore, setOffset, posts, isReplies, se
             setPosts((prev) => [data.post, ...prev]);
             setSuccess("Commentaire ajouté!")
             setFormData({ content: "" });
-
         } catch (err) {
             setErrors({ global: "Erreur" })
             console.error(err);
