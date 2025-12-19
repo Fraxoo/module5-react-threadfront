@@ -8,7 +8,7 @@ export default function PostComponent({ post, isReplies }: { post: Post, isRepli
 
     return (
         <div className={isReplies ? "comment-card" : "post-card"} >
-            <div>
+            <div className="post-card-content">
                 <Link to={`/profil/${post.User.id}`}>
                     <h3>@{post.User.username}</h3>
                 </Link>
@@ -19,9 +19,7 @@ export default function PostComponent({ post, isReplies }: { post: Post, isRepli
                     <Link to={`/post/${post.id}`} >
                         <p className="content">{post.content}</p>
                     </Link>}
-
             </div>
-            <p>{post.id}</p>
             <p className={isReplies ? "comment-date" : "post-date"}><DateLabel iso={post.createdAt} /></p>
         </div>
     )

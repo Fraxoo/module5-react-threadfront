@@ -2,12 +2,15 @@ import { useState } from "react";
 import TitleComponent from "../../components/TitleComponent";
 import "./post.css"
 import { useNavigate } from "react-router";
-
+import { formatNow } from "../../components/dateDisplay";
 
 
 export default function CreatePost() {
 
+
     const navigate = useNavigate();
+    const date = formatNow();
+
 
     const [success, setSuccess] = useState<string>("");
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -59,17 +62,17 @@ export default function CreatePost() {
         <main>
             <div className="create-post-page">
                 <TitleComponent title="New Post" />
-                <div className="create-post">
-                    <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
+                    <div className="create-post">
                         <textarea maxLength={400} minLength={1} onChange={handleChange} name="content" placeholder="Tapez votre post ici" >
 
                         </textarea>
                         <div className="create-post-info">
-                            <p>15:25 - 13 aout 2025</p>
-                            <button>Envoyer</button>
+                            <p>{date}</p>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <button>Poster !</button>
+                </form>
                 {errors.content && <p className="error-message">{errors.content}</p>}
                 {success && <p className="success-message">{success}</p>}
             </div>

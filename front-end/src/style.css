@@ -51,6 +51,12 @@ h2 {
     box-shadow: rgba(92, 90, 90, 0.24) 0px 3px 8px;
 }
 
+.post-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .comment-card {
     display: flex;
     overflow-wrap: anywhere;
