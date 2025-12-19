@@ -1,17 +1,18 @@
 
-import { useEffect, useState } from "react"
-import NavBarComponent from "../../components/navbar/NavBarComponent"
-import type { PostType } from "../../types/PostType"
+import { useEffect, useState } from "react";
+import type { PostType } from "../../types/PostType";
 import ProfilComponent from "../../components/ProfilComponent";
 import PostComponent from "../../components/PostComponent";
-import "./profile.css"
+import "./profile.css";
 import { useNavigate } from "react-router";
 import FeedComponent from "../../components/FeedComponent";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Profile() {
     const [posts, setPosts] = useState<PostType[]>([]);
     const [errors, setErrors] = useState("");
     const navigate = useNavigate();
+    const {logout} = useAuth()
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -64,6 +65,9 @@ export default function Profile() {
     return (
         <div className="profile-page">
             <h1 className="profile-title">|Profile</h1>
+            <button className="logout"onClick={logout} > 
+                se déconnecter</button>
+
             {latestPost && <ProfilComponent
                 post={latestPost} />}
             <FeedComponent
@@ -73,6 +77,7 @@ export default function Profile() {
 
                 )}
             />
+
         </div>
     )
 }

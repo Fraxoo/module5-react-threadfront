@@ -5,8 +5,10 @@
 }
 
 .profile-title {
+    /* display: flex;
+    align-items: center; */
     margin-left: 15px;
-    padding: 35px;
+    padding: 25px;
 }
 
 .profile-name {
@@ -34,4 +36,18 @@
     font-optical-sizing: auto;
 
 
+}
+
+.logout {
+    
+    font-family: "Josefin Sans", sans-serif;
+    letter-spacing: 0.3rem;
+    font-size: 1rem;
+    width: 10rem;
+    height: 2.5rem;
+    border-radius: 1rem;
+    border: none;
+    margin-left: 50px;
+    margin-bottom: 25px;
+    
 }
