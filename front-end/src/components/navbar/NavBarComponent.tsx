@@ -28,7 +28,7 @@ export default function NavBarComponent() {
 
     return (
         <footer className="navigation">
-            <div className='createpost'>
+            <div className='nav-createpost'>
                 {location.pathname !== "/createpost/post" &&
                     (<Link to="/createpost/post">
                         <li className="list">
