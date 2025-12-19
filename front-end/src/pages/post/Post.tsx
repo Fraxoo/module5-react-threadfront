@@ -8,7 +8,7 @@ import PostComponent from "../../components/PostComponent";
 import NewCommentComponent from "../../components/NewCommentComponent";
 import CommentComponent from "../../components/CommentComponent";
 import CommentCountComponent from "../../components/CommentCountComponent";
-import NavBarComponent from "../../components/navbar/NavBarComponent"
+
 
 import "./post.css"
 

@@ -6,11 +6,7 @@
     gap: 20px;
 }
 
-.list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+
 
 .post-title {
     margin-top: 15px;
@@ -46,8 +42,7 @@
 }
 
 .count {
-    margin-left: 15px;
-    margin-bottom: 15px;
+  
     align-self: flex-start;
     padding-left: 40px;
 }
@@ -99,6 +94,11 @@
 
 .date-button {
     display: flex;
-    flex-direction: row;
-    gap: 150px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    color: #000000;
+}
+.date-button p{
+    white-space: nowrap;
 }
