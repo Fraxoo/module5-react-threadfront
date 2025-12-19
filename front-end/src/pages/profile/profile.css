@@ -4,11 +4,6 @@
     flex-direction: column;
 }
 
-.profile-title {
-    margin-left: 15px;
-    padding: 35px;
-}
-
 .profile-name {
     margin-left: 45px;
     align-self: self-start;
@@ -32,6 +27,4 @@
     width: 362px;
     height: 114px;
     font-optical-sizing: auto;
-
-
 }
