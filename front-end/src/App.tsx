@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes,useLocation } from "react-router";
 import Home from "./pages/home/Home";
 import CreatePost from "./pages/CreatePost/CreatePost";
 // à activer
@@ -16,6 +16,15 @@ import NavBarComponent from "./components/navbar/NavBarComponent";
 
 
 export default function App() {
+// Pour éviter que la navbar s'affiche partout MS
+
+    const location = useLocation();
+
+    // Pages où on NE veut PAS la navbar
+    const hideNavbarRoutes = ["/login", "/register"];
+
+    const hideNavbar = hideNavbarRoutes.includes(location.pathname);
+
     return (
         <AuthProvider>
             <section>
@@ -33,7 +42,7 @@ export default function App() {
 
                 </main>
 
-                <NavBarComponent />
+                   {!hideNavbar && <NavBarComponent />}
             </section>
         </AuthProvider>
 
