@@ -1,0 +1,38 @@
+.home-page {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.newest-post {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 362px;
+    background: linear-gradient(135deg, #0D0D0D 60%, rgba(142, 131, 131, 0.25));
+    border-radius: 23px;
+    padding: 22px 20px;
+    gap: 1rem;
+    /* ← padding augmenté */
+}
+
+.feed-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 362px;
+    background: linear-gradient(135deg, #0D0D0D 60%, rgba(142, 131, 131, 0.25));
+    border-radius: 23px;
+    padding: 22px 20px;
+    gap: 1rem;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,97 @@
+.post-page {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-container {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.new-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #e5e5e5;
+    border-radius: 23px;
+    width: 362px;
+    padding-top: 15px;
+}
+
+.comment-username {
+    margin-left: 15px;
+    color: #000000;
+    align-self: flex-start;
+    font-size: 15px;
+}
+
+.formcomment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.count {
+
+    align-self: flex-start;
+    padding-left: 40px;
+}
+
+.text-comment {
+    width: 90%;
+    border-radius: 23px;
+    min-height: 60px;
+    padding: 12px;
+    font-size: 1rem;
+    resize: vertical;
+    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+}
+
+.comment-button {
+    width: 40%;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: inherit;
+    border-radius: 23px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #35353540 60%, rgba(255, 255, 255, 0.25));
+
+}
+
+.comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: inherit;
+    width: 362px;
+    height: 65px;
+    border-radius: 23px;
+    color: #000000;
+    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+
+}
+
+.date-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    color: #000000;
+}
+
+.date-button p {
+    white-space: nowrap;
+}

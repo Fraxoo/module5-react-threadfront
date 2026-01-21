@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+#root {
+    width: 100%;
+}
+
+/* important le root doit être à 100% */
+
+
+body {
+
+    background: #1b1b1b;
+    color: #ffffff;
+    height: 100vh;
+}
+
+
+/* le body de John body {
+ 
+    height: 100vh;
+    background-color: #1b1b1b;
+    color: #f6f6f6;
+    font-family: "Josefin Sans", sans-serif;
+    padding:0 2.5rem 0 2.5rem;    
+
+
+}*/
+
+main {
+    height: 90vh;
+}
+
+footer {
+    height: 10vh;
+}
+
+h1 {
+
+    font-weight: 700;
+    font-size: 58px;
+    height: 15vh;
+    margin-left: 15px;
+    padding: 35px;
+
+}
+
+h2 {
+
+    font-weight: 700;
+}
+
+h3 {
+
+
+    font-weight: 700;
+
+}
+
+link {
+    color: #ebdcdc;
+}
+
+link:hover {
+    color: #5a63e6;
+}
+
+button {
+    font-weight: 700;
+    width: 202px;
+    height: 56px;
+    border-radius: 23px;
+    background: #ffffff;
+    border: none;
+    font-size: 20px;
+}
+
+
+button:hover {
+    background: #5a63e6;
+    color: #ffffff;
+}
+
+/* card pour le post */
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: inherit;
+    width: 316;
+    height: 114;
+    border-radius: 23px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #35353540 60%, rgba(255, 255, 255, 0.25));
+
+}
+
+.comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: inherit;
+    width: 316;
+    height: 114;
+    border-radius: 23px;
+    color: #000000;
+    background: linear-gradient(135deg, #e5e5e5 60%, rgba(118, 118, 118, 0.25));
+}
+
+.date {
+    color: #535353;
+}
