@@ -1,0 +1,54 @@
+services:
+  backend:
+    build:  
+      context: ./back-end
+      dockerfile: Dockerfile
+    container_name: thread-backend
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_NAME=thread_db
+      - DB_USER=thread_user
+      - DB_PASS=thread_password
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DIALECT=mysql
+      - PORT=8000
+      - NODE_ENV=development
+      - PRIVATE_JWT_KEY=yoursecretkey
+
+
+  frontend:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    container_name: thread-frontend
+    ports:
+      - "5173:80"
+
+
+  mysql:
+    image: mysql:8
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: thread_db
+      MYSQL_USER: thread_user
+      MYSQL_PASSWORD: thread_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+
+volumes:
+  mysql_data:
