@@ -3,7 +3,7 @@ import type { NewCommentType } from "../types/NewCommentType";
 import { useAuth } from "../context/AuthContext";
 
 
-export default function NewCommentComponent({ postId ,setComments}: NewCommentType) {
+export default function NewCommentComponent({ postId }: NewCommentType) {
 
     const [content, setContent] = useState("");
     const [error, setError] = useState("");
@@ -76,6 +76,7 @@ export default function NewCommentComponent({ postId ,setComments}: NewCommentTy
                     <button className="comment-button" type="submit">Envoyer</button>
 
                 </div>
+                { error ? error : null}
             </form>
 
         </div>

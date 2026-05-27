@@ -11,6 +11,8 @@ export default function Profile() {
     const [posts, setPosts] = useState<PostType[]>([]);
     const [errors, setErrors] = useState("");
     const navigate = useNavigate();
+    console.log(errors);
+    
 
     useEffect(() => {
         const fetchPost = async () => {

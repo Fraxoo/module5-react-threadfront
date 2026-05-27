@@ -49,6 +49,7 @@ export default function Home() {
 
     return (
         <div className="home-page">
+            {errors ? "error" : null}
             <h1 className="feed">|Feed</h1>
             <FeedComponent
                 items={posts || []}
